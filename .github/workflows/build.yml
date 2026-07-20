@@ -1,38 +1,25 @@
 name: Build Pedito Mod
-
-# Se dispara al pushear/hacer PR a main, y tambien manualmente desde la pestana Actions.
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
-
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout del repo
         uses: actions/checkout@v4
-
-      # fabric.mod.json pide java >= 25, asi que compilamos con Temurin 25.
       - name: Configurar JDK 25
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '25'
-
-      - name: Dar permisos de ejecucion al gradlew
-        run: chmod +x ./gradlew
-
-      # Cachea dependencias de Gradle/Loom entre corridas para que sea mas rapido.
       - name: Configurar cache de Gradle
         uses: gradle/actions/setup-gradle@v4
-
       - name: Compilar con Gradle (Fabric Loom)
-        run: ./gradlew build --stacktrace
-
-      # Sube el/los .jar generados (mod + sources) como artefacto descargable de la corrida.
+        run: ./gradlew.bat build --stacktrace
       - name: Subir jars compilados
         uses: actions/upload-artifact@v4
         with:
