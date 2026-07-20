@@ -1,6 +1,8 @@
 package net.pedito.mod;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityType;
 import net.minecraft.core.Registry;
@@ -10,6 +12,9 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.pedito.mod.entity.PeditoEntity;
 import net.pedito.mod.registry.ModItems;
 import net.pedito.mod.registry.ModSounds;
@@ -66,6 +71,24 @@ public class Pedito implements ModInitializer {
 
 		FabricDefaultAttributeRegistry.register(PEDITO_ENTITY, PeditoEntity.createPeditoAttributes());
 		FabricDefaultAttributeRegistry.register(PEDITO_GOLEM_ENTITY, net.pedito.mod.entity.golem.PeditoGolemEntity.createAttributes());
+
+		// Registrar las reglas de spawn (Placements)
+		SpawnPlacements.register(
+				PEDITO_ENTITY,
+				SpawnPlacementTypes.ON_GROUND,
+				Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				PeditoEntity::canSpawn
+		);
+
+		// Registrar en los biomas del Overworld con grupos de 3 a 10
+		BiomeModifications.addSpawn(
+				BiomeSelectors.foundInOverworld(),
+				MobCategory.CREATURE,
+				PEDITO_ENTITY,
+				12, // Peso (frecuencia similar a vacas y pollos)
+				3,  // Mínimo de grupo
+				10  // Máximo de grupo
+		);
 
 		ModItems.registerItemGroupContents();
 	}

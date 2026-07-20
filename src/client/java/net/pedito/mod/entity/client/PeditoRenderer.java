@@ -126,6 +126,9 @@ public class PeditoRenderer extends MobRenderer<PeditoEntity, PeditoRenderState,
 
     private static String getBlinkTexture(int variant, boolean isBaby, boolean isPet, int tier, int blinkIndex) {
         if (variant == PeditoEntity.VARIANT_ALPHA) {
+            if (!isPet) {
+                return blinkIndex == 2 ? "face_wild_alpha_night_wink" : blinkIndex == 1 ? "face_wild_alphat_closed" : "face_wild_alpha_night_sad";
+            }
             return blinkIndex == 2 ? "face_alpha_wink" : blinkIndex == 1 ? "face_alpha_closed" : "face_alpha_open";
         } else if (variant == PeditoEntity.VARIANT_NIGHT) {
             if (isBaby) {

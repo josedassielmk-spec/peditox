@@ -106,6 +106,8 @@ public class PeditoEntity extends Animal {
 
 	private int threatAssessmentTimer;
 	private boolean ownerInDanger;
+	
+	public int wildAlphaBreedCooldown = 0;
 
 	private static final double[][] TELEPORT_OFFSETS = {
 			{0.6, -0.7, -5.2}, {-5.1, -0.4, -3.5}, {2.1, 0.4, -0.9}, {-2.2, -0.4, 1.0},
@@ -158,6 +160,7 @@ public class PeditoEntity extends Animal {
 		output.putInt("PeditoVariant", this.entityData.get(VARIANT));
 		output.putInt("PeditoTier", this.entityData.get(TIER));
 		output.storeNullable("PeditoOwner", UUIDUtil.CODEC, this.ownerUuid);
+		output.putInt("WildAlphaBreedCooldown", this.wildAlphaBreedCooldown);
 	}
 
 	@Override
@@ -170,6 +173,7 @@ public class PeditoEntity extends Animal {
 		this.entityData.set(VARIANT, input.getIntOr("PeditoVariant", legacyDefault));
 		this.entityData.set(TIER, input.getIntOr("PeditoTier", 0));
 		this.ownerUuid = input.read("PeditoOwner", UUIDUtil.CODEC).orElse(null);
+		this.wildAlphaBreedCooldown = input.getIntOr("WildAlphaBreedCooldown", 0);
 		this.updateAttributesForTier();
 	}
 
@@ -455,6 +459,7 @@ public class PeditoEntity extends Animal {
 		this.goalSelector.addGoal(12, new RandomLookAroundGoal(this));
 		this.goalSelector.addGoal(13, new PanicGoal(this, 1.3D));
 		this.goalSelector.addGoal(14, new BreedGoal(this, 1.0D));
+		this.goalSelector.addGoal(14, new WildAlphaBreedingGoal(this));
 		this.goalSelector.addGoal(15, new TemptGoal(this, 1.0D, Ingredient.of(Items.EGG), false));
 
 		this.targetSelector.addGoal(0, new PeditoAlphaDefendVulnerableGoal(this));
@@ -549,6 +554,10 @@ public class PeditoEntity extends Animal {
 		}
 
 		if (!this.level().isClientSide()) {
+			if (this.wildAlphaBreedCooldown > 0) {
+				this.wildAlphaBreedCooldown--;
+			}
+
 			if (this.getTarget() != null) {
 			    LivingEntity t = this.getTarget();
 			    if (!t.isAlive() || (this.isTamedByOwner() && this.getOwnerCustom() != null && !this.wantsToAttack(t, this.getOwnerCustom()))) {
@@ -787,6 +796,16 @@ public class PeditoEntity extends Animal {
 		return result;
 	}
 
+	public static class PeditoGroupSpawnData implements SpawnGroupData {
+		public int count = 0;
+	}
+
+	public static boolean canSpawn(EntityType<PeditoEntity> type, ServerLevelAccessor world, EntitySpawnReason spawnReason, net.minecraft.core.BlockPos pos, RandomSource random) {
+		// Se salta el chequeo de iluminación para permitir spawns nocturnos y que sean comunes de noche.
+		// Solo verifica que el bloque inferior sea adecuado para la aparición de animales.
+		return world.getBlockState(pos.below()).is(net.minecraft.tags.BlockTags.ANIMALS_SPAWNABLE_ON);
+	}
+
 	@Nullable
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
@@ -796,9 +815,38 @@ public class PeditoEntity extends Animal {
 		if (spawnReason == EntitySpawnReason.BREEDING) {
 			this.setBaby(true);
 			this.entityData.set(VARIANT, VARIANT_NORMAL);
-		} else {
-			int roll = this.random.nextInt(100);
+			this.setTier(0);
+		} else if (spawnReason == EntitySpawnReason.NATURAL || spawnReason == EntitySpawnReason.CHUNK_GENERATION) {
+			PeditoGroupSpawnData groupData;
+			if (entityData instanceof PeditoGroupSpawnData) {
+				groupData = (PeditoGroupSpawnData) entityData;
+			} else {
+				groupData = new PeditoGroupSpawnData();
+				data = groupData;
+			}
+			groupData.count++;
 
+			if (groupData.count == 1) {
+				this.setBaby(false);
+				this.setVariant(VARIANT_ALPHA);
+				this.setTier(0);
+			} else {
+				int roll = this.random.nextInt(100);
+				if (roll < 15) {
+					this.setBaby(true);
+					this.entityData.set(VARIANT, VARIANT_NORMAL);
+				} else if (roll < 85) {
+					this.setBaby(false);
+					this.entityData.set(VARIANT, VARIANT_NORMAL);
+				} else {
+					this.setBaby(false);
+					this.entityData.set(VARIANT, VARIANT_NIGHT);
+				}
+				this.setTier(0);
+			}
+		} else {
+			// Spawn egg, command, etc.
+			int roll = this.random.nextInt(100);
 			if (roll < 10) {
 				this.setBaby(true);
 				this.entityData.set(VARIANT, VARIANT_NORMAL);
@@ -809,6 +857,7 @@ public class PeditoEntity extends Animal {
 				this.setBaby(false);
 				this.entityData.set(VARIANT, VARIANT_NIGHT);
 			}
+			this.setTier(0);
 		}
 
 		if (this.level() instanceof ServerLevel serverLevel) {
@@ -922,7 +971,7 @@ public class PeditoEntity extends Animal {
 		}
 
 		if (!this.isTamedByOwner() && !this.isBaby() && stack.is(ModItems.GAS_CAN)) {
-			if (this.getVariant() == VARIANT_NIGHT) {
+			if (this.getVariant() == VARIANT_NIGHT || this.getVariant() == VARIANT_ALPHA) {
 				if (this.level() instanceof ServerLevel serverLevel) {
 					serverLevel.sendParticles(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.5, this.getZ(),
 							6, 0.2, 0.1, 0.2, 0.01);
