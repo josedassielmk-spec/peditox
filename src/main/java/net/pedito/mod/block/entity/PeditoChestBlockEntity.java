@@ -1,13 +1,7 @@
 package net.pedito.mod.block.entity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -23,9 +17,14 @@ import net.minecraft.world.level.storage.ValueInput;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.world.level.storage.TagValueOutput;
+import net.minecraft.world.level.storage.TagValueInput;
 import net.minecraft.util.ProblemReporter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PeditoChestBlockEntity extends BlockEntity {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(PeditoChestBlockEntity.class);
 
     private final List<CompoundTag> storedEntities = new ArrayList<>();
     
@@ -41,7 +40,7 @@ public class PeditoChestBlockEntity extends BlockEntity {
         if (level == null) return false;
         
         CompoundTag tag = new CompoundTag();
-        try (var problems = new ProblemReporter.ScopedCollector(pedito.problemPath(), Entity.LOGGER)) {
+        try (var problems = new ProblemReporter.ScopedCollector(pedito.problemPath(), LOGGER)) {
             var output = TagValueOutput.createWithContext(problems, level.registryAccess());
             pedito.saveWithoutId(output);
             tag = output.buildResult();
@@ -59,10 +58,16 @@ public class PeditoChestBlockEntity extends BlockEntity {
             return false;
         }
         CompoundTag tag = storedEntities.remove(storedEntities.size() - 1);
-        Entity entity = EntityType.loadEntityRecursive(tag, level, EntitySpawnReason.TRIGGERED, e -> {
-            e.moveTo(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 0, 0);
-            return e;
-        });
+        Entity entity = null;
+        try (var problems = new ProblemReporter.ScopedCollector("load", LOGGER)) {
+            var input = TagValueInput.createWithContext(problems, level.registryAccess(), tag);
+            entity = EntityType.loadEntityRecursive(input, level, EntitySpawnReason.TRIGGERED, e -> {
+                e.moveTo(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 0, 0);
+                return e;
+            });
+        } catch(Exception e) {
+             // Fallback
+        }
         
         if (entity != null) {
             level.addFreshEntity(entity);
