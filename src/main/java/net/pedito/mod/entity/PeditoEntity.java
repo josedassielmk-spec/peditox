@@ -108,6 +108,14 @@ public class PeditoEntity extends Animal {
 	private boolean ownerInDanger;
 	
 	public int wildAlphaBreedCooldown = 0;
+	public long lastSoundTime = 0L;
+
+	public boolean canPlaySound(long cooldownTicks) {
+		long time = this.level().getGameTime();
+		if (time - lastSoundTime < cooldownTicks) return false;
+		lastSoundTime = time;
+		return true;
+	}
 
 	private static final double[][] TELEPORT_OFFSETS = {
 			{0.6, -0.7, -5.2}, {-5.1, -0.4, -3.5}, {2.1, 0.4, -0.9}, {-2.2, -0.4, 1.0},

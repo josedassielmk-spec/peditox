@@ -16,6 +16,8 @@ import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.pedito.mod.entity.PeditoEntity;
+import net.pedito.mod.registry.ModBlockEntities;
+import net.pedito.mod.registry.ModBlocks;
 import net.pedito.mod.registry.ModItems;
 import net.pedito.mod.registry.ModSounds;
 import org.slf4j.Logger;
@@ -67,6 +69,8 @@ public class Pedito implements ModInitializer {
 		LOGGER.info("Inicializando Pedito...");
 
 		ModSounds.register();
+		ModBlocks.register();
+		ModBlockEntities.register();
 		ModItems.register();
 
 		FabricDefaultAttributeRegistry.register(PEDITO_ENTITY, PeditoEntity.createPeditoAttributes());

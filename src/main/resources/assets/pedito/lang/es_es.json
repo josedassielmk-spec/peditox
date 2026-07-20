@@ -9,5 +9,9 @@
   "item.pedito.pedito_bottle": "Botella de Pedito",
   "item.pedito.pedito_bottle_rainbow": "Botella de Pedito Arcoiris (Domesticado)",
   "item.pedito.pedito_staff": "Báculo de Pedito",
+  "item.pedito.pedito_chest": "Cofre Pedito",
+  "block.pedito.pedito_chest": "Cofre Pedito",
+  "tooltip.pedito.chest_count": "Contiene %s Peditos",
+  "tooltip.pedito.chest_empty": "Vacío",
   "itemGroup.pedito": "Pedito"
 }

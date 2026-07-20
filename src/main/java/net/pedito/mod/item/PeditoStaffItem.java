@@ -24,9 +24,12 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.pedito.mod.Pedito;
 import net.pedito.mod.entity.PeditoEntity;
 import net.pedito.mod.registry.ModSounds;
+import net.pedito.mod.registry.ModBlocks;
+import net.pedito.mod.block.entity.PeditoChestBlockEntity;
 
 import java.util.List;
 
@@ -69,6 +72,30 @@ public class PeditoStaffItem extends Item {
                     entity -> !entity.isSpectator() && entity.isPickable() && entity != player, reach * reach);
                     
             BlockHitResult blockHit = level.clip(new ClipContext(eyePosition, endPosition, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, player));
+
+            if (blockHit.getType() == HitResult.Type.BLOCK) {
+                BlockPos pos = blockHit.getBlockPos();
+                if (level.getBlockState(pos).is(ModBlocks.PEDITO_CHEST)) {
+                    BlockEntity be = level.getBlockEntity(pos);
+                    if (be instanceof PeditoChestBlockEntity chest) {
+                        // Suction Algorithm
+                        List<PeditoEntity> nearPeditos = level.getEntitiesOfClass(PeditoEntity.class, new AABB(pos).inflate(6.0), 
+                                p -> p.isTamedByOwner() && p.isOwnerCustom(player));
+                        
+                        if (!nearPeditos.isEmpty()) {
+                            for (PeditoEntity p : nearPeditos) {
+                                chest.storePedito(p);
+                                p.discard();
+                                // Suction particles
+                                serverLevel.sendParticles(ParticleTypes.GLOW, p.getX(), p.getY() + 0.5, p.getZ(), 5, 0.1, 0.1, 0.1, 0.05);
+                            }
+                            level.playSound(null, pos, ModSounds.PEDITO_FART_SPAWN, SoundSource.BLOCKS, 1.0f, 1.0f);
+                            serverLevel.sendParticles(ParticleTypes.CLOUD, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 1, 0, 0, 0, 0);
+                            return InteractionResult.SUCCESS;
+                        }
+                    }
+                }
+            }
 
             Vec3 hitPos = endPosition;
             LivingEntity hitLiving = null;

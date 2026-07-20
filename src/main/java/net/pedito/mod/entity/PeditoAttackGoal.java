@@ -179,24 +179,26 @@ public class PeditoAttackGoal extends Goal {
                 damage *= 1.15F; // +15% damage from Netherite Leader passive
             }
 
-            if (role == PeditoEntity.SquadRole.TACTICAL || role == PeditoEntity.SquadRole.ARTILLERY) {
-                Vec3 start = this.pedito.position().add(0, this.pedito.getBbHeight()/2, 0);
-                Vec3 end = target.position().add(0, target.getBbHeight()/2, 0);
-                Vec3 dir = end.subtract(start).normalize();
-                double dist = start.distanceTo(end);
-                for (double d = 0; d < dist; d += 0.5) {
-                    Vec3 p = start.add(dir.scale(d));
-                    serverLevel.sendParticles(new DustParticleOptions(color, 0.8F), p.x, p.y, p.z, 1, 0, 0, 0, 0);
+            if (this.pedito.canPlaySound(20)) {
+                if (role == PeditoEntity.SquadRole.TACTICAL || role == PeditoEntity.SquadRole.ARTILLERY) {
+                    Vec3 start = this.pedito.position().add(0, this.pedito.getBbHeight()/2, 0);
+                    Vec3 end = target.position().add(0, target.getBbHeight()/2, 0);
+                    Vec3 dir = end.subtract(start).normalize();
+                    double dist = start.distanceTo(end);
+                    for (double d = 0; d < dist; d += 0.5) {
+                        Vec3 p = start.add(dir.scale(d));
+                        serverLevel.sendParticles(new DustParticleOptions(color, 0.8F), p.x, p.y, p.z, 1, 0, 0, 0, 0);
+                    }
+                    serverLevel.playSound(null, this.pedito.getX(), this.pedito.getY(), this.pedito.getZ(), ModSounds.PEDITO_LASER, SoundSource.NEUTRAL, 0.8F, 1.2F);
+                } else {
+                    serverLevel.sendParticles(new DustParticleOptions(color, 1.5F),
+                            target.getX(), target.getY() + target.getBbHeight() / 2.0, target.getZ(),
+                            80, 0.8, 0.8, 0.8, 0.2);
+                    serverLevel.playSound(null, this.pedito.getX(), this.pedito.getY(), this.pedito.getZ(), ModSounds.PEDITO_FART, SoundSource.NEUTRAL, 0.8F, 1.2F);
                 }
-                serverLevel.playSound(null, this.pedito.getX(), this.pedito.getY(), this.pedito.getZ(), ModSounds.PEDITO_LASER, SoundSource.NEUTRAL, 0.8F, 1.2F);
-            } else {
-                serverLevel.sendParticles(new DustParticleOptions(color, 1.5F),
-                        target.getX(), target.getY() + target.getBbHeight() / 2.0, target.getZ(),
-                        80, 0.8, 0.8, 0.8, 0.2);
-                serverLevel.playSound(null, this.pedito.getX(), this.pedito.getY(), this.pedito.getZ(), ModSounds.PEDITO_FART, SoundSource.NEUTRAL, 0.8F, 1.2F);
-            }
 
-            this.pedito.playAttackVoice();
+                this.pedito.playAttackVoice();
+            }
 
             // Swarm Damage saturation formula: D_total = D_avg * (1 + ln(1 + beta * (N - 1))) * mu_tier
             // Scale individual hits by (1 + ln(1 + beta * (N - 1))) / N to cap cumulative DPS log-style

@@ -45,6 +45,7 @@ public class ModItems {
 
 	public static void registerItemGroupContents() {
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(output -> {
+			output.accept(ModBlocks.PEDITO_CHEST_ITEM);
 			output.accept(GAS_CAN);
 			output.accept(GAS_CAN_COPPER);
 			output.accept(GAS_CAN_IRON);

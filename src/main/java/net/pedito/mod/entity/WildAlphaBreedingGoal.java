@@ -92,7 +92,7 @@ public class WildAlphaBreedingGoal extends Goal {
                     1, 0.2, 0.2, 0.2, 0.0);
             }
             // Efectos de voz sincronizados
-            if (this.breedingTimer % 40 == 0 && this.alpha.getRandom().nextInt(2) == 0) {
+            if (this.breedingTimer % 40 == 0 && this.alpha.getRandom().nextInt(2) == 0 && this.alpha.canPlaySound(40)) {
                 this.alpha.playSound(ModSounds.PEDITO_VOICE_PEDI, 0.8F, 0.5F); // Alpha: grave
                 this.partner.playSound(ModSounds.PEDITO_VOICE_PUPULLITO, 0.8F, 1.2F); // Normal: alegre/agudo
             }
