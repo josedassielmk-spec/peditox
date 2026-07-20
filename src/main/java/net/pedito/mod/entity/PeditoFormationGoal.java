@@ -57,13 +57,17 @@ public class PeditoFormationGoal extends Goal {
 
     public PeditoFormationGoal(PeditoEntity pedito) {
         this.pedito = pedito;
-        this.setFlags(EnumSet.of(Flag.MOVE));
+        this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
     }
 
     @Override
     public boolean canUse() {
         if (!this.pedito.isTamedByOwner() || this.pedito.isSittingCustom()) return false;
-        if (this.pedito.isOwnerInDanger()) return false;
+        
+        // La formación solo se activa cuando el jugador los llama de forma activa con el silbato
+        if (!this.pedito.isWhistleActive()) {
+            return false;
+        }
 
         // Peditos currently holding a front-guard slot are handled entirely by
         // PeditoFrontGuardGoal; this goal must not also try to place them.
@@ -78,7 +82,10 @@ public class PeditoFormationGoal extends Goal {
     @Override
     public boolean canContinueToUse() {
         if (!this.pedito.isTamedByOwner() || this.pedito.isSittingCustom()) return false;
-        if (this.pedito.isOwnerInDanger()) return false;
+
+        if (!this.pedito.isWhistleActive()) {
+            return false;
+        }
 
         if (PeditoFrontGuardGoal.isFrontGuard(this.pedito)) return false;
 
@@ -278,8 +285,26 @@ public class PeditoFormationGoal extends Goal {
             adjustmentCount++;
         }
 
-        if (this.pedito.distanceToSqr(this.hoverX, this.hoverY, this.hoverZ) > 0.25) {
-            this.pedito.getMoveControl().setWantedPosition(this.hoverX, this.hoverY, this.hoverZ, 1.0D);
+        double distSq = this.pedito.distanceToSqr(this.hoverX, this.hoverY, this.hoverZ);
+        if (this.pedito.isWhistleActive()) {
+            if (distSq > 4.0D) {
+                this.pedito.getMoveControl().setWantedPosition(this.hoverX, this.hoverY, this.hoverZ, 1.5D);
+            } else {
+                // If the whistle is active and they are close, glide them directly to the target position
+                // to lock them into the grid perfectly with zero horizontal drift!
+                double lerpFactor = 0.20D;
+                double newX = net.minecraft.util.Mth.lerp(lerpFactor, this.pedito.getX(), this.hoverX);
+                double newY = net.minecraft.util.Mth.lerp(lerpFactor, this.pedito.getY(), this.hoverY);
+                double newZ = net.minecraft.util.Mth.lerp(lerpFactor, this.pedito.getZ(), this.hoverZ);
+                this.pedito.setPos(newX, newY, newZ);
+                
+                // Dampen the velocity so they float stably without sliding
+                this.pedito.setDeltaMovement(this.pedito.getDeltaMovement().scale(0.5D));
+            }
+        } else {
+            if (distSq > 0.25) {
+                this.pedito.getMoveControl().setWantedPosition(this.hoverX, this.hoverY, this.hoverZ, 1.0D);
+            }
         }
     }
 }

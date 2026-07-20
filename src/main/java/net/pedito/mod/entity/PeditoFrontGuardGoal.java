@@ -82,6 +82,9 @@ public class PeditoFrontGuardGoal extends Goal {
         if (!this.pedito.isTamedByOwner() || this.pedito.isSittingCustom()) return false;
         if (this.pedito.isOwnerInDanger()) return false;
 
+        // La guardia frontal solo se activa si el silbato está activo para no estorbar en ocio
+        if (!this.pedito.isWhistleActive()) return false;
+
         Player owner = this.pedito.getOwnerCustom();
         if (owner == null) return false;
         if (this.pedito.distanceToSqr(owner) > MAX_DISTANCE_SQR) return false;
@@ -93,6 +96,9 @@ public class PeditoFrontGuardGoal extends Goal {
     public boolean canContinueToUse() {
         if (!this.pedito.isTamedByOwner() || this.pedito.isSittingCustom() || !this.pedito.isAlive()) return false;
         if (this.pedito.isOwnerInDanger()) return false;
+        
+        // La guardia frontal solo se activa si el silbato está activo para no estorbar en ocio
+        if (!this.pedito.isWhistleActive()) return false;
 
         Player owner = this.pedito.getOwnerCustom();
         if (owner == null) return false;

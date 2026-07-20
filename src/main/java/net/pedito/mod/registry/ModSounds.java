@@ -27,6 +27,7 @@ public class ModSounds {
 
 	public static SoundEvent PEDITO_STAFF;
 	public static SoundEvent PEDITO_SPRAY;
+	public static SoundEvent PEDITO_WHISTLE;
 
 	public static void register() {
 		PEDITO_FART = registerSoundEvent("pedito_fart");
@@ -47,6 +48,7 @@ public class ModSounds {
 		
 		PEDITO_STAFF = registerSoundEvent("baculo");
 		PEDITO_SPRAY = registerSoundEvent("spray");
+		PEDITO_WHISTLE = registerSoundEvent("silbato_pedito");
 	}
 
 	private static SoundEvent registerSoundEvent(String name) {

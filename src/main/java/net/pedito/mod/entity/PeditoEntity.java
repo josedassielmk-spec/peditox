@@ -372,6 +372,18 @@ public class PeditoEntity extends Animal {
 			    danger = true;
 			}
 			
+			// Scan 10 blocks around the owner for Hostile entities (Enemy) or mobs targeting the owner
+			if (!danger) {
+				List<LivingEntity> nearHostiles = this.level().getEntitiesOfClass(
+					LivingEntity.class,
+					owner.getBoundingBox().inflate(10.0D),
+					entity -> entity.isAlive() && (entity instanceof Enemy || (entity instanceof net.minecraft.world.entity.Mob mob && mob.getTarget() == owner))
+				);
+				if (!nearHostiles.isEmpty()) {
+					danger = true;
+				}
+			}
+			
 			this.ownerInDanger = danger;
 			
 			// Caché de Enemigos: Emitir alerta a otros Peditos del mismo dueño
@@ -417,6 +429,14 @@ public class PeditoEntity extends Animal {
 	@Nullable
 	public Player getOwnerCustom() {
 		return this.ownerUuid != null ? this.level().getPlayerByUUID(this.ownerUuid) : null;
+	}
+
+	public boolean isWhistleActive() {
+		if (!this.isTamedByOwner()) return false;
+		Player owner = this.getOwnerCustom();
+		if (owner == null) return false;
+		return owner.getMainHandItem().is(ModItems.PEDITO_WHISTLE) ||
+				owner.getOffhandItem().is(ModItems.PEDITO_WHISTLE);
 	}
 
 	@Override
@@ -1303,6 +1323,7 @@ public class PeditoEntity extends Animal {
 
 		@Override
 		public boolean canUse() {
+			if (this.pedito.isWhistleActive()) return false;
 			if (this.pedito.isSittingCustom()) return false;
 			if (this.pedito.getTarget() != null) return false;
 			if (this.pedito.isTamedByOwner() && this.pedito.getOwnerCustom() != null) {
@@ -1354,6 +1375,7 @@ public class PeditoEntity extends Animal {
 
 		@Override
 		public boolean canContinueToUse() {
+			if (this.pedito.isWhistleActive()) return false;
 			if (this.pedito.isSittingCustom() || this.pedito.getTarget() != null) return false;
 			if (this.pedito.isTamedByOwner() && this.pedito.getOwnerCustom() != null && this.pedito.distanceToSqr(this.pedito.getOwnerCustom()) < 1600.0D) {
 				return false;

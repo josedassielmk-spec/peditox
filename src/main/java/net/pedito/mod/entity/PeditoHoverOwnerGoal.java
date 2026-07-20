@@ -20,16 +20,18 @@ public class PeditoHoverOwnerGoal extends Goal {
 
     @Override
     public boolean canUse() {
+        if (this.pedito.isWhistleActive()) return false;
         if (!this.pedito.isTamedByOwner() || this.pedito.isSittingCustom()) return false;
         Player owner = this.pedito.getOwnerCustom();
         if (owner == null) return false;
         
         double distSq = this.pedito.distanceToSqr(owner);
-        return this.pedito.isOwnerInDanger() || distSq > 64.0D; // Follow owner when further than 8 blocks
+        return this.pedito.isOwnerInDanger() || distSq > 1600.0D; // Follow owner when further than 40 blocks (to not get lost)
     }
 
     @Override
     public boolean canContinueToUse() {
+        if (this.pedito.isWhistleActive()) return false;
         if (!this.pedito.isTamedByOwner() || this.pedito.isSittingCustom()) return false;
         Player owner = this.pedito.getOwnerCustom();
         if (owner == null) return false;

@@ -103,5 +103,11 @@
     "sounds": [
       "pedito:mob/pedito/spray"
     ]
+  },
+  "silbato_pedito": {
+    "category": "player",
+    "sounds": [
+      "pedito:mob/pedito/silbato_pedito"
+    ]
   }
 }

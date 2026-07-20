@@ -20,6 +20,7 @@ public class PeditoWanderNearOwnerGoal extends Goal {
 
     @Override
     public boolean canUse() {
+        if (this.pedito.isWhistleActive()) return false;
         if (!this.pedito.isTamedByOwner() || this.pedito.isSittingCustom()) return false;
         if (this.pedito.isOwnerInDanger()) return false;
         
@@ -50,6 +51,7 @@ public class PeditoWanderNearOwnerGoal extends Goal {
 
     @Override
     public boolean canContinueToUse() {
+        if (this.pedito.isWhistleActive()) return false;
         if (!this.pedito.isTamedByOwner() || this.pedito.isSittingCustom()) return false;
         if (this.pedito.isOwnerInDanger()) return false;
         

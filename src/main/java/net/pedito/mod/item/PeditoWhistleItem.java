@@ -11,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.pedito.mod.entity.PeditoFormationGoal;
+import net.pedito.mod.registry.ModSounds;
 
 public class PeditoWhistleItem extends Item {
 
@@ -47,9 +48,9 @@ public class PeditoWhistleItem extends Item {
                 case DIAGONAL: pitch = 1.9F; break;
             }
 
-            // Sonido de silbato usando NOTE_BLOCK_FLUTE con tono dinámico
+            // Sonido de silbato usando el sonido personalizado silbato_pedito con tono dinámico
             level.playSound(null, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.NOTE_BLOCK_FLUTE.value(), SoundSource.PLAYERS, 1.5F, pitch);
+                    ModSounds.PEDITO_WHISTLE, SoundSource.PLAYERS, 1.5F, pitch);
             
             // Efecto de partículas alrededor del jugador
             if (level instanceof ServerLevel serverLevel) {

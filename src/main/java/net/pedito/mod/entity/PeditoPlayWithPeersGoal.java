@@ -20,6 +20,7 @@ public class PeditoPlayWithPeersGoal extends Goal {
 
     @Override
     public boolean canUse() {
+        if (this.pedito.isWhistleActive()) return false;
         if (this.pedito.isSittingCustom()) return false;
         if (this.pedito.getTarget() != null) return false;
         if (this.pedito.isTamedByOwner() && this.pedito.isOwnerInDanger()) return false;
@@ -55,6 +56,7 @@ public class PeditoPlayWithPeersGoal extends Goal {
 
     @Override
     public boolean canContinueToUse() {
+        if (this.pedito.isWhistleActive()) return false;
         if (this.pedito.isSittingCustom() || this.pedito.getTarget() != null) return false;
         if (this.pedito.isTamedByOwner() && this.pedito.isOwnerInDanger()) return false;
         
