@@ -9,9 +9,5 @@
   "item.pedito.pedito_bottle": "Pedito Bottle",
   "item.pedito.pedito_bottle_rainbow": "Rainbow Pedito Bottle (Tamed)",
   "item.pedito.pedito_staff": "Pedito Staff",
-  "item.pedito.pedito_chest": "Pedito Chest",
-  "block.pedito.pedito_chest": "Pedito Chest",
-  "tooltip.pedito.chest_count": "Contains %s Peditos",
-  "tooltip.pedito.chest_empty": "Empty",
   "itemGroup.pedito": "Pedito"
 }

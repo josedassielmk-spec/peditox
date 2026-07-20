@@ -138,7 +138,7 @@ public class PeditoAirstrikeGoal extends Goal {
             this.pedito.setSpinningTicks(this.pedito.getSpinningTicks() + 1);
 
             // Move control down towards the ground strike target
-            this.pedito.getMoveControl().setWantedPosition(this.targetX, this.strikeY, this.targetZ, 1.5D);
+            this.pedito.getMoveControl().setWantedPosition(this.targetX, this.strikeY, this.targetZ, 1.9D);
 
             if (this.pedito.level() instanceof ServerLevel serverLevel) {
                 // Spawn a beautiful speed-trail / meteorite tail

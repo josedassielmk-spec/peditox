@@ -154,7 +154,7 @@ public class GigaPeditoHologramBeamGoal extends Goal {
             this.timer--;
             if (this.timer <= 0) {
                 this.phase = 4;
-                this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 1056 : 1200);
+                this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 880 : 1000);
             }
         }
     }

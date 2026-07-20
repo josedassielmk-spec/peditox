@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "pedito:item/chest_icon_16x16"
-  }
-}

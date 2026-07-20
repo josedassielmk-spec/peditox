@@ -129,10 +129,6 @@ public class PeditoEntity extends Animal {
 
 	private int fartTimer;
 
-    private net.minecraft.core.BlockPos chestTarget = null;
-    public void setChestTarget(net.minecraft.core.BlockPos pos) { this.chestTarget = pos; }
-    public net.minecraft.core.BlockPos getChestTarget() { return this.chestTarget; }
-
 	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
 		super(entityType, world);
 		this.moveControl = new FlyingMoveControl(this, 20, true);
@@ -253,11 +249,15 @@ public class PeditoEntity extends Animal {
 		double health = 8.0D;
 		double armor = 0.0D;
 		double attack = 1.0D;
+		double speed = 0.4D;
+		double flyingSpeed = 0.4D;
 		
 		if (this.getVariant() == VARIANT_ALPHA) {
 			health = 50.0D; // High health for leader (25 hearts)
 			armor = 16.0D;  // High leader armor
 			attack = 7.0D;  // High leader attack damage
+			speed = 0.55D;
+			flyingSpeed = 0.55D;
 		} else if (currentTier == 1) { // Copper
 			health = 12.0D;
 			armor = 2.0D;
@@ -280,6 +280,21 @@ public class PeditoEntity extends Animal {
 			attack = 6.0D;
 		}
 		
+		// Ventajas de criatura nocturna:
+		if (this.getVariant() == VARIANT_NIGHT) {
+			health += 6.0D; // +3 corazones
+			armor += 3.0D;  // Armadura natural extra
+			attack += 1.5D; // Daño base extra
+			
+			// Frenesí Nocturno (Night Frenzy) durante la noche
+			if (this.level().isDarkOutside()) {
+				speed = 0.6D;
+				flyingSpeed = 0.6D;
+				attack += 1.0D; // Daño adicional de noche
+				armor += 2.0D;  // Defensa adicional de noche
+			}
+		}
+		
 		if (this.getAttribute(Attributes.MAX_HEALTH) != null) {
 			this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(health);
 		}
@@ -288,6 +303,12 @@ public class PeditoEntity extends Animal {
 		}
 		if (this.getAttribute(Attributes.ATTACK_DAMAGE) != null) {
 			this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(attack);
+		}
+		if (this.getAttribute(Attributes.MOVEMENT_SPEED) != null) {
+			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(speed);
+		}
+		if (this.getAttribute(Attributes.FLYING_SPEED) != null) {
+			this.getAttribute(Attributes.FLYING_SPEED).setBaseValue(flyingSpeed);
 		}
 	}
 
@@ -441,8 +462,6 @@ public class PeditoEntity extends Animal {
 
     @Override
 	protected void registerGoals() {
-		this.goalSelector.addGoal(0, new PeditoEnterChestGoal(this));
-
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		this.goalSelector.addGoal(1, new CustomSitGoal(this));
 		
@@ -568,6 +587,21 @@ public class PeditoEntity extends Animal {
 		}
 
 		if (!this.level().isClientSide()) {
+			// Los peditos nocturnos salvajes desaparecen de día
+			if (this.level().isBrightOutside() && !this.isTamedByOwner() && this.getVariant() == VARIANT_NIGHT) {
+				if (this.level() instanceof ServerLevel serverLevel) {
+					serverLevel.sendParticles(ParticleTypes.LARGE_SMOKE, this.getX(), this.getY() + 0.3, this.getZ(),
+							12, 0.2, 0.2, 0.2, 0.02);
+				}
+				this.discard();
+				return;
+			}
+
+			// Actualización de atributos dinámica para el Frenesí Nocturno
+			if (this.getVariant() == VARIANT_NIGHT && this.tickCount % 40 == 0) {
+				this.updateAttributesForTier();
+			}
+
 			if (this.wildAlphaBreedCooldown > 0) {
 				this.wildAlphaBreedCooldown--;
 			}
@@ -857,7 +891,11 @@ public class PeditoEntity extends Animal {
 					this.entityData.set(VARIANT, VARIANT_NORMAL);
 				} else {
 					this.setBaby(false);
-					this.entityData.set(VARIANT, VARIANT_NIGHT);
+					if (world.getLevel().isDarkOutside()) {
+						this.entityData.set(VARIANT, VARIANT_NIGHT);
+					} else {
+						this.entityData.set(VARIANT, VARIANT_NORMAL);
+					}
 				}
 				this.setTier(0);
 			}
@@ -872,7 +910,11 @@ public class PeditoEntity extends Animal {
 				this.entityData.set(VARIANT, VARIANT_NORMAL);
 			} else {
 				this.setBaby(false);
-				this.entityData.set(VARIANT, VARIANT_NIGHT);
+				if (world.getLevel().isDarkOutside()) {
+					this.entityData.set(VARIANT, VARIANT_NIGHT);
+				} else {
+					this.entityData.set(VARIANT, VARIANT_NORMAL);
+				}
 			}
 			this.setTier(0);
 		}

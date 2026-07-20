@@ -16,7 +16,6 @@ import net.pedito.mod.item.PeditoStaffItem;
 import java.util.function.Function;
 
 public class ModItems {
-
 	public static Item GAS_CAN;
 	public static Item GAS_CAN_COPPER;
 	public static Item GAS_CAN_IRON;
@@ -27,7 +26,6 @@ public class ModItems {
 	public static Item PEDITO_BOTTLE;
 	public static Item PEDITO_BOTTLE_RAINBOW;
 	public static Item PEDITO_STAFF;
-	public static Item PEDITO_CHEST_ITEM;
 
 	public static void register() {
 		GAS_CAN = registerItem("gas_can", Item::new, new Item.Properties().stacksTo(16));
@@ -36,7 +34,7 @@ public class ModItems {
 		GAS_CAN_GOLD = registerItem("gas_can_gold", Item::new, new Item.Properties().stacksTo(16));
 		GAS_CAN_DIAMOND = registerItem("gas_can_diamond", Item::new, new Item.Properties().stacksTo(16));
 		GAS_CAN_NETHERITE = registerItem("gas_can_netherite", Item::new, new Item.Properties().stacksTo(16));
-		
+
 		PEDITO_BOTTLE = registerItem("pedito_bottle", PeditoBottleItem::new,
 				new Item.Properties().stacksTo(16));
 		PEDITO_BOTTLE_RAINBOW = registerItem("pedito_bottle_rainbow", PeditoBottleRainbowItem::new,
@@ -47,7 +45,6 @@ public class ModItems {
 
 	public static void registerItemGroupContents() {
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(output -> {
-			output.accept(ModBlocks.PEDITO_CHEST);
 			output.accept(GAS_CAN);
 			output.accept(GAS_CAN_COPPER);
 			output.accept(GAS_CAN_IRON);

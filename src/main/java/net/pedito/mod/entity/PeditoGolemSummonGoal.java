@@ -34,7 +34,7 @@ public class PeditoGolemSummonGoal extends Goal {
         LivingEntity target = this.pedito.getTarget();
         if (target == null || !target.isAlive() || !this.pedito.isTamedByOwner()) return false;
         
-        if (this.pedito.getAllyCount() < 5) return false;
+        if (this.pedito.getAllyCount() < 6) return false;
         
         // Probabilidad de activación: 5% por tick
         if (this.pedito.getRandom().nextInt(20) != 0) return false;

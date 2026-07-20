@@ -145,7 +145,7 @@ public class RainbowDashAttackGoal extends Goal {
             if (this.timer <= 0 || this.pedito.horizontalCollision) {
                 this.attackState = 0;
                 this.pedito.setDeltaMovement(Vec3.ZERO);
-                this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 176 : 200); // 5 seconds
+                this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 88 : 100); // 5 seconds
             }
         }
     }
