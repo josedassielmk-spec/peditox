@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "ICI",
+    " P "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "P": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "id": "pedito:gas_can",
+    "count": 1
+  }
+}

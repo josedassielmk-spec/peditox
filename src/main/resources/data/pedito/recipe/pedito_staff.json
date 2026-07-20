@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " ND",
+    " BO",
+    "O N"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "B": {
+      "item": "pedito:pedito_bottle"
+    },
+    "N": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "id": "pedito:pedito_staff",
+    "count": 1
+  }
+}

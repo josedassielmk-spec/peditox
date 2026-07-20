@@ -1,0 +1,107 @@
+{
+  "pedito_fart": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/fart1",
+      "pedito:mob/pedito/fart2",
+      "pedito:mob/pedito/fart3"
+    ]
+  },
+  "pedito_fart_spawn": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/fart_spawn1",
+      "pedito:mob/pedito/fart_spawn2",
+      "pedito:mob/pedito/fart_spawn3"
+    ]
+  },
+  "pedito_voice_pedi": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/pedi"
+    ]
+  },
+  "pedito_voice_pedito": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/pedito"
+    ]
+  },
+  "pedito_voice_pupu": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/pupu"
+    ]
+  },
+  "pedito_voice_pupullito": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/pupullito"
+    ]
+  },
+  "pedito_voice_swan": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/swan"
+    ]
+  },
+  "pedito_voice_attack": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/toma",
+      "pedito:mob/pedito/toma2",
+      "pedito:mob/pedito/jaja",
+      "pedito:mob/pedito/jeje",
+      "pedito:mob/pedito/jiji",
+      "pedito:mob/pedito/oui"
+    ]
+  },
+  "pedito_dash": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/pedito_dash"
+    ]
+  },
+  "pedito_explosion": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/pedito_explosion"
+    ]
+  },
+  "pedito_laser": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/pedito_laser"
+    ]
+  },
+  "pedito_sonic_boom": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/pedito_sonic_boom"
+    ]
+  },
+  "pedito_summon": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/pedito_summon"
+    ]
+  },
+  "pedito_vortex": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/pedito_vortex"
+    ]
+  },
+  "baculo": {
+    "category": "player",
+    "sounds": [
+      "pedito:mob/pedito/baculo"
+    ]
+  },
+  "spray": {
+    "category": "neutral",
+    "sounds": [
+      "pedito:mob/pedito/spray"
+    ]
+  }
+}

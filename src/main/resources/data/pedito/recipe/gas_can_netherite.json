@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "pedito:gas_can"
+    },
+    {
+      "item": "minecraft:netherite_ingot"
+    }
+  ],
+  "result": {
+    "id": "pedito:gas_can_netherite",
+    "count": 1
+  }
+}

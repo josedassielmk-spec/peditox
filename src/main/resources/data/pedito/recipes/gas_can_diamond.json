@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "IMI",
+    " G "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "M": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "item": "pedito:gas_can_diamond",
+    "count": 1
+  }
+}

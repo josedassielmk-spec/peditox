@@ -1,0 +1,13 @@
+--- pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java
++++ pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java
+@@ -409,6 +409,10 @@
+ 		this.goalSelector.addGoal(2, new PeditoSonicBoomGoal(this));
+ 		this.goalSelector.addGoal(2, new CubicVortexAttackGoal(this));
+ 		this.goalSelector.addGoal(2, new PeditoGolemSummonGoal(this));
++		this.goalSelector.addGoal(2, new BiogasProtectionAuraGoal(this));
++		this.goalSelector.addGoal(2, new PeditoAirstrikeGoal(this));
++		this.goalSelector.addGoal(2, new GigaPeditoHologramBeamGoal(this));
++		this.goalSelector.addGoal(2, new CosmicGasCataclysmGoal(this));
+ 
+ 		this.goalSelector.addGoal(3, new PeditoAttackGoal(this));
+ 

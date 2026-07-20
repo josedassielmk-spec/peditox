@@ -1,0 +1,13 @@
+{
+  "entity.pedito.pedito": "Pedito",
+  "item.pedito.gas_can": "Gas Can",
+  "item.pedito.gas_can_copper": "Copper Gas Can",
+  "item.pedito.gas_can_iron": "Iron Gas Can",
+  "item.pedito.gas_can_gold": "Gold Gas Can",
+  "item.pedito.gas_can_diamond": "Diamond Gas Can",
+  "item.pedito.gas_can_netherite": "Netherite Gas Can",
+  "item.pedito.pedito_bottle": "Pedito Bottle",
+  "item.pedito.pedito_bottle_rainbow": "Rainbow Pedito Bottle (Tamed)",
+  "item.pedito.pedito_staff": "Pedito Staff",
+  "itemGroup.pedito": "Pedito"
+}

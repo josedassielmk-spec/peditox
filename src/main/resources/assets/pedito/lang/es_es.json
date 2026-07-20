@@ -1,0 +1,13 @@
+{
+  "entity.pedito.pedito": "Pedito",
+  "item.pedito.gas_can": "Lata de Gas",
+  "item.pedito.gas_can_copper": "Lata de Gas de Cobre",
+  "item.pedito.gas_can_iron": "Lata de Gas de Hierro",
+  "item.pedito.gas_can_gold": "Lata de Gas de Oro",
+  "item.pedito.gas_can_diamond": "Lata de Gas de Diamante",
+  "item.pedito.gas_can_netherite": "Lata de Gas de Netherita",
+  "item.pedito.pedito_bottle": "Botella de Pedito",
+  "item.pedito.pedito_bottle_rainbow": "Botella de Pedito Arcoiris (Domesticado)",
+  "item.pedito.pedito_staff": "Báculo de Pedito",
+  "itemGroup.pedito": "Pedito"
+}
