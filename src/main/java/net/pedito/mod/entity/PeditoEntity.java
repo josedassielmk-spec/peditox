@@ -1478,6 +1478,17 @@ public class PeditoEntity extends Animal {
 			}
 		}
 
+		// Check if an Alpha owned by this player already exists globally in the loaded level,
+		// to prevent promoting a new Alpha when the existing one is temporarily out of the local 64-block range.
+		if (currentAlpha == null && this.level() instanceof ServerLevel serverLevel) {
+			for (Entity entity : serverLevel.getAllEntities()) {
+				if (entity instanceof PeditoEntity pedito && pedito.isAlive() && pedito.isTamedByOwner() && pedito.getOwnerCustom() == owner && pedito.getVariant() == VARIANT_ALPHA) {
+					currentAlpha = pedito;
+					break;
+				}
+			}
+		}
+
 		boolean shouldHaveAlpha = hasGold && hasDiamond;
 
 		if (shouldHaveAlpha) {
@@ -1510,10 +1521,9 @@ public class PeditoEntity extends Animal {
 				}
 			}
 		} else {
-			if (currentAlpha != null) {
-				// Demote alpha back to normal since we no longer have Gold + Diamond
-				currentAlpha.setVariant(VARIANT_NORMAL);
-			}
+			// Once promoted, the domestic Alpha retains its form even if the Gold/Diamond allies are temporarily out of range,
+			// to avoid repeated promotion/demotion cycles and unnecessary loud sounds when the owner moves away.
+			// "el debe de aparecer una vez y sio no muere el pedito que se convirtio debe guardar laforma"
 		}
 	}
 
