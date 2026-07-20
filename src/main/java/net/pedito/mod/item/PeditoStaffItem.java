@@ -23,7 +23,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.server.level.ServerLevel;
 import net.pedito.mod.Pedito;
@@ -39,9 +39,9 @@ public class PeditoStaffItem extends Item {
     public static Item.Properties createProperties() {
         ItemAttributeModifiers modifiers = ItemAttributeModifiers.builder()
                 .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(
-                        ResourceLocation.fromNamespaceAndPath(Pedito.MOD_ID, "staff_damage"), 7.0, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                        Identifier.fromNamespaceAndPath(Pedito.MOD_ID, "staff_damage"), 7.0, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                 .add(Attributes.ATTACK_SPEED, new AttributeModifier(
-                        ResourceLocation.fromNamespaceAndPath(Pedito.MOD_ID, "staff_speed"), -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                        Identifier.fromNamespaceAndPath(Pedito.MOD_ID, "staff_speed"), -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                 .build();
         return new Item.Properties().attributes(modifiers).durability(500);
     }
@@ -79,7 +79,7 @@ public class PeditoStaffItem extends Item {
                                 serverLevel.sendParticles(ParticleTypes.GLOW, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 10, 0.2, 0.2, 0.2, 0.1);
                                 chest.setOpen(true);
                             } else {
-                                level.playSound(null, pos, ModSounds.PEDITO_PUPU, SoundSource.BLOCKS, 1.0f, 1.0f);
+                                level.playSound(null, pos, ModSounds.PEDITO_VOICE_PUPU, SoundSource.BLOCKS, 1.0f, 1.0f);
                             }
                         } else {
                             // Fase de Captura (Global Suction Algorithm R=128.0)
@@ -90,13 +90,13 @@ public class PeditoStaffItem extends Item {
                                 PeditoEntity p = nearPeditos.get(0);
                                 if (chest.storePedito(p)) {
                                     p.discard();
-                                    level.playSound(null, pos, ModSounds.PEDITO_FART_SPAWN_2, SoundSource.BLOCKS, 1.0f, 1.0f);
+                                    level.playSound(null, pos, ModSounds.PEDITO_FART_SPAWN, SoundSource.BLOCKS, 1.0f, 1.0f);
                                     serverLevel.sendParticles(ParticleTypes.GLOW, p.getX(), p.getY() + 0.5, p.getZ(), 10, 0.2, 0.2, 0.2, 0.1);
                                     chest.setOpen(true);
                                 }
                             } else {
                                 // Error/Invalido
-                                level.playSound(null, pos, ModSounds.PEDITO_PUPU, SoundSource.BLOCKS, 1.0f, 1.0f);
+                                level.playSound(null, pos, ModSounds.PEDITO_VOICE_PUPU, SoundSource.BLOCKS, 1.0f, 1.0f);
                             }
                         }
                         return InteractionResult.SUCCESS;

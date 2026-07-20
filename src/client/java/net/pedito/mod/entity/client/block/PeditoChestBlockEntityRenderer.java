@@ -23,7 +23,7 @@ public class PeditoChestBlockEntityRenderer implements BlockEntityRenderer<Pedit
     
     // Matriz de textura especificada en doc técnica
     public static final Material TEXTURE = new Material(InventoryMenu.BLOCK_ATLAS, 
-            ResourceLocation.fromNamespaceAndPath(Pedito.MOD_ID, "entity/pedito/chest_legendary_crystal_64x48"));
+            ResourceLocation.fromNamespaceAndPath(Pedito.MOD_ID, "item/chest_legendary_crystal_64x48"));
 
     public PeditoChestBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
         ModelPart modelPart = context.bakeLayer(ModelLayers.CHEST);
