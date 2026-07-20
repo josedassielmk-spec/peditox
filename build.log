@@ -1,0 +1,1469 @@
+
+> Configure project :
+Fabric Loom: 1.17.12
+
+> Task :compileJava FAILED
+error: error reading /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar; zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoDanceGoal.java:1: error: cannot access net.pedito.mod.entity
+package net.pedito.mod.entity;
+^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/golem/PeditoGolemEntity.java:1: error: cannot access net.pedito.mod.entity.golem
+package net.pedito.mod.entity.golem;
+^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/item/PeditoBottleRainbowItem.java:1: error: cannot access net.pedito.mod.item
+package net.pedito.mod.item;
+^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:1: error: cannot access net.pedito.mod.registry
+package net.pedito.mod.registry;
+^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/Pedito.java:1: error: cannot access net.pedito.mod
+package net.pedito.mod;
+^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoFollowAlphaTargetGoal.java:10: error: cannot access net.pedito
+public class PeditoFollowAlphaTargetGoal extends TargetGoal {
+       ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoFollowAlphaTargetGoal.java:10: error: cannot find symbol
+public class PeditoFollowAlphaTargetGoal extends TargetGoal {
+                                                 ^
+  symbol: class TargetGoal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:75: error: cannot access net
+public class PeditoEntity extends Animal {
+       ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:75: error: cannot find symbol
+public class PeditoEntity extends Animal {
+                                  ^
+  symbol: class Animal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoFollowAlphaTargetGoal.java:12: error: cannot find symbol
+    private LivingEntity targetToAttack;
+            ^
+  symbol:   class LivingEntity
+  location: class PeditoFollowAlphaTargetGoal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:86: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> VARIANT =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:88: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> SURPRISE_TICKS =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:90: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> TALKING_TICKS =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:92: error: cannot find symbol
+	private static final EntityDataAccessor<Boolean> TAMED =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:94: error: cannot find symbol
+	private static final EntityDataAccessor<Boolean> SITTING =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:96: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> TIER =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:101: error: cannot find symbol
+	private UUID ownerUuid;
+	        ^
+  symbol:   class UUID
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:118: error: cannot find symbol
+	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
+	                    ^
+  symbol:   class EntityType
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:118: error: cannot find symbol
+	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
+	                                                                   ^
+  symbol:   class Level
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:125: error: cannot access AttributeSupplier
+	public static AttributeSupplier.Builder createPeditoAttributes() {
+	              ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:137: error: cannot access SynchedEntityData
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+	                                 ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:148: error: cannot find symbol
+	protected void addAdditionalSaveData(ValueOutput output) {
+	                                     ^
+  symbol:   class ValueOutput
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:158: error: cannot find symbol
+	protected void readAdditionalSaveData(ValueInput input) {
+	                                      ^
+  symbol:   class ValueInput
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:170: error: cannot access net.minecraft
+	public boolean wantsToAttack(net.minecraft.world.entity.LivingEntity target, net.minecraft.world.entity.LivingEntity owner) {
+	                                ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:170: error: cannot access net.minecraft.world
+	public boolean wantsToAttack(net.minecraft.world.entity.LivingEntity target, net.minecraft.world.entity.LivingEntity owner) {
+	                                                                                          ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:185: error: cannot find symbol
+	protected boolean considersEntityAsAlly(Entity other) {
+	                                        ^
+  symbol:   class Entity
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:287: error: cannot access net.minecraft.core
+	public void setRecordPlayingNearby(net.minecraft.core.BlockPos pos, boolean isPartying) {
+	                                                ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:346: error: cannot find symbol
+	public void setOwnerCustom(Player player) {
+	                           ^
+  symbol:   class Player
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:351: error: cannot find symbol
+	public boolean isOwnerCustom(Player player) {
+	                             ^
+  symbol:   class Player
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:359: error: cannot find symbol
+	public Player getOwnerCustom() {
+	       ^
+  symbol:   class Player
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:364: error: cannot find symbol
+	protected PathNavigation createNavigation(Level world) {
+	                                          ^
+  symbol:   class Level
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:364: error: cannot find symbol
+	protected PathNavigation createNavigation(Level world) {
+	          ^
+  symbol:   class PathNavigation
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:387: error: cannot find symbol
+	protected void doPush(Entity entity) {
+	                      ^
+  symbol:   class Entity
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:391: error: cannot find symbol
+	public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+	                                                                     ^
+  symbol:   class DamageSource
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:396: error: cannot access net.minecraft.world.level
+	protected void checkFallDamage(double y, boolean onGround, net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos) {
+	                                                                              ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:396: error: package net.minecraft.core does not exist
+	protected void checkFallDamage(double y, boolean onGround, net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos) {
+	                                                                                                                                     ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:486: error: cannot find symbol
+	public void setTarget(@Nullable LivingEntity target) {
+	                                ^
+  symbol:   class LivingEntity
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:592: error: cannot find symbol
+	private void playRandomVoice(ServerLevel world) {
+	                             ^
+  symbol:   class ServerLevel
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:629: error: cannot find symbol
+	private void playFart(ServerLevel world, double x, double y, double z, float volume, float pitch) {
+	                      ^
+  symbol:   class ServerLevel
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:734: error: cannot find symbol
+	public boolean hurtServer(ServerLevel level, DamageSource source, float amount) {
+	                          ^
+  symbol:   class ServerLevel
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:734: error: cannot find symbol
+	public boolean hurtServer(ServerLevel level, DamageSource source, float amount) {
+	                                             ^
+  symbol:   class DamageSource
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:769: error: cannot find symbol
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
+	                                    ^
+  symbol:   class ServerLevelAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:769: error: cannot find symbol
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
+	                                                               ^
+  symbol:   class DifficultyInstance
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:770: error: cannot find symbol
+			EntitySpawnReason spawnReason, @Nullable SpawnGroupData entityData) {
+			^
+  symbol:   class EntitySpawnReason
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:770: error: cannot find symbol
+			EntitySpawnReason spawnReason, @Nullable SpawnGroupData entityData) {
+			                                         ^
+  symbol:   class SpawnGroupData
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:769: error: cannot find symbol
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
+	       ^
+  symbol:   class SpawnGroupData
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:801: error: cannot find symbol
+	public boolean isFood(ItemStack stack) {
+	                      ^
+  symbol:   class ItemStack
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:836: error: cannot find symbol
+	protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source) {
+	                                                       ^
+  symbol:   class DamageSource
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:836: error: cannot access net.minecraft.sounds
+	protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source) {
+	                       ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:848: error: package net.minecraft.sounds does not exist
+	protected net.minecraft.sounds.SoundEvent getDeathSound() {
+	                              ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:857: error: cannot find symbol
+	public PeditoEntity getBreedOffspring(ServerLevel world, AgeableMob mate) {
+	                                      ^
+  symbol:   class ServerLevel
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:857: error: cannot find symbol
+	public PeditoEntity getBreedOffspring(ServerLevel world, AgeableMob mate) {
+	                                                         ^
+  symbol:   class AgeableMob
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:862: error: cannot find symbol
+	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+	                                     ^
+  symbol:   class Player
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:862: error: cannot find symbol
+	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+	                                                    ^
+  symbol:   class InteractionHand
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:862: error: cannot find symbol
+	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+	       ^
+  symbol:   class InteractionResult
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:974: error: cannot find symbol
+	protected int getBaseExperienceReward(ServerLevel level) {
+	                                      ^
+  symbol:   class ServerLevel
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1118: error: cannot find symbol
+	private void teleportToOwner(Player owner) {
+	                             ^
+  symbol:   class Player
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1134: error: package net.minecraft.core does not exist
+	public boolean isSolidBlock(net.minecraft.core.BlockPos pos) {
+	                                              ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1139: error: package net.minecraft.core does not exist
+	private net.minecraft.core.BlockPos findSafePositionNearby(net.minecraft.core.BlockPos startPos) {
+	                                                                             ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1139: error: package net.minecraft.core does not exist
+	private net.minecraft.core.BlockPos findSafePositionNearby(net.minecraft.core.BlockPos startPos) {
+	                          ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:3: error: cannot access net.minecraft.world.entity
+import net.minecraft.world.entity.LivingEntity;
+                          ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:3: error: package net.minecraft.world.entity does not exist
+import net.minecraft.world.entity.LivingEntity;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:4: error: cannot access net.minecraft.world.entity.ai
+import net.minecraft.world.entity.ai.goal.Goal;
+                                 ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:4: error: cannot access net.minecraft.world.entity.ai.goal
+import net.minecraft.world.entity.ai.goal.Goal;
+                                    ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:4: error: import requires canonical name for Goal
+import net.minecraft.world.entity.ai.goal.Goal;
+                                         ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:5: error: package net.minecraft.world.level does not exist
+import net.minecraft.world.level.Level;
+                                ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:6: error: cannot access net.minecraft.server
+import net.minecraft.server.level.ServerLevel;
+                    ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:6: error: cannot access net.minecraft.server.level
+import net.minecraft.server.level.ServerLevel;
+                           ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:6: error: import requires canonical name for ServerLevel
+import net.minecraft.server.level.ServerLevel;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:7: error: cannot access net.minecraft.core.particles
+import net.minecraft.core.particles.DustParticleOptions;
+                         ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:7: error: package net.minecraft.core.particles does not exist
+import net.minecraft.core.particles.DustParticleOptions;
+                                   ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:8: error: package net.minecraft.sounds does not exist
+import net.minecraft.sounds.SoundSource;
+                           ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:9: error: cannot access net.minecraft.world.phys
+import net.minecraft.world.phys.Vec3;
+                          ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:9: error: package net.minecraft.world.phys does not exist
+import net.minecraft.world.phys.Vec3;
+                               ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:16: error: cannot find symbol
+public class PeditoAttackGoal extends Goal {
+                                      ^
+  symbol: class Goal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:150: error: cannot find symbol
+    private void performAttack(LivingEntity target, PeditoEntity.SquadRole role) {
+                               ^
+  symbol:   class LivingEntity
+  location: class PeditoAttackGoal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:3: error: package net.minecraft.core does not exist
+import net.minecraft.core.BlockPos;
+                         ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:4: error: package net.minecraft.world.entity.ai.goal does not exist
+import net.minecraft.world.entity.ai.goal.Goal;
+                                         ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:5: error: cannot access net.minecraft.world.entity.player
+import net.minecraft.world.entity.player.Player;
+                                 ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:5: error: package net.minecraft.world.entity.player does not exist
+import net.minecraft.world.entity.player.Player;
+                                        ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:6: error: package net.minecraft.world.phys does not exist
+import net.minecraft.world.phys.Vec3;
+                               ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:10: error: cannot find symbol
+public class PeditoWanderNearOwnerGoal extends Goal {
+                                               ^
+  symbol: class Goal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:3: error: package net.minecraft.world.entity does not exist
+import net.minecraft.world.entity.LivingEntity;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:4: error: cannot access net.minecraft.world.entity.ai.goal.target
+import net.minecraft.world.entity.ai.goal.target.TargetGoal;
+                                         ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:4: error: package net.minecraft.world.entity.ai.goal.target does not exist
+import net.minecraft.world.entity.ai.goal.target.TargetGoal;
+                                                ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:5: error: cannot access net.minecraft.world.entity.ai.targeting
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+                                    ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:5: error: package net.minecraft.world.entity.ai.targeting does not exist
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+                                              ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:6: error: package net.minecraft.world.entity.player does not exist
+import net.minecraft.world.entity.player.Player;
+                                        ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:10: error: cannot find symbol
+public class PeditoAlphaDefendVulnerableGoal extends TargetGoal {
+                                                     ^
+  symbol: class TargetGoal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:12: error: cannot find symbol
+    private LivingEntity targetToAttack;
+            ^
+  symbol:   class LivingEntity
+  location: class PeditoAlphaDefendVulnerableGoal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:3: error: package net.minecraft.core.particles does not exist
+import net.minecraft.core.particles.ParticleTypes;
+                                   ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:4: error: cannot access net.minecraft.network
+import net.minecraft.network.chat.Component;
+                    ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:4: error: cannot access net.minecraft.network.chat
+import net.minecraft.network.chat.Component;
+                            ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:4: error: import requires canonical name for Component
+import net.minecraft.network.chat.Component;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:5: error: package net.minecraft.server.level does not exist
+import net.minecraft.server.level.ServerLevel;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:6: error: cannot access net.minecraft.world.effect
+import net.minecraft.world.effect.MobEffectInstance;
+                          ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:6: error: package net.minecraft.world.effect does not exist
+import net.minecraft.world.effect.MobEffectInstance;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:7: error: package net.minecraft.world.effect does not exist
+import net.minecraft.world.effect.MobEffects;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:8: error: package net.minecraft.world.entity does not exist
+import net.minecraft.world.entity.LivingEntity;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:9: error: package net.minecraft.world.entity.ai.goal does not exist
+import net.minecraft.world.entity.ai.goal.Goal;
+                                         ^
+101 errors
+
+[Incubating] Problems report is available at: file:///app/applet/pedito-mod-main/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  error: error reading /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar; zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoDanceGoal.java:1: error: cannot access net.pedito.mod.entity
+  package net.pedito.mod.entity;
+  ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/golem/PeditoGolemEntity.java:1: error: cannot access net.pedito.mod.entity.golem
+  package net.pedito.mod.entity.golem;
+  ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/item/PeditoBottleRainbowItem.java:1: error: cannot access net.pedito.mod.item
+  package net.pedito.mod.item;
+  ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:1: error: cannot access net.pedito.mod.registry
+  package net.pedito.mod.registry;
+  ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/Pedito.java:1: error: cannot access net.pedito.mod
+  package net.pedito.mod;
+  ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoFollowAlphaTargetGoal.java:10: error: cannot access net.pedito
+  public class PeditoFollowAlphaTargetGoal extends TargetGoal {
+         ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:75: error: cannot access net
+  public class PeditoEntity extends Animal {
+         ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:125: error: cannot access AttributeSupplier
+  	public static AttributeSupplier.Builder createPeditoAttributes() {
+  	              ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:137: error: cannot access SynchedEntityData
+  	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+  	                                 ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:170: error: cannot access net.minecraft
+  	public boolean wantsToAttack(net.minecraft.world.entity.LivingEntity target, net.minecraft.world.entity.LivingEntity owner) {
+  	                                ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:170: error: cannot access net.minecraft.world
+  	public boolean wantsToAttack(net.minecraft.world.entity.LivingEntity target, net.minecraft.world.entity.LivingEntity owner) {
+  	                                                                                          ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:287: error: cannot access net.minecraft.core
+  	public void setRecordPlayingNearby(net.minecraft.core.BlockPos pos, boolean isPartying) {
+  	                                                ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:396: error: cannot access net.minecraft.world.level
+  	protected void checkFallDamage(double y, boolean onGround, net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos) {
+  	                                                                              ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:836: error: cannot access net.minecraft.sounds
+  	protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source) {
+  	                       ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:3: error: cannot access net.minecraft.world.entity
+  import net.minecraft.world.entity.LivingEntity;
+                            ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:4: error: cannot access net.minecraft.world.entity.ai
+  import net.minecraft.world.entity.ai.goal.Goal;
+                                   ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:4: error: cannot access net.minecraft.world.entity.ai.goal
+  import net.minecraft.world.entity.ai.goal.Goal;
+                                      ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:6: error: cannot access net.minecraft.server
+  import net.minecraft.server.level.ServerLevel;
+                      ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:6: error: cannot access net.minecraft.server.level
+  import net.minecraft.server.level.ServerLevel;
+                             ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:7: error: cannot access net.minecraft.core.particles
+  import net.minecraft.core.particles.DustParticleOptions;
+                           ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:9: error: cannot access net.minecraft.world.phys
+  import net.minecraft.world.phys.Vec3;
+                            ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:5: error: cannot access net.minecraft.world.entity.player
+  import net.minecraft.world.entity.player.Player;
+                                   ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:4: error: cannot access net.minecraft.world.entity.ai.goal.target
+  import net.minecraft.world.entity.ai.goal.target.TargetGoal;
+                                           ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:5: error: cannot access net.minecraft.world.entity.ai.targeting
+  import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+                                      ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:4: error: cannot access net.minecraft.network
+  import net.minecraft.network.chat.Component;
+                      ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:4: error: cannot access net.minecraft.network.chat
+  import net.minecraft.network.chat.Component;
+                              ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:6: error: cannot access net.minecraft.world.effect
+  import net.minecraft.world.effect.MobEffectInstance;
+                            ^
+    ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoFollowAlphaTargetGoal.java:12: error: cannot find symbol
+      private LivingEntity targetToAttack;
+              ^
+    symbol:   class LivingEntity
+    location: class PeditoFollowAlphaTargetGoal
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:86: error: cannot find symbol
+  	private static final EntityDataAccessor<Integer> VARIANT =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:88: error: cannot find symbol
+  	private static final EntityDataAccessor<Integer> SURPRISE_TICKS =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:90: error: cannot find symbol
+  	private static final EntityDataAccessor<Integer> TALKING_TICKS =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:92: error: cannot find symbol
+  	private static final EntityDataAccessor<Boolean> TAMED =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:94: error: cannot find symbol
+  	private static final EntityDataAccessor<Boolean> SITTING =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:96: error: cannot find symbol
+  	private static final EntityDataAccessor<Integer> TIER =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:101: error: cannot find symbol
+  	private UUID ownerUuid;
+  	        ^
+    symbol:   class UUID
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:118: error: cannot find symbol
+  	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
+  	                    ^
+    symbol:   class EntityType
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:118: error: cannot find symbol
+  	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
+  	                                                                   ^
+    symbol:   class Level
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:148: error: cannot find symbol
+  	protected void addAdditionalSaveData(ValueOutput output) {
+  	                                     ^
+    symbol:   class ValueOutput
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:158: error: cannot find symbol
+  	protected void readAdditionalSaveData(ValueInput input) {
+  	                                      ^
+    symbol:   class ValueInput
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:185: error: cannot find symbol
+  	protected boolean considersEntityAsAlly(Entity other) {
+  	                                        ^
+    symbol:   class Entity
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:346: error: cannot find symbol
+  	public void setOwnerCustom(Player player) {
+  	                           ^
+    symbol:   class Player
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:351: error: cannot find symbol
+  	public boolean isOwnerCustom(Player player) {
+  	                             ^
+    symbol:   class Player
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:359: error: cannot find symbol
+  	public Player getOwnerCustom() {
+  	       ^
+    symbol:   class Player
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:364: error: cannot find symbol
+  	protected PathNavigation createNavigation(Level world) {
+  	                                          ^
+    symbol:   class Level
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:364: error: cannot find symbol
+  	protected PathNavigation createNavigation(Level world) {
+  	          ^
+    symbol:   class PathNavigation
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:387: error: cannot find symbol
+  	protected void doPush(Entity entity) {
+  	                      ^
+    symbol:   class Entity
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:391: error: cannot find symbol
+  	public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+  	                                                                     ^
+    symbol:   class DamageSource
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:486: error: cannot find symbol
+  	public void setTarget(@Nullable LivingEntity target) {
+  	                                ^
+    symbol:   class LivingEntity
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:592: error: cannot find symbol
+  	private void playRandomVoice(ServerLevel world) {
+  	                             ^
+    symbol:   class ServerLevel
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:629: error: cannot find symbol
+  	private void playFart(ServerLevel world, double x, double y, double z, float volume, float pitch) {
+  	                      ^
+    symbol:   class ServerLevel
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:734: error: cannot find symbol
+  	public boolean hurtServer(ServerLevel level, DamageSource source, float amount) {
+  	                          ^
+    symbol:   class ServerLevel
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:734: error: cannot find symbol
+  	public boolean hurtServer(ServerLevel level, DamageSource source, float amount) {
+  	                                             ^
+    symbol:   class DamageSource
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:769: error: cannot find symbol
+  	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
+  	                                    ^
+    symbol:   class ServerLevelAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:769: error: cannot find symbol
+  	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
+  	                                                               ^
+    symbol:   class DifficultyInstance
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:770: error: cannot find symbol
+  			EntitySpawnReason spawnReason, @Nullable SpawnGroupData entityData) {
+  			^
+    symbol:   class EntitySpawnReason
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:770: error: cannot find symbol
+  			EntitySpawnReason spawnReason, @Nullable SpawnGroupData entityData) {
+  			                                         ^
+    symbol:   class SpawnGroupData
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:769: error: cannot find symbol
+  	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
+  	       ^
+    symbol:   class SpawnGroupData
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:801: error: cannot find symbol
+  	public boolean isFood(ItemStack stack) {
+  	                      ^
+    symbol:   class ItemStack
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:836: error: cannot find symbol
+  	protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source) {
+  	                                                       ^
+    symbol:   class DamageSource
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:857: error: cannot find symbol
+  	public PeditoEntity getBreedOffspring(ServerLevel world, AgeableMob mate) {
+  	                                      ^
+    symbol:   class ServerLevel
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:857: error: cannot find symbol
+  	public PeditoEntity getBreedOffspring(ServerLevel world, AgeableMob mate) {
+  	                                                         ^
+    symbol:   class AgeableMob
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:862: error: cannot find symbol
+  	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+  	                                     ^
+    symbol:   class Player
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:862: error: cannot find symbol
+  	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+  	                                                    ^
+    symbol:   class InteractionHand
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:862: error: cannot find symbol
+  	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+  	       ^
+    symbol:   class InteractionResult
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:974: error: cannot find symbol
+  	protected int getBaseExperienceReward(ServerLevel level) {
+  	                                      ^
+    symbol:   class ServerLevel
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1118: error: cannot find symbol
+  	private void teleportToOwner(Player owner) {
+  	                             ^
+    symbol:   class Player
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:150: error: cannot find symbol
+      private void performAttack(LivingEntity target, PeditoEntity.SquadRole role) {
+                                 ^
+    symbol:   class LivingEntity
+    location: class PeditoAttackGoal
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:12: error: cannot find symbol
+      private LivingEntity targetToAttack;
+              ^
+    symbol:   class LivingEntity
+    location: class PeditoAlphaDefendVulnerableGoal
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoFollowAlphaTargetGoal.java:10: error: cannot find symbol
+  public class PeditoFollowAlphaTargetGoal extends TargetGoal {
+                                                   ^
+    symbol: class TargetGoal
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:75: error: cannot find symbol
+  public class PeditoEntity extends Animal {
+                                    ^
+    symbol: class Animal
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:16: error: cannot find symbol
+  public class PeditoAttackGoal extends Goal {
+                                        ^
+    symbol: class Goal
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:10: error: cannot find symbol
+  public class PeditoWanderNearOwnerGoal extends Goal {
+                                                 ^
+    symbol: class Goal
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:10: error: cannot find symbol
+  public class PeditoAlphaDefendVulnerableGoal extends TargetGoal {
+                                                       ^
+    symbol: class TargetGoal
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:4: error: import requires canonical name for Goal
+  import net.minecraft.world.entity.ai.goal.Goal;
+                                           ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:6: error: import requires canonical name for ServerLevel
+  import net.minecraft.server.level.ServerLevel;
+                                   ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:4: error: import requires canonical name for Component
+  import net.minecraft.network.chat.Component;
+                                   ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:396: error: package net.minecraft.core does not exist
+  	protected void checkFallDamage(double y, boolean onGround, net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos) {
+  	                                                                                                                                     ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:848: error: package net.minecraft.sounds does not exist
+  	protected net.minecraft.sounds.SoundEvent getDeathSound() {
+  	                              ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1134: error: package net.minecraft.core does not exist
+  	public boolean isSolidBlock(net.minecraft.core.BlockPos pos) {
+  	                                              ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1139: error: package net.minecraft.core does not exist
+  	private net.minecraft.core.BlockPos findSafePositionNearby(net.minecraft.core.BlockPos startPos) {
+  	                                                                             ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1139: error: package net.minecraft.core does not exist
+  	private net.minecraft.core.BlockPos findSafePositionNearby(net.minecraft.core.BlockPos startPos) {
+  	                          ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:3: error: package net.minecraft.world.entity does not exist
+  import net.minecraft.world.entity.LivingEntity;
+                                   ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:5: error: package net.minecraft.world.level does not exist
+  import net.minecraft.world.level.Level;
+                                  ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:7: error: package net.minecraft.core.particles does not exist
+  import net.minecraft.core.particles.DustParticleOptions;
+                                     ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:8: error: package net.minecraft.sounds does not exist
+  import net.minecraft.sounds.SoundSource;
+                             ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:9: error: package net.minecraft.world.phys does not exist
+  import net.minecraft.world.phys.Vec3;
+                                 ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:3: error: package net.minecraft.core does not exist
+  import net.minecraft.core.BlockPos;
+                           ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:4: error: package net.minecraft.world.entity.ai.goal does not exist
+  import net.minecraft.world.entity.ai.goal.Goal;
+                                           ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:5: error: package net.minecraft.world.entity.player does not exist
+  import net.minecraft.world.entity.player.Player;
+                                          ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:6: error: package net.minecraft.world.phys does not exist
+  import net.minecraft.world.phys.Vec3;
+                                 ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:3: error: package net.minecraft.world.entity does not exist
+  import net.minecraft.world.entity.LivingEntity;
+                                   ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:4: error: package net.minecraft.world.entity.ai.goal.target does not exist
+  import net.minecraft.world.entity.ai.goal.target.TargetGoal;
+                                                  ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:5: error: package net.minecraft.world.entity.ai.targeting does not exist
+  import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+                                                ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:6: error: package net.minecraft.world.entity.player does not exist
+  import net.minecraft.world.entity.player.Player;
+                                          ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:3: error: package net.minecraft.core.particles does not exist
+  import net.minecraft.core.particles.ParticleTypes;
+                                     ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:5: error: package net.minecraft.server.level does not exist
+  import net.minecraft.server.level.ServerLevel;
+                                   ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:6: error: package net.minecraft.world.effect does not exist
+  import net.minecraft.world.effect.MobEffectInstance;
+                                   ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:7: error: package net.minecraft.world.effect does not exist
+  import net.minecraft.world.effect.MobEffects;
+                                   ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:8: error: package net.minecraft.world.entity does not exist
+  import net.minecraft.world.entity.LivingEntity;
+                                   ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:9: error: package net.minecraft.world.entity.ai.goal does not exist
+  import net.minecraft.world.entity.ai.goal.Goal;
+                                           ^
+  101 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:133)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:121)
+	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.DefaultNodeExecutor.executeLocalTaskNode(DefaultNodeExecutor.java:55)
+	at org.gradle.execution.plan.DefaultNodeExecutor.execute(DefaultNodeExecutor.java:34)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:355)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:343)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:339)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:339)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:328)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:146)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:131)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$11(DefaultBuildLifecycleController.java:323)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:304)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$9(StateTransitionController.java:215)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:45)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:215)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:314)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$runAndReleaseLocks$0(DefaultWorkerLeaseService.java:300)
+	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAndReleaseLocks(DefaultWorkerLeaseService.java:298)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:294)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:286)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:130)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:182)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:199)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:199)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
+error: error reading /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar; zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoDanceGoal.java:1: error: cannot access net.pedito.mod.entity
+package net.pedito.mod.entity;
+^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/golem/PeditoGolemEntity.java:1: error: cannot access net.pedito.mod.entity.golem
+package net.pedito.mod.entity.golem;
+^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/item/PeditoBottleRainbowItem.java:1: error: cannot access net.pedito.mod.item
+package net.pedito.mod.item;
+^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:1: error: cannot access net.pedito.mod.registry
+package net.pedito.mod.registry;
+^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/Pedito.java:1: error: cannot access net.pedito.mod
+package net.pedito.mod;
+^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoFollowAlphaTargetGoal.java:10: error: cannot access net.pedito
+public class PeditoFollowAlphaTargetGoal extends TargetGoal {
+       ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoFollowAlphaTargetGoal.java:10: error: cannot find symbol
+public class PeditoFollowAlphaTargetGoal extends TargetGoal {
+                                                 ^
+  symbol: class TargetGoal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:75: error: cannot access net
+public class PeditoEntity extends Animal {
+       ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:75: error: cannot find symbol
+public class PeditoEntity extends Animal {
+                                  ^
+  symbol: class Animal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoFollowAlphaTargetGoal.java:12: error: cannot find symbol
+    private LivingEntity targetToAttack;
+            ^
+  symbol:   class LivingEntity
+  location: class PeditoFollowAlphaTargetGoal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:86: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> VARIANT =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:88: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> SURPRISE_TICKS =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:90: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> TALKING_TICKS =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:92: error: cannot find symbol
+	private static final EntityDataAccessor<Boolean> TAMED =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:94: error: cannot find symbol
+	private static final EntityDataAccessor<Boolean> SITTING =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:96: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> TIER =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:101: error: cannot find symbol
+	private UUID ownerUuid;
+	        ^
+  symbol:   class UUID
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:118: error: cannot find symbol
+	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
+	                    ^
+  symbol:   class EntityType
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:118: error: cannot find symbol
+	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
+	                                                                   ^
+  symbol:   class Level
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:125: error: cannot access AttributeSupplier
+	public static AttributeSupplier.Builder createPeditoAttributes() {
+	              ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:137: error: cannot access SynchedEntityData
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+	                                 ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:148: error: cannot find symbol
+	protected void addAdditionalSaveData(ValueOutput output) {
+	                                     ^
+  symbol:   class ValueOutput
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:158: error: cannot find symbol
+	protected void readAdditionalSaveData(ValueInput input) {
+	                                      ^
+  symbol:   class ValueInput
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:170: error: cannot access net.minecraft
+	public boolean wantsToAttack(net.minecraft.world.entity.LivingEntity target, net.minecraft.world.entity.LivingEntity owner) {
+	                                ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:170: error: cannot access net.minecraft.world
+	public boolean wantsToAttack(net.minecraft.world.entity.LivingEntity target, net.minecraft.world.entity.LivingEntity owner) {
+	                                                                                          ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:185: error: cannot find symbol
+	protected boolean considersEntityAsAlly(Entity other) {
+	                                        ^
+  symbol:   class Entity
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:287: error: cannot access net.minecraft.core
+	public void setRecordPlayingNearby(net.minecraft.core.BlockPos pos, boolean isPartying) {
+	                                                ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:346: error: cannot find symbol
+	public void setOwnerCustom(Player player) {
+	                           ^
+  symbol:   class Player
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:351: error: cannot find symbol
+	public boolean isOwnerCustom(Player player) {
+	                             ^
+  symbol:   class Player
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:359: error: cannot find symbol
+	public Player getOwnerCustom() {
+	       ^
+  symbol:   class Player
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:364: error: cannot find symbol
+	protected PathNavigation createNavigation(Level world) {
+	                                          ^
+  symbol:   class Level
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:364: error: cannot find symbol
+	protected PathNavigation createNavigation(Level world) {
+	          ^
+  symbol:   class PathNavigation
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:387: error: cannot find symbol
+	protected void doPush(Entity entity) {
+	                      ^
+  symbol:   class Entity
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:391: error: cannot find symbol
+	public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+	                                                                     ^
+  symbol:   class DamageSource
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:396: error: cannot access net.minecraft.world.level
+	protected void checkFallDamage(double y, boolean onGround, net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos) {
+	                                                                              ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:396: error: package net.minecraft.core does not exist
+	protected void checkFallDamage(double y, boolean onGround, net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos) {
+	                                                                                                                                     ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:486: error: cannot find symbol
+	public void setTarget(@Nullable LivingEntity target) {
+	                                ^
+  symbol:   class LivingEntity
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:592: error: cannot find symbol
+	private void playRandomVoice(ServerLevel world) {
+	                             ^
+  symbol:   class ServerLevel
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:629: error: cannot find symbol
+	private void playFart(ServerLevel world, double x, double y, double z, float volume, float pitch) {
+	                      ^
+  symbol:   class ServerLevel
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:734: error: cannot find symbol
+	public boolean hurtServer(ServerLevel level, DamageSource source, float amount) {
+	                          ^
+  symbol:   class ServerLevel
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:734: error: cannot find symbol
+	public boolean hurtServer(ServerLevel level, DamageSource source, float amount) {
+	                                             ^
+  symbol:   class DamageSource
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:769: error: cannot find symbol
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
+	                                    ^
+  symbol:   class ServerLevelAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:769: error: cannot find symbol
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
+	                                                               ^
+  symbol:   class DifficultyInstance
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:770: error: cannot find symbol
+			EntitySpawnReason spawnReason, @Nullable SpawnGroupData entityData) {
+			^
+  symbol:   class EntitySpawnReason
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:770: error: cannot find symbol
+			EntitySpawnReason spawnReason, @Nullable SpawnGroupData entityData) {
+			                                         ^
+  symbol:   class SpawnGroupData
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:769: error: cannot find symbol
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty,
+	       ^
+  symbol:   class SpawnGroupData
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:801: error: cannot find symbol
+	public boolean isFood(ItemStack stack) {
+	                      ^
+  symbol:   class ItemStack
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:836: error: cannot find symbol
+	protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source) {
+	                                                       ^
+  symbol:   class DamageSource
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:836: error: cannot access net.minecraft.sounds
+	protected net.minecraft.sounds.SoundEvent getHurtSound(DamageSource source) {
+	                       ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:848: error: package net.minecraft.sounds does not exist
+	protected net.minecraft.sounds.SoundEvent getDeathSound() {
+	                              ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:857: error: cannot find symbol
+	public PeditoEntity getBreedOffspring(ServerLevel world, AgeableMob mate) {
+	                                      ^
+  symbol:   class ServerLevel
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:857: error: cannot find symbol
+	public PeditoEntity getBreedOffspring(ServerLevel world, AgeableMob mate) {
+	                                                         ^
+  symbol:   class AgeableMob
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:862: error: cannot find symbol
+	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+	                                     ^
+  symbol:   class Player
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:862: error: cannot find symbol
+	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+	                                                    ^
+  symbol:   class InteractionHand
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:862: error: cannot find symbol
+	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+	       ^
+  symbol:   class InteractionResult
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:974: error: cannot find symbol
+	protected int getBaseExperienceReward(ServerLevel level) {
+	                                      ^
+  symbol:   class ServerLevel
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1118: error: cannot find symbol
+	private void teleportToOwner(Player owner) {
+	                             ^
+  symbol:   class Player
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1134: error: package net.minecraft.core does not exist
+	public boolean isSolidBlock(net.minecraft.core.BlockPos pos) {
+	                                              ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1139: error: package net.minecraft.core does not exist
+	private net.minecraft.core.BlockPos findSafePositionNearby(net.minecraft.core.BlockPos startPos) {
+	                                                                             ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:1139: error: package net.minecraft.core does not exist
+	private net.minecraft.core.BlockPos findSafePositionNearby(net.minecraft.core.BlockPos startPos) {
+	                          ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:3: error: cannot access net.minecraft.world.entity
+import net.minecraft.world.entity.LivingEntity;
+                          ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:3: error: package net.minecraft.world.entity does not exist
+import net.minecraft.world.entity.LivingEntity;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:4: error: cannot access net.minecraft.world.entity.ai
+import net.minecraft.world.entity.ai.goal.Goal;
+                                 ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:4: error: cannot access net.minecraft.world.entity.ai.goal
+import net.minecraft.world.entity.ai.goal.Goal;
+                                    ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:4: error: import requires canonical name for Goal
+import net.minecraft.world.entity.ai.goal.Goal;
+                                         ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:5: error: package net.minecraft.world.level does not exist
+import net.minecraft.world.level.Level;
+                                ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:6: error: cannot access net.minecraft.server
+import net.minecraft.server.level.ServerLevel;
+                    ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:6: error: cannot access net.minecraft.server.level
+import net.minecraft.server.level.ServerLevel;
+                           ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:6: error: import requires canonical name for ServerLevel
+import net.minecraft.server.level.ServerLevel;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:7: error: cannot access net.minecraft.core.particles
+import net.minecraft.core.particles.DustParticleOptions;
+                         ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:7: error: package net.minecraft.core.particles does not exist
+import net.minecraft.core.particles.DustParticleOptions;
+                                   ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:8: error: package net.minecraft.sounds does not exist
+import net.minecraft.sounds.SoundSource;
+                           ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:9: error: cannot access net.minecraft.world.phys
+import net.minecraft.world.phys.Vec3;
+                          ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:9: error: package net.minecraft.world.phys does not exist
+import net.minecraft.world.phys.Vec3;
+                               ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:16: error: cannot find symbol
+public class PeditoAttackGoal extends Goal {
+                                      ^
+  symbol: class Goal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAttackGoal.java:150: error: cannot find symbol
+    private void performAttack(LivingEntity target, PeditoEntity.SquadRole role) {
+                               ^
+  symbol:   class LivingEntity
+  location: class PeditoAttackGoal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:3: error: package net.minecraft.core does not exist
+import net.minecraft.core.BlockPos;
+                         ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:4: error: package net.minecraft.world.entity.ai.goal does not exist
+import net.minecraft.world.entity.ai.goal.Goal;
+                                         ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:5: error: cannot access net.minecraft.world.entity.player
+import net.minecraft.world.entity.player.Player;
+                                 ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:5: error: package net.minecraft.world.entity.player does not exist
+import net.minecraft.world.entity.player.Player;
+                                        ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:6: error: package net.minecraft.world.phys does not exist
+import net.minecraft.world.phys.Vec3;
+                               ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoWanderNearOwnerGoal.java:10: error: cannot find symbol
+public class PeditoWanderNearOwnerGoal extends Goal {
+                                               ^
+  symbol: class Goal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:3: error: package net.minecraft.world.entity does not exist
+import net.minecraft.world.entity.LivingEntity;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:4: error: cannot access net.minecraft.world.entity.ai.goal.target
+import net.minecraft.world.entity.ai.goal.target.TargetGoal;
+                                         ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:4: error: package net.minecraft.world.entity.ai.goal.target does not exist
+import net.minecraft.world.entity.ai.goal.target.TargetGoal;
+                                                ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:5: error: cannot access net.minecraft.world.entity.ai.targeting
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+                                    ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:5: error: package net.minecraft.world.entity.ai.targeting does not exist
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+                                              ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:6: error: package net.minecraft.world.entity.player does not exist
+import net.minecraft.world.entity.player.Player;
+                                        ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:10: error: cannot find symbol
+public class PeditoAlphaDefendVulnerableGoal extends TargetGoal {
+                                                     ^
+  symbol: class TargetGoal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoAlphaDefendVulnerableGoal.java:12: error: cannot find symbol
+    private LivingEntity targetToAttack;
+            ^
+  symbol:   class LivingEntity
+  location: class PeditoAlphaDefendVulnerableGoal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:3: error: package net.minecraft.core.particles does not exist
+import net.minecraft.core.particles.ParticleTypes;
+                                   ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:4: error: cannot access net.minecraft.network
+import net.minecraft.network.chat.Component;
+                    ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:4: error: cannot access net.minecraft.network.chat
+import net.minecraft.network.chat.Component;
+                            ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:4: error: import requires canonical name for Component
+import net.minecraft.network.chat.Component;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:5: error: package net.minecraft.server.level does not exist
+import net.minecraft.server.level.ServerLevel;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:6: error: cannot access net.minecraft.world.effect
+import net.minecraft.world.effect.MobEffectInstance;
+                          ^
+  ZipException opening "minecraft-common-043a8b3edf-26.2.jar": zip END header not found
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:6: error: package net.minecraft.world.effect does not exist
+import net.minecraft.world.effect.MobEffectInstance;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:7: error: package net.minecraft.world.effect does not exist
+import net.minecraft.world.effect.MobEffects;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:8: error: package net.minecraft.world.entity does not exist
+import net.minecraft.world.entity.LivingEntity;
+                                 ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoGolemSummonGoal.java:9: error: package net.minecraft.world.entity.ai.goal does not exist
+import net.minecraft.world.entity.ai.goal.Goal;
+                                         ^
+101 errors
+	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:89)
+	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:50)
+	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
+	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:52)
+	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:38)
+	at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:52)
+	at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:38)
+	at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:46)
+	at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:36)
+	at org.gradle.jvm.toolchain.internal.DefaultToolchainJavaCompiler.execute(DefaultToolchainJavaCompiler.java:57)
+	at org.gradle.api.tasks.compile.JavaCompile.lambda$createToolchainCompiler$3(JavaCompile.java:206)
+	at org.gradle.api.internal.tasks.compile.CleaningJavaCompiler.execute(CleaningJavaCompiler.java:53)
+	at org.gradle.api.internal.tasks.compile.incremental.IncrementalCompilerFactory.lambda$createRebuildAllCompiler$0(IncrementalCompilerFactory.java:55)
+	at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:70)
+	at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:44)
+	at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:66)
+	at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:52)
+	at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:64)
+	at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$1.call(CompileJavaBuildOperationReportingCompiler.java:48)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler.execute(CompileJavaBuildOperationReportingCompiler.java:48)
+	at org.gradle.api.tasks.compile.JavaCompile.performCompilation(JavaCompile.java:224)
+	at org.gradle.api.tasks.compile.JavaCompile.performIncrementalCompilation(JavaCompile.java:165)
+	at org.gradle.api.tasks.compile.JavaCompile.compile(JavaCompile.java:150)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+	at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:45)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+	at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:259)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:244)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:227)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:210)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:176)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:167)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:47)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:137)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:134)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:134)
+	at org.gradle.internal.execution.steps.ExecuteStep$Mutable.execute(ExecuteStep.java:80)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:51)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:29)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:39)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:42)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:24)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:28)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:76)
+	at org.gradle.internal.Either$Right.fold(Either.java:176)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:74)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:49)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.executeMutable(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.executeMutable(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveMutableCachingStateStep.executeDelegate(ResolveMutableCachingStateStep.java:70)
+	at org.gradle.internal.execution.steps.ResolveMutableCachingStateStep.executeDelegate(ResolveMutableCachingStateStep.java:32)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:69)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:37)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:63)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:34)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:99)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:90)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:305)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
+	... 61 more
+
+
+BUILD FAILED in 2s
+1 actionable task: 1 executed
