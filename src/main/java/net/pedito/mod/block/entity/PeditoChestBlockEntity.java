@@ -59,10 +59,11 @@ public class PeditoChestBlockEntity extends BlockEntity {
         }
         CompoundTag tag = storedEntities.remove(storedEntities.size() - 1);
         Entity entity = null;
-        try (var problems = new ProblemReporter.ScopedCollector("load", LOGGER)) {
+        try {
+            ProblemReporter.Collector problems = new ProblemReporter.Collector();
             var input = TagValueInput.createWithContext(problems, level.registryAccess(), tag);
             entity = EntityType.loadEntityRecursive(input, level, EntitySpawnReason.TRIGGERED, e -> {
-                e.moveTo(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 0, 0);
+                e.moveTo(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 0f, 0f);
                 return e;
             });
         } catch(Exception e) {
