@@ -11,12 +11,20 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.pedito.mod.Pedito;
+import net.pedito.mod.block.PeditoChestBlock;
 
 import java.util.function.Function;
 
 public class ModBlocks {
 
+    public static Block PEDITO_CHEST;
+    public static net.minecraft.world.item.Item PEDITO_CHEST_ITEM;
+
     public static void register() {
+        PEDITO_CHEST = registerBlock("pedito_chest", PeditoChestBlock::new, 
+                BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST).mapColor(net.minecraft.world.level.material.MapColor.COLOR_BROWN).strength(2.5f).sound(SoundType.WOOD));
+        
+        PEDITO_CHEST_ITEM = registerBlockItem("pedito_chest", PEDITO_CHEST, new net.minecraft.world.item.Item.Properties());
     }
 
     private static <T extends Block> T registerBlock(String name, Function<BlockBehaviour.Properties, T> blockFactory, BlockBehaviour.Properties properties) {
