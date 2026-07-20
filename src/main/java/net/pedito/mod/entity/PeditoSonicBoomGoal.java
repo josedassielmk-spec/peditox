@@ -109,10 +109,10 @@ public class PeditoSonicBoomGoal extends Goal {
                 Vec3 targetPos = target.position().add(0, target.getBbHeight() / 2.0, 0);
                 Vec3 dir = targetPos.subtract(startPos).normalize();
                 
-                for (int i = 0; i < 20; i += 2) {
+                for (int i = 0; i < 20; i++) {
                     Vec3 particlePos = startPos.add(dir.scale(i));
                     // Create a ring perpendicular to the direction
-                    for (int j = 0; j < 8; j += 2) {
+                    for (int j = 0; j < 8; j++) {
                         double angle = j * (Math.PI / 4);
                         // Approximate a cross vector
                         Vec3 up = new Vec3(0, 1, 0);
