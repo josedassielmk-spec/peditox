@@ -10,11 +10,6 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    # Configuramos que todos los pasos de ejecucion 'run' se ubiquen dentro de la carpeta del mod
-    defaults:
-      run:
-        working-directory: pedito-mod-main
-
     steps:
     - name: Checkout del repo
       uses: actions/checkout@v4
@@ -26,29 +21,17 @@ jobs:
         distribution: 'temurin'
         java-version: '25'
 
-    # Solo damos permisos de ejecucion en Linux o macOS (en Windows no es necesario)
-    - name: Dar permisos de ejecucion al gradlew
-      if: runner.os != 'Windows'
-      run: chmod +x ./gradlew
-
     # Cachea dependencias de Gradle/Loom entre corridas para que sea mas rapido.
     - name: Configurar cache de Gradle
       uses: gradle/actions/setup-gradle@v4
 
-    # Detecta el sistema operativo y ejecuta el comando de Gradle correcto (.bat para Windows)
     - name: Compilar con Gradle (Fabric Loom)
-      run: |
-        if ("${{ runner.os }}" -eq "Windows") {
-          .\gradlew.bat build --stacktrace
-        } else {
-          ./gradlew build --stacktrace
-        }
+      run: .\gradlew.bat build --stacktrace
 
     # Sube el/los .jar generados (mod + sources) como artefacto descargable de la corrida.
-    # Especificamos la ruta correcta dentro de la subcarpeta 'pedito-mod-main'
     - name: Subir jars compilados
       uses: actions/upload-artifact@v4
       with:
         name: pedito-mod-jars
-        path: pedito-mod-main/build/libs/*.jar
+        path: build/libs/*.jar
         if-no-files-found: error
