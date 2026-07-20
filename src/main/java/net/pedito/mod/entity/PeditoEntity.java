@@ -796,8 +796,11 @@ public class PeditoEntity extends Animal {
 		return result;
 	}
 
-	public static class PeditoGroupSpawnData implements SpawnGroupData {
+	public static class PeditoGroupSpawnData extends AgeableMob.AgeableMobGroupData {
 		public int count = 0;
+		public PeditoGroupSpawnData(boolean baby) {
+			super(baby);
+		}
 	}
 
 	public static boolean canSpawn(EntityType<PeditoEntity> type, ServerLevelAccessor world, EntitySpawnReason spawnReason, net.minecraft.core.BlockPos pos, RandomSource random) {
@@ -821,7 +824,7 @@ public class PeditoEntity extends Animal {
 			if (entityData instanceof PeditoGroupSpawnData) {
 				groupData = (PeditoGroupSpawnData) entityData;
 			} else {
-				groupData = new PeditoGroupSpawnData();
+				groupData = new PeditoGroupSpawnData(true);
 				data = groupData;
 			}
 			groupData.count++;
