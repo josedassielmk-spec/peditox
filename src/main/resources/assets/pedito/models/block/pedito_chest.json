@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "pedito:entity/pedito/chest_legendary_crystal_64x48"
+    "all": "pedito:block/pedito_chest"
   }
 }

@@ -31,7 +31,7 @@ public class CubicVortexAttackGoal extends Goal {
         if (this.pedito.tickCount < this.nextAttackTick) return false;
         LivingEntity target = this.pedito.getTarget();
         if (target == null || !target.isAlive() || !this.pedito.isTamedByOwner()) return false;
-        if (this.pedito.getAllyCount() < 5) return false;
+        if (this.pedito.getAllyCount() < 4) return false;
         return this.pedito.getRandom().nextInt(70) == 0;
     }
 
@@ -122,7 +122,7 @@ public class CubicVortexAttackGoal extends Goal {
         }
 
         if (this.attackTimer <= 0) {
-            this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 140 : 160); // 10 seconds cooldown
+            this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 264 : 300); // 10 seconds cooldown
         }
     }
 

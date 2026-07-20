@@ -30,7 +30,7 @@ public class PeditoSonicBoomGoal extends Goal {
         if (this.pedito.tickCount < this.nextAttackTick) return false;
         LivingEntity target = this.pedito.getTarget();
         if (target == null || !target.isAlive() || !this.pedito.isTamedByOwner()) return false;
-        if (this.pedito.getAllyCount() < 4) return false;
+        // removed ally restriction for sonic boom
         return this.pedito.getRandom().nextInt(50) == 0;
     }
 
@@ -133,7 +133,7 @@ public class PeditoSonicBoomGoal extends Goal {
                     target.setDeltaMovement(target.getDeltaMovement().add(dir.scale(1.5).add(0, 0.5, 0))); // Blast into air
                 }
                 
-                this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 123 : 140); // 7 seconds cooldown
+                this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 13 : 15); // 7 seconds cooldown
             }
         }
     }

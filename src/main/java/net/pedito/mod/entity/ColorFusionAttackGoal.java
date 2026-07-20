@@ -31,7 +31,7 @@ public class ColorFusionAttackGoal extends Goal {
         if (this.pedito.tickCount < this.nextAttackTick) return false;
         LivingEntity target = this.pedito.getTarget();
         if (target == null || !target.isAlive() || !this.pedito.isTamedByOwner()) return false;
-        if (this.pedito.getAllyCount() < 3) return false;
+        if (this.pedito.getAllyCount() < 1) return false;
         return this.pedito.getRandom().nextInt(60) == 0;
     }
 
@@ -124,7 +124,7 @@ public class ColorFusionAttackGoal extends Goal {
                     }
                 }
                 
-                this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 105 : 120); // 6 seconds cooldown
+                this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 211 : 240); // 6 seconds cooldown
             }
         }
     }

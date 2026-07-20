@@ -129,6 +129,10 @@ public class PeditoEntity extends Animal {
 
 	private int fartTimer;
 
+    private net.minecraft.core.BlockPos chestTarget = null;
+    public void setChestTarget(net.minecraft.core.BlockPos pos) { this.chestTarget = pos; }
+    public net.minecraft.core.BlockPos getChestTarget() { return this.chestTarget; }
+
 	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
 		super(entityType, world);
 		this.moveControl = new FlyingMoveControl(this, 20, true);
@@ -437,6 +441,8 @@ public class PeditoEntity extends Animal {
 
     @Override
 	protected void registerGoals() {
+		this.goalSelector.addGoal(0, new PeditoEnterChestGoal(this));
+
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		this.goalSelector.addGoal(1, new CustomSitGoal(this));
 		

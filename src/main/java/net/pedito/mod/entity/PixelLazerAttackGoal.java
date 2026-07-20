@@ -30,7 +30,7 @@ public class PixelLazerAttackGoal extends Goal {
         if (this.pedito.tickCount < this.nextAttackTick) return false;
         LivingEntity target = this.pedito.getTarget();
         if (target == null || !target.isAlive() || !this.pedito.isTamedByOwner()) return false;
-        if (this.pedito.getAllyCount() < 1) return false;
+        // removed ally restriction for pixel lazer
         return this.pedito.getRandom().nextInt(40) == 0;
     }
 
@@ -125,7 +125,7 @@ public class PixelLazerAttackGoal extends Goal {
 
         this.attackTime--;
         if (this.attackTime <= 0) {
-            this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 70 : 80); // 5 seconds cooldown
+            this.nextAttackTick = this.pedito.tickCount + (this.pedito.hasCopperSynergy() ? 13 : 15); // 5 seconds cooldown
         }
     }
 
