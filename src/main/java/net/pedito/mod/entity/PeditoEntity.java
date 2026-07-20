@@ -95,6 +95,10 @@ public class PeditoEntity extends Animal {
 			SynchedEntityData.defineId(PeditoEntity.class, EntityDataSerializers.BOOLEAN);
 	private static final EntityDataAccessor<Integer> TIER =
 			SynchedEntityData.defineId(PeditoEntity.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Boolean> IS_SPINNING =
+			SynchedEntityData.defineId(PeditoEntity.class, EntityDataSerializers.BOOLEAN);
+	private static final EntityDataAccessor<Integer> SPINNING_TICKS =
+			SynchedEntityData.defineId(PeditoEntity.class, EntityDataSerializers.INT);
 
 	/** Dueno del Pedito. Solo se necesita del lado servidor, asi que no se sincroniza. */
 	@Nullable
@@ -142,6 +146,8 @@ public class PeditoEntity extends Animal {
 		builder.define(TAMED, false);
 		builder.define(SITTING, false);
 		builder.define(TIER, 0);
+		builder.define(IS_SPINNING, false);
+		builder.define(SPINNING_TICKS, 0);
 	}
 
 	@Override
@@ -208,6 +214,22 @@ public class PeditoEntity extends Animal {
 	public void setTier(int tier) {
 		this.entityData.set(TIER, tier);
 		this.updateAttributesForTier();
+	}
+
+	public boolean isSpinning() {
+		return this.entityData.get(IS_SPINNING);
+	}
+
+	public void setSpinning(boolean spinning) {
+		this.entityData.set(IS_SPINNING, spinning);
+	}
+
+	public int getSpinningTicks() {
+		return this.entityData.get(SPINNING_TICKS);
+	}
+
+	public void setSpinningTicks(int ticks) {
+		this.entityData.set(SPINNING_TICKS, ticks);
 	}
 
 	private void updateAttributesForTier() {
@@ -416,6 +438,7 @@ public class PeditoEntity extends Animal {
 		this.goalSelector.addGoal(2, new PeditoAirstrikeGoal(this));
 		this.goalSelector.addGoal(2, new GigaPeditoHologramBeamGoal(this));
 		this.goalSelector.addGoal(2, new CosmicGasCataclysmGoal(this));
+		this.goalSelector.addGoal(2, new PeditoAlphaConcentrationGoal(this));
 		
 		this.goalSelector.addGoal(3, new PeditoAttackGoal(this));
 		
@@ -589,6 +612,17 @@ public class PeditoEntity extends Animal {
 		}
 	}
 
+	@Override
+	public float getVoicePitch() {
+		float basePitch = 0.72F + (this.random.nextFloat() * 0.08F); // Normal: ~0.76F (monstruito gamberro)
+		if (this.getVariant() == VARIANT_ALPHA) {
+			basePitch = 0.48F + (this.random.nextFloat() * 0.06F); // Alpha: ~0.51F (monstruo grande)
+		} else if (this.isBaby()) {
+			basePitch = 1.15F + (this.random.nextFloat() * 0.15F); // Bebé: ~1.22F
+		}
+		return basePitch;
+	}
+
 	private void playRandomVoice(ServerLevel world) {
 		net.minecraft.sounds.SoundEvent[] voices = {
 				ModSounds.PEDITO_VOICE_PEDI,
@@ -599,16 +633,10 @@ public class PeditoEntity extends Animal {
 		};
 		net.minecraft.sounds.SoundEvent chosenVoice = voices[this.random.nextInt(voices.length)];
 		
-		// Voz de ardilla: pitch entre 1.8 y 2.2 para bebes
-		float voicePitch = 1.0F;
-		if (this.getVariant() == VARIANT_ALPHA) {
-			voicePitch = 0.65F + (this.random.nextFloat() * 0.10F); // Grave voice (audible)!
-		} else if (this.isBaby()) {
-			voicePitch = 1.8F + (this.random.nextFloat() * 0.4F);
-		}
+		float voicePitch = this.getVoicePitch();
 		
-		// SoundCategory.VOICE para permitir controlar el volumen en el menu de opciones
-		world.playSound(null, this.getX(), this.getY(), this.getZ(), chosenVoice, SoundSource.NEUTRAL, 1.5F, voicePitch);
+		// SoundCategory.VOICE para permitir controlar el volumen en el menu de opciones (con volumen subido)
+		world.playSound(null, this.getX(), this.getY(), this.getZ(), chosenVoice, SoundSource.NEUTRAL, 1.8F, voicePitch);
 		
 		// Activar la animacion de la boca (aprox 30 ticks = 1.5 segundos)
 		this.entityData.set(TALKING_TICKS, 30);
@@ -673,17 +701,18 @@ public class PeditoEntity extends Animal {
 
 	public void playAttackVoice(float pitchModifier) {
 		if (this.level() instanceof ServerLevel serverLevel) {
-			float basePitch = 1.0F;
+			float basePitch = 0.72F + (this.random.nextFloat() * 0.08F); // Normal: ~0.76F
 			if (this.getVariant() == VARIANT_ALPHA) {
-				basePitch = 0.65F + (this.random.nextFloat() * 0.10F); // Grave voice (audible)!
+				basePitch = 0.48F + (this.random.nextFloat() * 0.06F); // Alpha: ~0.51F
 			} else if (this.isBaby()) {
-				basePitch = 1.8F + (this.random.nextFloat() * 0.4F);
+				basePitch = 1.15F + (this.random.nextFloat() * 0.15F); // Bebé: ~1.22F
 			}
 			float voicePitch = basePitch * pitchModifier;
-			if (voicePitch < 0.55F) {
-				voicePitch = 0.55F;
+			if (voicePitch < 0.38F) {
+				voicePitch = 0.38F;
 			}
-			serverLevel.playSound(null, this.getX(), this.getY(), this.getZ(), ModSounds.PEDITO_VOICE_ATTACK, SoundSource.NEUTRAL, 1.6F, voicePitch);
+			// Volumen del grito de combate subido a 2.0F para que sea perfectamente perceptible
+			serverLevel.playSound(null, this.getX(), this.getY(), this.getZ(), ModSounds.PEDITO_VOICE_ATTACK, SoundSource.NEUTRAL, 2.0F, voicePitch);
 			this.entityData.set(TALKING_TICKS, 25);
 		}
 	}

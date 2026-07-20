@@ -42,6 +42,9 @@ public class PeditoModel extends EntityModel<PeditoRenderState> {
 
 	private final ModelPart body;
 
+	private boolean isSpinning;
+	private int spinningTicks;
+
 	public PeditoModel(ModelPart root) {
 		super(root);
 		this.body = root.getChild("body");
@@ -62,5 +65,12 @@ public class PeditoModel extends EntityModel<PeditoRenderState> {
 		super.setupAnim(state);
 		this.body.yRot = state.yRot * Mth.DEG_TO_RAD;
 		this.body.xRot = state.xRot * Mth.DEG_TO_RAD;
+		this.isSpinning = state.isSpinning;
+		this.spinningTicks = state.spinningTicks;
+		if (state.isSpinning) {
+			this.body.zRot = state.spinningTicks * 0.8F;
+		} else {
+			this.body.zRot = 0.0F;
+		}
 	}
 }

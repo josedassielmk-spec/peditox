@@ -196,11 +196,7 @@ public class PeditoAttackGoal extends Goal {
                 serverLevel.playSound(null, this.pedito.getX(), this.pedito.getY(), this.pedito.getZ(), ModSounds.PEDITO_FART, SoundSource.NEUTRAL, 0.8F, 1.2F);
             }
 
-            if (this.pedito.getRandom().nextFloat() < 0.75F) {
-                this.pedito.playAttackVoice();
-            } else {
-                this.pedito.triggerTalkAnimation();
-            }
+            this.pedito.playAttackVoice();
 
             // Swarm Damage saturation formula: D_total = D_avg * (1 + ln(1 + beta * (N - 1))) * mu_tier
             // Scale individual hits by (1 + ln(1 + beta * (N - 1))) / N to cap cumulative DPS log-style

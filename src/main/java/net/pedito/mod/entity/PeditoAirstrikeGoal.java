@@ -1,6 +1,7 @@
 package net.pedito.mod.entity;
 
 import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -80,8 +81,17 @@ public class PeditoAirstrikeGoal extends Goal {
     @Override
     public void start() {
         this.phase = 0;
-        this.timer = 15;
+        this.timer = 20; // Time to fly up and align
+        this.pedito.setSpinning(false);
+        this.pedito.setSpinningTicks(0);
         this.pedito.playSound(ModSounds.PEDITO_VOICE_PUPULLITO, 0.7F, 1.20F + (this.pedito.getRandom().nextFloat() - this.pedito.getRandom().nextFloat()) * 0.05F);
+    }
+
+    @Override
+    public void stop() {
+        this.pedito.setSpinning(false);
+        this.pedito.setSpinningTicks(0);
+        super.stop();
     }
 
     @Override
@@ -105,50 +115,102 @@ public class PeditoAirstrikeGoal extends Goal {
             double offsetZ = (row - (allies.size() / cols) / 2.0) * gridSpacing;
 
             this.targetX = this.strikeX + offsetX;
-            this.targetY = this.strikeY + 10.0;
+            this.targetY = this.strikeY + 12.0; // Fly up high!
             this.targetZ = this.strikeZ + offsetZ;
 
+            // Fly rapidly up to align
             this.pedito.getMoveControl().setWantedPosition(this.targetX, this.targetY, this.targetZ, 2.0D);
             this.pedito.getLookControl().setLookAt(this.strikeX, this.strikeY, this.strikeZ, 30.0F, 30.0F);
 
             this.timer--;
             if (this.timer <= 0) {
                 this.phase = 1;
-                this.timer = 60;
+                this.timer = 40; // Max dive duration
+                this.pedito.setSpinning(true);
+                this.pedito.setSpinningTicks(0);
             }
         } else if (this.phase == 1) {
-            this.pedito.getMoveControl().setWantedPosition(this.targetX, this.targetY, this.targetZ, 1.0D);
-            this.pedito.getLookControl().setLookAt(this.strikeX, this.strikeY, this.strikeZ, 30.0F, 30.0F);
+            // Dive bomb!
+            // Look straight down as they dive like a drill
+            this.pedito.getLookControl().setLookAt(this.targetX, this.strikeY - 2.0, this.targetZ, 180.0F, 90.0F);
             
+            // Increment spinning tick counter
+            this.pedito.setSpinningTicks(this.pedito.getSpinningTicks() + 1);
+
+            // Move control down towards the ground strike target
+            this.pedito.getMoveControl().setWantedPosition(this.targetX, this.strikeY, this.targetZ, 1.5D);
+
             if (this.pedito.level() instanceof ServerLevel serverLevel) {
-                // Shoot meteor every 12 ticks per pedito (staggered by id)
-                if ((this.pedito.tickCount + this.pedito.getId()) % 12 == 0) {
-                    this.pedito.playSound(ModSounds.PEDITO_SPRAY, 0.6F, 1.50F + (this.pedito.getRandom().nextFloat() - this.pedito.getRandom().nextFloat()) * 0.10F);
-                    
-                    // Actually visually striking the ground is just an explosion at the target after a delay
-                    // But we can simulate a falling projectile by adding a task or just spawning particles down
-                    for (int y = 0; y < 10; y++) {
-                        serverLevel.sendParticles(new BlockParticleOption(ParticleTypes.FALLING_DUST, Blocks.SLIME_BLOCK.defaultBlockState()), 
-                                this.pedito.getX(), this.pedito.getY() - y, this.pedito.getZ(), 2, 0.1, 0.1, 0.1, 0);
-                        serverLevel.sendParticles(new BlockParticleOption(ParticleTypes.FALLING_DUST, Blocks.CRYING_OBSIDIAN.defaultBlockState()), 
-                                this.pedito.getX(), this.pedito.getY() - y, this.pedito.getZ(), 2, 0.1, 0.1, 0.1, 0);
-                    }
-                    
-                    // Impact explosion on the ground
-                    serverLevel.sendParticles(ParticleTypes.EXPLOSION, this.pedito.getX(), this.strikeY, this.pedito.getZ(), 1, 0, 0, 0, 0);
-                    this.pedito.playSound(ModSounds.PEDITO_EXPLOSION, 0.8F, 1.15F + (this.pedito.getRandom().nextFloat() - this.pedito.getRandom().nextFloat()) * 0.05F);
+                // Spawn a beautiful speed-trail / meteorite tail
+                // Flame particles
+                serverLevel.sendParticles(ParticleTypes.FLAME, this.pedito.getX(), this.pedito.getY() + 0.3, this.pedito.getZ(), 4, 0.2, 0.2, 0.2, 0.02);
+                // Smoke particles
+                serverLevel.sendParticles(ParticleTypes.LARGE_SMOKE, this.pedito.getX(), this.pedito.getY() + 0.3, this.pedito.getZ(), 3, 0.1, 0.1, 0.1, 0.01);
+                // Glowing red/orange speed trail dust
+                serverLevel.sendParticles(new DustParticleOptions(0xFF0000, 1.2F), this.pedito.getX(), this.pedito.getY() + 0.3, this.pedito.getZ(), 6, 0.2, 0.2, 0.2, 0.0);
+                
+                // Variant-specific custom particle sparks
+                if (this.pedito.getVariant() == PeditoEntity.VARIANT_RAINBOW) {
+                    int rgb = (this.pedito.getRandom().nextInt(256) << 16) | (this.pedito.getRandom().nextInt(256) << 8) | this.pedito.getRandom().nextInt(256);
+                    serverLevel.sendParticles(new DustParticleOptions(rgb, 1.0F), this.pedito.getX(), this.pedito.getY() + 0.3, this.pedito.getZ(), 4, 0.2, 0.2, 0.2, 0.0);
+                } else if (this.pedito.getVariant() == PeditoEntity.VARIANT_NIGHT) {
+                    serverLevel.sendParticles(new DustParticleOptions(0x1A237E, 1.0F), this.pedito.getX(), this.pedito.getY() + 0.3, this.pedito.getZ(), 4, 0.2, 0.2, 0.2, 0.0);
                 }
             }
 
             this.timer--;
-            if (this.timer <= 0) {
+            
+            // Impact checks: hit the ground, or too low, or timer ran out
+            boolean hitGround = this.pedito.getY() <= this.strikeY + 1.2 || this.pedito.onGround() || this.timer <= 0;
+            if (hitGround) {
+                // EXPLOSION!
+                if (this.pedito.level() instanceof ServerLevel serverLevel) {
+                    double x = this.pedito.getX();
+                    double y = this.pedito.getY();
+                    double z = this.pedito.getZ();
+
+                    serverLevel.sendParticles(ParticleTypes.EXPLOSION, x, y, z, 5, 0.5, 0.5, 0.5, 0.1);
+                    serverLevel.sendParticles(ParticleTypes.LARGE_SMOKE, x, y, z, 20, 0.8, 0.8, 0.8, 0.05);
+                    serverLevel.sendParticles(ParticleTypes.FLAME, x, y, z, 25, 0.6, 0.6, 0.6, 0.1);
+
+                    this.pedito.playSound(ModSounds.PEDITO_EXPLOSION, 1.0F, 1.1F + (this.pedito.getRandom().nextFloat() - this.pedito.getRandom().nextFloat()) * 0.1F);
+                    this.pedito.playSound(ModSounds.PEDITO_FART, 1.2F, 0.8F + (this.pedito.getRandom().nextFloat() - this.pedito.getRandom().nextFloat()) * 0.1F);
+
+                    // Damage and knock back enemies in a 4.0 blocks radius
+                    AABB damageBox = new AABB(x - 4.0, y - 2.0, z - 4.0, x + 4.0, y + 3.0, z + 4.0);
+                    List<LivingEntity> enemies = this.pedito.level().getEntitiesOfClass(
+                            LivingEntity.class,
+                            damageBox,
+                            e -> e.isAlive() && e != this.pedito.getOwnerCustom() && !(e instanceof PeditoEntity)
+                    );
+                    for (LivingEntity enemy : enemies) {
+                        enemy.hurtServer(serverLevel, this.pedito.level().damageSources().mobAttack(this.pedito), 10.0F);
+                        enemy.addEffect(new MobEffectInstance(MobEffects.POISON, 100, 1, false, false));
+                        enemy.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 80, 2, false, false));
+
+                        double dx = enemy.getX() - x;
+                        double dz = enemy.getZ() - z;
+                        double dist = Math.sqrt(dx * dx + dz * dz);
+                        if (dist > 0) {
+                            enemy.setDeltaMovement(enemy.getDeltaMovement().add(dx / dist * 1.5, 0.6, dz / dist * 1.5));
+                        }
+                    }
+                }
+
+                // Stop spinning
+                this.pedito.setSpinning(false);
+                this.pedito.setSpinningTicks(0);
+
+                // Transition to pool/return phase
                 this.phase = 2;
                 this.timer = 100;
             }
         } else if (this.phase == 2) {
-            // Pool persistence phase
+            // Pool persistence phase: float back up slowly and release toxic fumes
+            this.pedito.getMoveControl().setWantedPosition(this.targetX, this.strikeY + 4.0, this.targetZ, 0.8D);
+            this.pedito.getLookControl().setLookAt(this.targetX, this.strikeY, this.targetZ, 30.0F, 30.0F);
+
             if (this.pedito.level() instanceof ServerLevel serverLevel) {
-                // Only the first one should apply area effects to save performance, but it's simpler to let everyone do a small radius
                 if (this.pedito.tickCount % 10 == 0) {
                     serverLevel.sendParticles(ParticleTypes.SNEEZE, this.pedito.getX(), this.strikeY, this.pedito.getZ(), 10, 1.5, 0.5, 1.5, 0.01);
                     serverLevel.sendParticles(ParticleTypes.SQUID_INK, this.pedito.getX(), this.strikeY, this.pedito.getZ(), 5, 1.5, 0.1, 1.5, 0);

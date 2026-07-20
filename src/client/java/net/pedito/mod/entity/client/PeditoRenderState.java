@@ -17,4 +17,6 @@ public class PeditoRenderState extends LivingEntityRenderState {
 	public int tier;
 	public boolean isBaby;
 	public boolean isSitting;
+	public boolean isSpinning;
+	public int spinningTicks;
 }

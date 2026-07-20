@@ -51,6 +51,21 @@ public class PeditoRenderer extends MobRenderer<PeditoEntity, PeditoRenderState,
         state.tier = entity.getTier();
         state.isBaby = entity.isBaby();
         state.isSitting = entity.isSittingCustom();
+        state.isSpinning = entity.isSpinning();
+        state.spinningTicks = entity.getSpinningTicks();
+    }
+
+    @Override
+    protected int getModelTint(PeditoRenderState state) {
+        if (state.isSpinning) {
+            float progress = Math.min(state.spinningTicks / 20.0F, 1.0F);
+            // Interpolate color towards solid red (0xFFFF0000)
+            int r = 255;
+            int g = (int) (255 * (1.0F - progress));
+            int b = (int) (255 * (1.0F - progress));
+            return (0xFF << 24) | (r << 16) | (g << 8) | b;
+        }
+        return super.getModelTint(state);
     }
 
     @Override
@@ -67,8 +82,8 @@ public class PeditoRenderer extends MobRenderer<PeditoEntity, PeditoRenderState,
     }
 
     private String getBaseTextureName(PeditoRenderState state) {
-        // Permitimos animaciones especiales de boca para los peditos normales
-        boolean hasDedicatedTalking = (state.variant == PeditoEntity.VARIANT_NORMAL && !state.isBaby);
+        // Permitimos animaciones especiales de boca para los peditos normales y arcoíris con tier
+        boolean hasDedicatedTalking = ((state.variant == PeditoEntity.VARIANT_NORMAL || (state.variant == PeditoEntity.VARIANT_RAINBOW && state.tier > 0)) && !state.isBaby);
 
         if (state.surpriseTicks > 0) {
             if (hasDedicatedTalking) return "mouth_hooo";
@@ -118,7 +133,13 @@ public class PeditoRenderer extends MobRenderer<PeditoEntity, PeditoRenderState,
             } else {
                 return blinkIndex == 2 ? "face_adult_night_wink" : blinkIndex == 1 ? "face_adult_night_closed" : "face_adult_night_sad";
             }
-        } else { // Normal (Day)
+        } else if (variant == PeditoEntity.VARIANT_RAINBOW && tier == 0) {
+            if (isBaby) {
+                return blinkIndex == 2 ? "face_baby_rainbow_wink" : blinkIndex == 1 ? "face_baby_rainbow_closed" : "face_baby_rainbow_open";
+            } else {
+                return blinkIndex == 2 ? "face_rainbow_wink" : blinkIndex == 1 ? "face_rainbow_closed" : "face_rainbow_open";
+            }
+        } else { // Normal (Day) / Rainbow with tier
             if (isBaby) {
                 if (isPet) {
                     return blinkIndex == 2 ? "face_baby_wink_pet" : blinkIndex == 1 ? "face_baby_closed_pet" : "face_baby_open_pet";
