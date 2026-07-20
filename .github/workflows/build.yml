@@ -1,5 +1,6 @@
 name: Build Pedito Mod
-# Se dispara al pushear/hacer PR a main, y tambien manualmente desde la pestana Actions.
+
+# Se dispara al pushear/hacer PR a main, y también manualmente desde la pestaña Actions.
 on:
   push:
     branches: [ "main" ]
@@ -11,27 +12,39 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-    - name: Checkout del repo
-      uses: actions/checkout@v4
+      - name: Checkout del repo
+        uses: actions/checkout@v4
 
-    # fabric.mod.json pide java >= 25, asi que compilamos con Temurin 25.
-    - name: Configurar JDK 25
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '25'
+      # Configurar JDK 25 (Temurin) para que coincida exactamente con el toolchain del mod (Java 25).
+      - name: Configurar JDK 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '25'
 
-    # Cachea dependencias de Gradle/Loom entre corridas para que sea mas rapido.
-    - name: Configurar cache de Gradle
-      uses: gradle/actions/setup-gradle@v4
+      # Solo damos permisos de ejecución si el runner NO es Windows (en Windows chmod no existe).
+      - name: Dar permisos de ejecucion al gradlew
+        if: runner.os != 'Windows'
+        run: chmod +x ./gradlew
 
-    - name: Compilar con Gradle (Fabric Loom)
-      run: .\gradlew.bat build --stacktrace
+      # Cachea dependencias de Gradle/Loom entre ejecuciones para que sea más rápido.
+      - name: Configurar cache de Gradle
+        uses: gradle/actions/setup-gradle@v4
 
-    # Sube el/los .jar generados (mod + sources) como artefacto descargable de la corrida.
-    - name: Subir jars compilados
-      uses: actions/upload-artifact@v4
-      with:
-        name: pedito-mod-jars
-        path: build/libs/*.jar
-        if-no-files-found: error
+      # Compilar con Gradle en Windows (usando gradlew.bat de forma nativa).
+      - name: Compilar con Gradle (Fabric Loom) (Windows)
+        if: runner.os == 'Windows'
+        run: .\gradlew.bat build --stacktrace
+
+      # Compilar con Gradle en Linux/macOS.
+      - name: Compilar con Gradle (Fabric Loom) (Linux/macOS)
+        if: runner.os != 'Windows'
+        run: ./gradlew build --stacktrace
+
+      # Sube el/los .jar generados (mod + fuentes) como artefacto descargable.
+      - name: Subir jars compilados
+        uses: actions/upload-artifact@v4
+        with:
+          name: pedito-mod-jars
+          path: build/libs/*.jar
+          if-no-files-found: error

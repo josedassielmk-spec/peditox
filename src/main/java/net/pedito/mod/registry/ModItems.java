@@ -12,6 +12,7 @@ import net.pedito.mod.Pedito;
 import net.pedito.mod.item.PeditoBottleItem;
 import net.pedito.mod.item.PeditoBottleRainbowItem;
 import net.pedito.mod.item.PeditoStaffItem;
+import net.pedito.mod.item.PeditoWhistleItem;
 
 import java.util.function.Function;
 
@@ -26,6 +27,7 @@ public class ModItems {
 	public static Item PEDITO_BOTTLE;
 	public static Item PEDITO_BOTTLE_RAINBOW;
 	public static Item PEDITO_STAFF;
+	public static Item PEDITO_WHISTLE;
 
 	public static void register() {
 		GAS_CAN = registerItem("gas_can", Item::new, new Item.Properties().stacksTo(16));
@@ -41,6 +43,8 @@ public class ModItems {
 				new Item.Properties().stacksTo(16));
 		PEDITO_STAFF = registerItem("pedito_staff", PeditoStaffItem::new,
 				PeditoStaffItem.createProperties());
+		PEDITO_WHISTLE = registerItem("silbato_pedito", PeditoWhistleItem::new,
+				new Item.Properties().stacksTo(1));
 	}
 
 	public static void registerItemGroupContents() {
@@ -54,6 +58,7 @@ public class ModItems {
 			output.accept(PEDITO_BOTTLE);
 			output.accept(PEDITO_BOTTLE_RAINBOW);
 			output.accept(PEDITO_STAFF);
+			output.accept(PEDITO_WHISTLE);
 		});
 	}
 
