@@ -149,7 +149,7 @@ public class BiogasProtectionAuraGoal extends Goal {
                     for (LivingEntity enemy : enemies) {
                         double dx = enemy.getX() - owner.getX();
                         double dz = enemy.getZ() - owner.getZ();
-                        enemy.setDeltaMovement(enemy.getDeltaMovement().add(-dx * 0.5, 0.5, -dz * 0.5));
+                        enemy.setDeltaMovement(enemy.getDeltaMovement().add(dx * 0.5, 0.5, dz * 0.5));
                         enemy.hurt(serverLevel.damageSources().magic(), 2.0F);
                         serverLevel.sendParticles(ParticleTypes.GUST_EMITTER_LARGE, enemy.getX(), enemy.getY(), enemy.getZ(), 1, 0, 0, 0, 0);
                         this.pedito.playSound(ModSounds.PEDITO_FART, 1.1F, 1.10F + (this.pedito.getRandom().nextFloat() - this.pedito.getRandom().nextFloat()) * 0.05F);

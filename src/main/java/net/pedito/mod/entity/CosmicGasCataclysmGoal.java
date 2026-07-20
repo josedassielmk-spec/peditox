@@ -9,6 +9,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.AABB;
 import net.pedito.mod.registry.ModSounds;
 import org.joml.Vector3f;
 
@@ -137,9 +138,10 @@ public class CosmicGasCataclysmGoal extends Goal {
                     serverLevel.sendParticles(new DustParticleOptions(this.pedito.getRandom().nextInt(0xFFFFFF), 2.0F), this.impactX, this.impactY, this.impactZ, 500, 15.0, 1.0, 15.0, 0.1);
                     this.pedito.playSound(ModSounds.PEDITO_EXPLOSION, 2.0F, 0.75F + (this.pedito.getRandom().nextFloat() - this.pedito.getRandom().nextFloat()) * 0.02F);
                     
+                    AABB damageArea = new AABB(this.impactX, this.impactY, this.impactZ, this.impactX, this.impactY, this.impactZ).inflate(15.0D);
                     List<LivingEntity> enemies = this.pedito.level().getEntitiesOfClass(
                             LivingEntity.class,
-                            this.pedito.getBoundingBox().inflate(15.0D),
+                            damageArea,
                             e -> e.isAlive() && e != owner && !(e instanceof PeditoEntity)
                     );
                     for (LivingEntity enemy : enemies) {

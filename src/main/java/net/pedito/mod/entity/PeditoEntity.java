@@ -83,8 +83,7 @@ public class PeditoEntity extends Animal {
 	public static final int VARIANT_RAINBOW = 2;
 	public static final int VARIANT_ALPHA = 3;
 
-	    private static final EntityDataAccessor<Integer> PEDITO_TIER = SynchedEntityData.defineId(PeditoEntity.class, EntityDataSerializers.INT);
-private static final EntityDataAccessor<Integer> VARIANT =
+	private static final EntityDataAccessor<Integer> VARIANT =
 			SynchedEntityData.defineId(PeditoEntity.class, EntityDataSerializers.INT);
 	private static final EntityDataAccessor<Integer> SURPRISE_TICKS =
 			SynchedEntityData.defineId(PeditoEntity.class, EntityDataSerializers.INT);
@@ -138,7 +137,6 @@ private static final EntityDataAccessor<Integer> VARIANT =
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
 		builder.define(VARIANT, VARIANT_NORMAL);
-		builder.define(PEDITO_TIER, 0);
 		builder.define(SURPRISE_TICKS, 0);
 		builder.define(TALKING_TICKS, 0);
 		builder.define(TAMED, false);
@@ -189,7 +187,7 @@ private static final EntityDataAccessor<Integer> VARIANT =
 			return true;
 		}
 		if (this.isTamedByOwner() && other instanceof PeditoEntity otherPedito) {
-			return otherPedito.isTamedByOwner();
+			return otherPedito.isTamedByOwner() && otherPedito.getOwnerCustom() == this.getOwnerCustom();
 		}
 		return false;
 	}

@@ -202,6 +202,18 @@ public class PeditoAttackGoal extends Goal {
                 this.pedito.triggerTalkAnimation();
             }
 
+            // Swarm Damage saturation formula: D_total = D_avg * (1 + ln(1 + beta * (N - 1))) * mu_tier
+            // Scale individual hits by (1 + ln(1 + beta * (N - 1))) / N to cap cumulative DPS log-style
+            List<PeditoEntity> swarmAllies = this.pedito.level().getEntitiesOfClass(
+                    PeditoEntity.class,
+                    target.getBoundingBox().inflate(16.0D),
+                    e -> e.isAlive() && (e.getTarget() == target || (e.isTamedByOwner() && e.getOwnerCustom() == this.pedito.getOwnerCustom()))
+            );
+            int N = Math.max(1, swarmAllies.size());
+            double beta = 0.45;
+            float swarmMultiplier = (float) ((1.0 + Math.log(1.0 + beta * (N - 1))) / N);
+            damage *= swarmMultiplier;
+
             target.hurtServer(serverLevel, level.damageSources().mobAttack(this.pedito), damage);
         }
     }
