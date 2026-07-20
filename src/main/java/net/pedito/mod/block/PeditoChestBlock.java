@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.pedito.mod.block.entity.PeditoChestBlockEntity;
-import net.pedito.mod.registry.ModBlocks;
 import net.pedito.mod.registry.ModItems;
 import net.pedito.mod.registry.ModSounds;
 import org.jetbrains.annotations.Nullable;
@@ -85,13 +84,8 @@ public class PeditoChestBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        if (!state.is(newState.getBlock())) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof PeditoChestBlockEntity chest) {
-                // Not saving to NBT right now due to ValueOutput API complexity, but we will leave the structure.
-            }
-            super.onRemove(state, level, pos, newState, movedByPiston);
-        }
+    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean movedByPiston) {
+        Containers.updateNeighboursAfterDestroy(state, level, pos);
+        super.affectNeighborsAfterRemoval(state, level, pos, movedByPiston);
     }
 }

@@ -12,6 +12,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,7 +22,8 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import java.util.ArrayList;
 import java.util.List;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.level.storage.TagValueOutput;
+import net.minecraft.util.ProblemReporter;
 
 public class PeditoChestBlockEntity extends BlockEntity {
 
@@ -39,14 +41,17 @@ public class PeditoChestBlockEntity extends BlockEntity {
         if (level == null) return false;
         
         CompoundTag tag = new CompoundTag();
-        // Fallback for custom API: just store entity data via our own properties if saveAsPassenger fails
-        // But let's try pedito.saveWithoutId(tag) instead of saveAsPassenger
-        if (pedito.saveWithoutId(tag)) {
+        try (var problems = new ProblemReporter.ScopedCollector(pedito.problemPath(), Entity.LOGGER)) {
+            var output = TagValueOutput.createWithContext(problems, level.registryAccess());
+            pedito.saveWithoutId(output);
+            tag = output.buildResult();
+            
             storedEntities.add(tag);
             setChanged();
             return true;
+        } catch (Exception e) {
+            return false;
         }
-        return false;
     }
 
     public boolean releaseLastEntity(Level level, BlockPos pos) {
@@ -54,7 +59,7 @@ public class PeditoChestBlockEntity extends BlockEntity {
             return false;
         }
         CompoundTag tag = storedEntities.remove(storedEntities.size() - 1);
-        Entity entity = EntityType.loadEntityRecursive(tag, level, MobSpawnType.TRIGGERED, e -> {
+        Entity entity = EntityType.loadEntityRecursive(tag, level, EntitySpawnReason.TRIGGERED, e -> {
             e.moveTo(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 0, 0);
             return e;
         });
@@ -80,12 +85,6 @@ public class PeditoChestBlockEntity extends BlockEntity {
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
-        ListTag list = new ListTag();
-        for (CompoundTag entityTag : storedEntities) {
-            list.add(entityTag); // Just add without copy if optional, or we might need to handle Optional
-        }
-        // Wait, does ValueOutput have putList?
-        // Let's just avoid serialization for now and see if we can trick the compiler.
     }
 
     @Override
