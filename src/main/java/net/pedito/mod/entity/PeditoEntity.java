@@ -614,13 +614,12 @@ public class PeditoEntity extends Animal {
 
 	@Override
 	public float getVoicePitch() {
-		float basePitch = 0.72F + (this.random.nextFloat() * 0.08F); // Normal: ~0.76F (monstruito gamberro)
 		if (this.getVariant() == VARIANT_ALPHA) {
-			basePitch = 0.48F + (this.random.nextFloat() * 0.06F); // Alpha: ~0.51F (monstruo grande)
+			return 0.42F + (this.random.nextFloat() * 0.06F); // Alpha: muy grave (0.42F a 0.48F)
 		} else if (this.isBaby()) {
-			basePitch = 1.15F + (this.random.nextFloat() * 0.15F); // Bebé: ~1.22F
+			return 1.50F + (this.random.nextFloat() * 0.15F); // Bebé: más fino (1.50F a 1.65F)
 		}
-		return basePitch;
+		return 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.1F; // Demás: pitch natural (0.9F a 1.1F)
 	}
 
 	private void playRandomVoice(ServerLevel world) {
@@ -701,15 +700,10 @@ public class PeditoEntity extends Animal {
 
 	public void playAttackVoice(float pitchModifier) {
 		if (this.level() instanceof ServerLevel serverLevel) {
-			float basePitch = 0.72F + (this.random.nextFloat() * 0.08F); // Normal: ~0.76F
-			if (this.getVariant() == VARIANT_ALPHA) {
-				basePitch = 0.48F + (this.random.nextFloat() * 0.06F); // Alpha: ~0.51F
-			} else if (this.isBaby()) {
-				basePitch = 1.15F + (this.random.nextFloat() * 0.15F); // Bebé: ~1.22F
-			}
+			float basePitch = this.getVoicePitch();
 			float voicePitch = basePitch * pitchModifier;
-			if (voicePitch < 0.38F) {
-				voicePitch = 0.38F;
+			if (voicePitch < 0.35F) {
+				voicePitch = 0.35F;
 			}
 			// Volumen del grito de combate subido a 2.0F para que sea perfectamente perceptible
 			serverLevel.playSound(null, this.getX(), this.getY(), this.getZ(), ModSounds.PEDITO_VOICE_ATTACK, SoundSource.NEUTRAL, 2.0F, voicePitch);
