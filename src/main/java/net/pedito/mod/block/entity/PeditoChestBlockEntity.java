@@ -2,7 +2,6 @@ package net.pedito.mod.block.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -19,12 +18,8 @@ import java.util.List;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.TagValueInput;
 import net.minecraft.util.ProblemReporter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class PeditoChestBlockEntity extends BlockEntity {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(PeditoChestBlockEntity.class);
 
     private final List<CompoundTag> storedEntities = new ArrayList<>();
     
@@ -40,10 +35,11 @@ public class PeditoChestBlockEntity extends BlockEntity {
         if (level == null) return false;
         
         CompoundTag tag = new CompoundTag();
-        try (var problems = new ProblemReporter.ScopedCollector(pedito.problemPath(), LOGGER)) {
+        try {
+            ProblemReporter.Collector problems = new ProblemReporter.Collector();
             var output = TagValueOutput.createWithContext(problems, level.registryAccess());
             pedito.saveWithoutId(output);
-            tag = output.buildResult();
+            tag = (CompoundTag) output.buildResult();
             
             storedEntities.add(tag);
             setChanged();
@@ -63,7 +59,7 @@ public class PeditoChestBlockEntity extends BlockEntity {
             ProblemReporter.Collector problems = new ProblemReporter.Collector();
             var input = TagValueInput.createWithContext(problems, level.registryAccess(), tag);
             entity = EntityType.loadEntityRecursive(input, level, EntitySpawnReason.TRIGGERED, e -> {
-                e.moveTo(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 0f, 0f);
+                e.setPos(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
                 return e;
             });
         } catch(Exception e) {
