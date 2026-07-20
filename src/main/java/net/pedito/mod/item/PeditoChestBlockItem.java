@@ -20,19 +20,19 @@ public class PeditoChestBlockItem extends BlockItem {
     public void appendHoverText(ItemStack stack, TooltipContext context, net.minecraft.world.item.component.TooltipDisplay display, Consumer<Component> tooltip, TooltipFlag type) {
         super.appendHoverText(stack, context, display, tooltip, type);
         
-        stack.get(net.minecraft.core.component.DataComponents.BLOCK_ENTITY_DATA).ifPresent(data -> {
-            CompoundTag wrapper = data.copyTagWithoutId();
-            wrapper.get("Entities").ifPresent(t -> {
-                if (t instanceof ListTag list) {
-                    int count = list.size();
-                    if (count > 0) {
-                        tooltip.accept(Component.translatable("tooltip.pedito.chest_count", count).withStyle(ChatFormatting.GOLD));
-                    }
+        net.minecraft.world.item.component.CustomData customData = stack.get(net.minecraft.core.component.DataComponents.BLOCK_ENTITY_DATA);
+        if (customData != null) {
+            CompoundTag wrapper = customData.copyTag();
+            if (wrapper.contains("Entities", 9)) {
+                ListTag list = wrapper.getList("Entities", 10);
+                int count = list.size();
+                if (count > 0) {
+                    tooltip.accept(Component.translatable("tooltip.pedito.chest_count", count).withStyle(ChatFormatting.GOLD));
                 }
-            });
-        });
+            }
+        }
         
-        if (!stack.has(net.minecraft.core.component.DataComponents.BLOCK_ENTITY_DATA)) {
+        if (customData == null) {
             tooltip.accept(Component.translatable("tooltip.pedito.chest_empty").withStyle(ChatFormatting.GRAY));
         }
     }

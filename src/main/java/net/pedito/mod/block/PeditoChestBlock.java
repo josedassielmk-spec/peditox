@@ -85,16 +85,18 @@ public class PeditoChestBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected void preRemoveSideEffects(BlockState state, Level level, BlockPos pos) {
-        BlockEntity blockEntity = level.getBlockEntity(pos);
-        if (blockEntity instanceof PeditoChestBlockEntity chest) {
-            if (chest.getStoredCount() > 0) {
-                ItemStack itemStack = new ItemStack(ModBlocks.PEDITO_CHEST_ITEM);
-                chest.saveToItem(itemStack, level.registryAccess());
-                popResource(level, pos, itemStack);
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (!state.is(newState.getBlock())) {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if (blockEntity instanceof PeditoChestBlockEntity chest) {
+                if (chest.getStoredCount() > 0) {
+                    ItemStack itemStack = new ItemStack(ModBlocks.PEDITO_CHEST_ITEM);
+                    chest.saveToItem(itemStack, level.registryAccess());
+                    popResource(level, pos, itemStack);
+                }
             }
+            super.onRemove(state, level, pos, newState, movedByPiston);
         }
-        super.preRemoveSideEffects(state, level, pos);
     }
 
     @Override

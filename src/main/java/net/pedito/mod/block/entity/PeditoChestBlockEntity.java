@@ -98,13 +98,12 @@ public class PeditoChestBlockEntity extends BlockEntity {
         super.loadAdditional(nbt);
         storedEntities.clear();
         nbt.read("StoredData", CompoundTag.CODEC).ifPresent(wrapper -> {
-            wrapper.get("Entities").ifPresent(t -> {
-                if (t instanceof ListTag list) {
-                    for (int i = 0; i < list.size(); i++) {
-                        list.getCompound(i).ifPresent(c -> storedEntities.add(c.copy()));
-                    }
+            if (wrapper.contains("Entities", 9)) { // 9 is ListTag
+                ListTag list = wrapper.getList("Entities", 10); // 10 is CompoundTag
+                for (int i = 0; i < list.size(); i++) {
+                    storedEntities.add(list.getCompound(i).copy());
                 }
-            });
+            }
         });
     }
 
