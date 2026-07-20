@@ -1,28 +1,29 @@
 package net.pedito.mod.entity.client.block;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.resources.model.Material;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
+import net.minecraft.world.level.block.state.BlockState;
 import net.pedito.mod.Pedito;
 import net.pedito.mod.block.PeditoChestBlock;
 import net.pedito.mod.block.entity.PeditoChestBlockEntity;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
-import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.world.level.block.state.BlockState;
 
 public class PeditoChestBlockEntityRenderer implements BlockEntityRenderer<PeditoChestBlockEntity> {
     private final ModelPart lid;
     private final ModelPart bottom;
     private final ModelPart lock;
     
+    // Matriz de textura especificada en doc técnica
     public static final Material TEXTURE = new Material(InventoryMenu.BLOCK_ATLAS, 
-            Identifier.fromNamespaceAndPath(Pedito.MOD_ID, "entity/pedito/chest_legendary_crystal_64x48"));
+            ResourceLocation.fromNamespaceAndPath(Pedito.MOD_ID, "entity/pedito/chest_legendary_crystal_64x48"));
 
     public PeditoChestBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
         ModelPart modelPart = context.bakeLayer(ModelLayers.CHEST);
@@ -36,15 +37,19 @@ public class PeditoChestBlockEntityRenderer implements BlockEntityRenderer<Pedit
         poses.pushPose();
         
         BlockState state = entity.getBlockState();
-        float rotation = state.is(net.pedito.mod.registry.ModBlocks.PEDITO_CHEST) ? state.getValue(PeditoChestBlock.FACING).toYRot() : 0;
+        float rotation = state.hasProperty(PeditoChestBlock.FACING) ? state.getValue(PeditoChestBlock.FACING).toYRot() : 0;
         
         poses.translate(0.5, 0.5, 0.5);
         poses.mulPose(Axis.YP.rotationDegrees(-rotation));
         poses.translate(-0.5, -0.5, -0.5);
         
-        float openFactor = 0.0f;
+        // 6.6 Animación y Visuales: Curva f(t) = sin(pi * t)
+        float progress = entity.getOpenNess(tickDelta);
+        float animatedProgress = (float) Math.sin(Math.PI * progress);
         
-        this.lid.xRot = -(openFactor * 1.5707964f);
+        // Interpolación lineal (lerp) estado cerrado (0) y abierto (120 grados)
+        float angle = animatedProgress * 120.0f;
+        this.lid.xRot = -(angle * ((float)Math.PI / 180F));
         this.lock.xRot = this.lid.xRot;
         
         var vertexConsumer = TEXTURE.buffer(buffer, RenderType::entityCutout);

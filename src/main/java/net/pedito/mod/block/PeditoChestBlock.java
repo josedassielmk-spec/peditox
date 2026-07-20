@@ -89,11 +89,10 @@ public class PeditoChestBlock extends BaseEntityBlock {
         if (!state.is(newState.getBlock())) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof PeditoChestBlockEntity chest) {
-                if (chest.getStoredCount() > 0) {
-                    ItemStack itemStack = new ItemStack(ModBlocks.PEDITO_CHEST_ITEM);
-                    chest.saveToItem(itemStack, level.registryAccess());
-                    popResource(level, pos, itemStack);
-                }
+                // No usamos chest.getStoredCount() directamente si da error, sino que accedemos a la lógica de guardado
+                ItemStack itemStack = new ItemStack(ModBlocks.PEDITO_CHEST_ITEM);
+                chest.saveToItem(itemStack, level.registryAccess());
+                popResource(level, pos, itemStack);
             }
             super.onRemove(state, level, pos, newState, movedByPiston);
         }
