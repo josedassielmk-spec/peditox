@@ -11,7 +11,6 @@ import net.minecraft.world.item.Item;
 import net.pedito.mod.Pedito;
 import net.pedito.mod.item.PeditoBottleItem;
 import net.pedito.mod.item.PeditoBottleRainbowItem;
-import net.pedito.mod.item.PeditoStaffItem;
 
 import java.util.function.Function;
 
@@ -25,7 +24,6 @@ public class ModItems {
 	
 	public static Item PEDITO_BOTTLE;
 	public static Item PEDITO_BOTTLE_RAINBOW;
-	public static Item PEDITO_STAFF;
 
 	public static void register() {
 		GAS_CAN = registerItem("gas_can", Item::new, new Item.Properties().stacksTo(16));
@@ -39,13 +37,10 @@ public class ModItems {
 				new Item.Properties().stacksTo(16));
 		PEDITO_BOTTLE_RAINBOW = registerItem("pedito_bottle_rainbow", PeditoBottleRainbowItem::new,
 				new Item.Properties().stacksTo(16));
-		PEDITO_STAFF = registerItem("pedito_staff", PeditoStaffItem::new,
-				PeditoStaffItem.createProperties());
 	}
 
 	public static void registerItemGroupContents() {
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(output -> {
-			output.accept(ModBlocks.PEDITO_CHEST_ITEM);
 			output.accept(GAS_CAN);
 			output.accept(GAS_CAN_COPPER);
 			output.accept(GAS_CAN_IRON);
@@ -54,7 +49,6 @@ public class ModItems {
 			output.accept(GAS_CAN_NETHERITE);
 			output.accept(PEDITO_BOTTLE);
 			output.accept(PEDITO_BOTTLE_RAINBOW);
-			output.accept(PEDITO_STAFF);
 		});
 	}
 

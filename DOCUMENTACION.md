@@ -44,6 +44,5 @@ Cada tipo de ataque especial en enjambre tiene asignado un sistema de voces comb
 ## Eventos de Sonido Adicionales
 - **Spawn (Nacimiento/Aparición):** `pedito_fart_spawn`.
 - **Interacciones Mágicas:**
-  - El **Pedito Staff (Báculo)** utiliza `pedito_staff` (`baculo` interno) al controlar Peditos y causar áreas de efecto.
   - El **Pedito Spray** usa `pedito_spray` (`spray` interno) al limpiar y bañar a los peditos dándoles el efecto Regeneración.
 

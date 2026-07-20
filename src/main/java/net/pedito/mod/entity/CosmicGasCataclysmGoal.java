@@ -47,11 +47,10 @@ public class CosmicGasCataclysmGoal extends Goal {
         Long cd = playerCooldowns.get(owner.getUUID());
         if (cd != null && this.pedito.tickCount < cd) return false;
         
-        // Manual activation if player holds staff and looks up, or auto if health < 15%
+        // Auto if health < 15%
         boolean autoTrigger = owner.getHealth() < owner.getMaxHealth() * 0.15f;
-        boolean manualTrigger = owner.getMainHandItem().getItem() instanceof net.pedito.mod.item.PeditoStaffItem && owner.getXRot() < -60.0f;
         
-        if (!autoTrigger && !manualTrigger) return false;
+        if (!autoTrigger) return false;
 
         List<PeditoEntity> allies = this.pedito.level().getEntitiesOfClass(
                 PeditoEntity.class,
