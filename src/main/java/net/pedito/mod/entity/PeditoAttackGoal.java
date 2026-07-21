@@ -59,13 +59,37 @@ public class PeditoAttackGoal extends Goal {
         
         PeditoEntity.SquadRole myRole = this.pedito.getSquadRole();
         
+        final boolean isNight = !this.pedito.level().isDay();
+
         // Find peers in the same role to calculate formation geometry
         List<PeditoEntity> peers = allies.stream()
             .filter(e -> e.getSquadRole() == myRole)
             .sorted((p1, p2) -> {
-                int score1 = p1.getTier() * 1000 + (int)(p1.getHealth() * 10);
-                int score2 = p2.getTier() * 1000 + (int)(p2.getHealth() * 10);
-                if (score1 != score2) return Integer.compare(score2, score1);
+                // Alpha is ALWAYS first in Vanguard
+                if (myRole == PeditoEntity.SquadRole.VANGUARD) {
+                    if (p1.getVariant() == PeditoEntity.VARIANT_ALPHA && p2.getVariant() != PeditoEntity.VARIANT_ALPHA) return -1;
+                    if (p2.getVariant() == PeditoEntity.VARIANT_ALPHA && p1.getVariant() != PeditoEntity.VARIANT_ALPHA) return 1;
+                }
+                // Golden is ALWAYS first in Tactical
+                if (myRole == PeditoEntity.SquadRole.TACTICAL) {
+                    if (p1.getVariant() == PeditoEntity.VARIANT_GOLDEN && p2.getVariant() != PeditoEntity.VARIANT_GOLDEN) return -1;
+                    if (p2.getVariant() == PeditoEntity.VARIANT_GOLDEN && p1.getVariant() != PeditoEntity.VARIANT_GOLDEN) return 1;
+                }
+                
+                // Nocturnal adjustment:
+                // At night, Nocturnals get a massive score boost (move to inner edge / front).
+                // At day, they get a massive penalty (move to outer edge).
+                long score1 = p1.getTier() * 1000L + (long)(p1.getHealth() * 10);
+                long score2 = p2.getTier() * 1000L + (long)(p2.getHealth() * 10);
+                
+                if (p1.getVariant() == PeditoEntity.VARIANT_NIGHT) {
+                    score1 += isNight ? 1000000L : -1000000L;
+                }
+                if (p2.getVariant() == PeditoEntity.VARIANT_NIGHT) {
+                    score2 += isNight ? 1000000L : -1000000L;
+                }
+
+                if (score1 != score2) return Long.compare(score2, score1);
                 return Integer.compare(p1.getId(), p2.getId());
             }).collect(Collectors.toList());
             
@@ -82,35 +106,55 @@ public class PeditoAttackGoal extends Goal {
         double wantedX = targetX;
         double wantedY = targetY;
         double wantedZ = targetZ;
+
+        net.minecraft.world.entity.player.Player owner = this.pedito.getOwnerCustom();
+        double baseAngle = 0;
+        if (owner != null) {
+            baseAngle = Math.atan2(owner.getZ() - target.getZ(), owner.getX() - target.getX());
+        }
         
         if (myRole == PeditoEntity.SquadRole.SOLO || myRole == PeditoEntity.SquadRole.VANGUARD) {
-            double radius = 2.5;
-            double angle = (Math.PI * 2 * roleIndex) / roleTotal + time * this.orbitDirection * 1.5;
+            // For Vanguard, roleIndex 0 (Alpha if present) is at angle 0 (relative to baseAngle, between target and owner)
+            double radius = 2.5 + (roleIndex / (double)roleTotal) * 1.5; // Spread out radius slightly so inner/outer edges exist
+            double spread = Math.PI; // Semicircle
+            double fraction = roleTotal == 1 ? 0.5 : (double)roleIndex / (roleTotal - 1);
+            // Alpha (index 0) gets fraction 0. We want alpha at exactly baseAngle.
+            // Let's do alternating angles around the baseAngle
+            double angleOffset = (roleIndex % 2 == 0 ? 1 : -1) * ((roleIndex + 1) / 2) * (Math.PI * 2 / roleTotal);
+            if (this.pedito.getVariant() == PeditoEntity.VARIANT_ALPHA) {
+                angleOffset = 0; // Alpha directly in front
+            }
+            double angle = baseAngle + angleOffset + time * this.orbitDirection * 0.5;
+            
             wantedX = targetX + Math.cos(angle) * radius;
             wantedZ = targetZ + Math.sin(angle) * radius;
             wantedY = targetY + 1.0 + Math.sin(time * 2.0 + myIndex) * 0.5; 
         } else if (myRole == PeditoEntity.SquadRole.TACTICAL) {
-            double radius = 6.0;
-            double angle = (Math.PI * 2 * roleIndex) / roleTotal - time * this.orbitDirection * 0.5;
+            double radius = 6.0 + (roleIndex / (double)roleTotal) * 2.0;
+            double angleOffset = (roleIndex % 2 == 0 ? 1 : -1) * ((roleIndex + 1) / 2) * (Math.PI * 2 / roleTotal);
+            if (this.pedito.getVariant() == PeditoEntity.VARIANT_GOLDEN) {
+                angleOffset = Math.PI; // Golden at the back of the tactical ring (closest to center of mass of the horde, away from target)
+            }
+            double angle = baseAngle + angleOffset - time * this.orbitDirection * 0.5;
             wantedX = targetX + Math.cos(angle) * radius;
             wantedZ = targetZ + Math.sin(angle) * radius;
             wantedY = targetY + 3.0 + Math.sin(time * 2.0 + myIndex) * 1.0; 
         } else if (myRole == PeditoEntity.SquadRole.ARTILLERY) {
-            double radius = 14.0;
-            double angle = (Math.PI * 2 * roleIndex) / roleTotal + time * this.orbitDirection * 0.2;
+            double radius = 14.0 + (roleIndex / (double)roleTotal) * 3.0;
+            double angle = baseAngle + (Math.PI * 2 * roleIndex) / roleTotal + time * this.orbitDirection * 0.2;
             wantedX = targetX + Math.cos(angle) * radius;
             wantedZ = targetZ + Math.sin(angle) * radius;
             wantedY = targetY + 6.0 + Math.sin(time + myIndex) * 2.0; 
         } else if (myRole == PeditoEntity.SquadRole.ROYAL_GUARD) {
-            net.minecraft.world.entity.player.Player owner = this.pedito.getOwnerCustom();
             if (owner != null) {
                 double radius = 2.0;
-                double angle = (Math.PI * 2 * roleIndex) / roleTotal + time * 2.0;
+                double angle = baseAngle + (Math.PI * 2 * roleIndex) / roleTotal + time * 2.0;
                 wantedX = owner.getX() + Math.cos(angle) * radius;
                 wantedZ = owner.getZ() + Math.sin(angle) * radius;
                 wantedY = owner.getY() + 1.0;
             }
         }
+
         
         double currentDistSq = this.pedito.distanceToSqr(wantedX, wantedY, wantedZ);
         if (currentDistSq > 1.0D) {

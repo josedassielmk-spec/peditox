@@ -22,6 +22,11 @@ public class PeditoFollowAlphaTargetGoal extends TargetGoal {
         if (!this.pedito.isTamedByOwner() || this.pedito.getVariant() == PeditoEntity.VARIANT_ALPHA || this.pedito.getVariant() == PeditoEntity.VARIANT_GOLDEN) {
             return false;
         }
+        
+        PeditoEntity.SquadRole role = this.pedito.getSquadRole();
+        if (role == PeditoEntity.SquadRole.ROYAL_GUARD) {
+            return false; // Guardia Real doesn't focus fire, they defend the owner directly
+        }
 
         Player owner = this.pedito.getOwnerCustom();
         if (owner == null) {
@@ -32,7 +37,7 @@ public class PeditoFollowAlphaTargetGoal extends TargetGoal {
         List<PeditoEntity> allies = this.pedito.level().getEntitiesOfClass(
             PeditoEntity.class,
             this.pedito.getBoundingBox().inflate(32.0D),
-            e -> e.isAlive() && e.isTamedByOwner() && e.getOwnerCustom() == owner && (e.getVariant() == PeditoEntity.VARIANT_ALPHA || e.getVariant() == PeditoEntity.VARIANT_GOLDEN)
+            e -> e.isAlive() && e.isTamedByOwner() && e.getOwnerCustom() == owner && e.getVariant() == PeditoEntity.VARIANT_ALPHA
         );
 
         if (!allies.isEmpty()) {
@@ -43,7 +48,6 @@ public class PeditoFollowAlphaTargetGoal extends TargetGoal {
                 return true;
             }
         }
-
         return false;
     }
 

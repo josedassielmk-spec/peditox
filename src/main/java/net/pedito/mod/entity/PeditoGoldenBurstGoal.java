@@ -1,5 +1,4 @@
 package net.pedito.mod.entity;
-
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.server.level.ServerLevel;
@@ -15,12 +14,12 @@ public class PeditoGoldenBurstGoal extends Goal {
     private final PeditoEntity pedito;
     private int cooldown = 0;
     private int castTime = 0;
-
+    
     public PeditoGoldenBurstGoal(PeditoEntity pedito) {
         this.pedito = pedito;
         this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
     }
-
+    
     @Override
     public boolean canUse() {
         if (this.pedito.getVariant() != PeditoEntity.VARIANT_GOLDEN) return false;
@@ -30,14 +29,37 @@ public class PeditoGoldenBurstGoal extends Goal {
             this.cooldown--;
             return false;
         }
-
-        LivingEntity target = this.pedito.getTarget();
-        if (target != null && target.isAlive() && this.pedito.distanceToSqr(target) < 100.0D) {
+        
+        AABB area = this.pedito.getBoundingBox().inflate(6.0D);
+        
+        // Vida promedio del escuadrón Táctico + Vanguardia < 50%
+        List<PeditoEntity> allies = this.pedito.level().getEntitiesOfClass(PeditoEntity.class, this.pedito.getBoundingBox().inflate(20.0D));
+        int validAllies = 0;
+        float totalHealthPct = 0;
+        
+        for (PeditoEntity ally : allies) {
+            if (ally.isAlive() && (ally.isTamedByOwner() == this.pedito.isTamedByOwner() && (!ally.isTamedByOwner() || ally.getOwnerCustom() == this.pedito.getOwnerCustom()))) {
+                PeditoEntity.SquadRole role = ally.getSquadRole();
+                if (role == PeditoEntity.SquadRole.VANGUARD || role == PeditoEntity.SquadRole.TACTICAL || role == PeditoEntity.SquadRole.SOLO) {
+                    validAllies++;
+                    totalHealthPct += (ally.getHealth() / ally.getMaxHealth());
+                }
+            }
+        }
+        
+        if (validAllies > 0 && (totalHealthPct / validAllies) < 0.5f) {
             return true;
         }
+        
+        // o 3+ enemigos agrupados en su radio
+        List<LivingEntity> enemies = this.pedito.level().getEntitiesOfClass(LivingEntity.class, area, e -> e != this.pedito && e.isAlive() && this.pedito.wantsToAttack(e, this.pedito.getOwnerCustom()));
+        if (enemies.size() >= 3) {
+            return true;
+        }
+
         return false;
     }
-
+    
     @Override
     public void start() {
         this.castTime = 40; // 2 seconds cast
@@ -45,7 +67,7 @@ public class PeditoGoldenBurstGoal extends Goal {
         this.pedito.setSpinningTicks(40);
         this.pedito.getNavigation().stop();
     }
-
+    
     @Override
     public void tick() {
         if (this.castTime > 0) {
@@ -71,7 +93,7 @@ public class PeditoGoldenBurstGoal extends Goal {
         if (!(this.pedito.level() instanceof ServerLevel serverLevel)) return;
         
         serverLevel.sendParticles(ParticleTypes.TOTEM_OF_UNDYING, this.pedito.getX(), this.pedito.getY() + 0.5, this.pedito.getZ(), 200, 3.0, 1.0, 3.0, 0.5);
-        this.pedito.playSound(SoundEvents.GENERIC_EXPLODE.value(), 1.0F, 1.5F); // Wait, GENERIC_EXPLODE is deprecated or use different? Let's use ENTITY_GENERIC_EXPLODE
+        this.pedito.playSound(SoundEvents.GENERIC_EXPLODE.value(), 1.0F, 1.5F);
         
         AABB area = this.pedito.getBoundingBox().inflate(6.0D);
         
@@ -97,7 +119,7 @@ public class PeditoGoldenBurstGoal extends Goal {
             }
         }
     }
-
+    
     @Override
     public boolean canContinueToUse() {
         return this.castTime > 0;

@@ -487,41 +487,44 @@ public class PeditoEntity extends Animal {
         return this.level().getEntitiesOfClass(PeditoEntity.class, this.getBoundingBox().inflate(16.0D)).size();
     }
 
-    @Override
+	@Override
 	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		this.goalSelector.addGoal(1, new CustomSitGoal(this));
 		
-		this.goalSelector.addGoal(2, new ColorFusionAttackGoal(this));
-		this.goalSelector.addGoal(2, new PixelLazerAttackGoal(this));
-		this.goalSelector.addGoal(2, new RainbowDashAttackGoal(this));
-		this.goalSelector.addGoal(2, new PeditoSonicBoomGoal(this));
-		this.goalSelector.addGoal(2, new CubicVortexAttackGoal(this));
-		this.goalSelector.addGoal(2, new PeditoGolemSummonGoal(this));
+		// Ultimates in strict priority order (v2)
 		this.goalSelector.addGoal(2, new BiogasProtectionAuraGoal(this));
-		this.goalSelector.addGoal(2, new PeditoAirstrikeGoal(this));
-		this.goalSelector.addGoal(2, new GigaPeditoHologramBeamGoal(this));
-		this.goalSelector.addGoal(2, new CosmicGasCataclysmGoal(this));
-		this.goalSelector.addGoal(2, new PeditoAlphaConcentrationGoal(this));
-		this.goalSelector.addGoal(2, new PeditoGoldenBurstGoal(this));
-		
-		this.goalSelector.addGoal(3, new PeditoAttackGoal(this));
-		
-		this.goalSelector.addGoal(4, new PeditoHoverOwnerGoal(this));
-		
-		this.goalSelector.addGoal(5, new PeditoDanceGoal(this));
-		this.goalSelector.addGoal(6, new PeditoPlayWithPeersGoal(this));
-		this.goalSelector.addGoal(7, new PeditoWanderNearOwnerGoal(this));
-		this.goalSelector.addGoal(8, new PeditoFormationGoal(this));
+		this.goalSelector.addGoal(3, new PeditoGoldenBurstGoal(this));
+		this.goalSelector.addGoal(4, new GigaPeditoHologramBeamGoal(this));
+		this.goalSelector.addGoal(5, new CosmicGasCataclysmGoal(this));
 
-		this.goalSelector.addGoal(9, new ApproachTargetGoal(this, 1.8D, 2.0D));
-		this.goalSelector.addGoal(10, new RandomFlyWanderGoal(this));
-		this.goalSelector.addGoal(11, new LookAtPlayerGoal(this, Player.class, 8.0F));
-		this.goalSelector.addGoal(12, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(13, new PanicGoal(this, 1.3D));
-		this.goalSelector.addGoal(14, new BreedGoal(this, 1.0D));
-		this.goalSelector.addGoal(14, new WildAlphaBreedingGoal(this));
-		this.goalSelector.addGoal(15, new TemptGoal(this, 1.0D, Ingredient.of(Items.EGG), false));
+		// Standard abilities
+		this.goalSelector.addGoal(6, new ColorFusionAttackGoal(this));
+		this.goalSelector.addGoal(6, new PixelLazerAttackGoal(this));
+		this.goalSelector.addGoal(6, new RainbowDashAttackGoal(this));
+		this.goalSelector.addGoal(6, new PeditoSonicBoomGoal(this));
+		this.goalSelector.addGoal(6, new CubicVortexAttackGoal(this));
+		this.goalSelector.addGoal(6, new PeditoGolemSummonGoal(this));
+		this.goalSelector.addGoal(6, new PeditoAirstrikeGoal(this));
+		this.goalSelector.addGoal(6, new PeditoAlphaConcentrationGoal(this));
+		
+		this.goalSelector.addGoal(7, new PeditoAttackGoal(this));
+		
+		this.goalSelector.addGoal(8, new PeditoHoverOwnerGoal(this));
+		
+		this.goalSelector.addGoal(9, new PeditoDanceGoal(this));
+		this.goalSelector.addGoal(10, new PeditoPlayWithPeersGoal(this));
+		this.goalSelector.addGoal(11, new PeditoWanderNearOwnerGoal(this));
+		this.goalSelector.addGoal(12, new PeditoFormationGoal(this));
+
+		this.goalSelector.addGoal(13, new ApproachTargetGoal(this, 1.8D, 2.0D));
+		this.goalSelector.addGoal(14, new RandomFlyWanderGoal(this));
+		this.goalSelector.addGoal(15, new LookAtPlayerGoal(this, Player.class, 8.0F));
+		this.goalSelector.addGoal(16, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(17, new PanicGoal(this, 1.3D));
+		this.goalSelector.addGoal(18, new BreedGoal(this, 1.0D));
+		this.goalSelector.addGoal(18, new WildAlphaBreedingGoal(this));
+		this.goalSelector.addGoal(19, new TemptGoal(this, 1.0D, Ingredient.of(Items.EGG), false));
 
 		this.targetSelector.addGoal(0, new PeditoAlphaDefendVulnerableGoal(this));
 		this.targetSelector.addGoal(1, new PeditoFollowAlphaTargetGoal(this));
@@ -1448,33 +1451,56 @@ public class PeditoEntity extends Animal {
 			
 		int total = allies.size();
 		if (total <= 3) {
-			this.currentRole = SquadRole.SOLO;
+			int v = this.getVariant();
+			if (v == VARIANT_ALPHA) this.currentRole = SquadRole.VANGUARD;
+			else if (v == VARIANT_GOLDEN) this.currentRole = SquadRole.TACTICAL;
+			else this.currentRole = SquadRole.SOLO;
 			return;
 		}
 		
-		allies.sort((p1, p2) -> {
+		PeditoEntity alpha = null;
+		PeditoEntity golden = null;
+		java.util.List<PeditoEntity> pool = new java.util.ArrayList<>();
+		for (PeditoEntity ally : allies) {
+			if (ally.getVariant() == VARIANT_ALPHA && alpha == null) {
+				alpha = ally;
+			} else if (ally.getVariant() == VARIANT_GOLDEN && golden == null) {
+				golden = ally;
+			} else {
+				pool.add(ally);
+			}
+		}
+
+		pool.sort((p1, p2) -> {
             int score1 = p1.getTier() * 1000 + (int)(p1.getHealth() * 10);
             int score2 = p2.getTier() * 1000 + (int)(p2.getHealth() * 10);
             if (score1 != score2) return Integer.compare(score2, score1);
             return Integer.compare(p1.getId(), p2.getId());
         });
         
-		int index = allies.indexOf(this);
-		if (index == -1) return;
-		
+		int poolTotal = pool.size();
 		boolean needGuard = owner.getHealth() < owner.getMaxHealth() * 0.4f;
-		int guardCount = needGuard ? (int)(total * 0.2) : 0;
-		int vanguardCount = (int)(total * 0.35);
-		int tacticalCount = (int)(total * 0.35);
+		int guardCount = needGuard ? (int)(poolTotal * 0.2) : 0;
+		int vanguardCount = (int)(poolTotal * 0.35);
+		int tacticalCount = (int)(poolTotal * 0.35);
 		
-		if (index < vanguardCount) {
+		if (this == alpha) {
 			this.currentRole = SquadRole.VANGUARD;
-		} else if (index < vanguardCount + tacticalCount) {
+		} else if (this == golden) {
 			this.currentRole = SquadRole.TACTICAL;
-		} else if (index < total - guardCount) {
-			this.currentRole = SquadRole.ARTILLERY;
 		} else {
-			this.currentRole = SquadRole.ROYAL_GUARD;
+			int index = pool.indexOf(this);
+			if (index == -1) return;
+			
+			if (index < vanguardCount) {
+				this.currentRole = SquadRole.VANGUARD;
+			} else if (index < vanguardCount + tacticalCount) {
+				this.currentRole = SquadRole.TACTICAL;
+			} else if (index < poolTotal - guardCount) {
+				this.currentRole = SquadRole.ARTILLERY;
+			} else {
+				this.currentRole = SquadRole.ROYAL_GUARD;
+			}
 		}
 	}
 
