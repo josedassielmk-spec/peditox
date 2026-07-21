@@ -1,0 +1,1154 @@
+Initialized native services in: /opt/gradle/.gradle/native
+Initialized jansi services in: /opt/gradle/.gradle/native
+The client will now receive all logging from the daemon (pid: 1340). The daemon log file: /opt/gradle/.gradle/daemon/9.5.1/daemon-1340.out.log
+Starting 5th build in daemon [uptime: 1 mins 17.58 secs, performance: 99%, GC rate: 0.00/s, heap usage: 0% of 2 GiB]
+Using 4 worker leases.
+Operational build model parameters: {cachingModelBuilding=false, configurationCache=false, configurationCacheDisabledReason=null, configurationCacheParallelLoad=false, configurationCacheParallelStore=false, configureOnDemand=false, invalidateCoupledProjects=false, isolatedProjects=false, modelAsProjectDependency=false, modelBuilding=false, parallelModelBuilding=false, parallelProjectConfiguration=false, parallelProjectExecution=true, resilientModelBuilding=false}
+Watching the file system is configured to be enabled if available
+Unable to list file systems to check whether they can be watched. Disabling watching. Reason: Could not query file systems: could not open mount file (errno 2: No such file or directory)
+File system watching is inactive
+Starting Build
+Resolved plugin [id: 'org.gradle.toolchains.foojay-resolver-convention', version: '0.8.0']
+Settings evaluated using settings file '/app/applet/pedito-mod-main/settings.gradle'.
+Projects loaded. Root project using build file '/app/applet/pedito-mod-main/build.gradle'.
+Included projects: [root project 'pedito']
+Found installer in mod fabricloader version 0.19.3
+
+> Configure project :
+Evaluating root project 'pedito' using build file '/app/applet/pedito-mod-main/build.gradle'.
+Resolved plugin [id: 'net.fabricmc.fabric-loom', version: '1.17.12']
+Resolved plugin [id: 'maven-publish']
+Fabric Loom: 1.17.12
+(kotlin.metadata.jvm.KotlinClassMetadata) with version (2.3.20-release-208) was loaded from (/opt/gradle/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-metadata-jvm/2.3.20/4b6dc7915d060ec8c619f4be820e85fa69d738d1/kotlin-metadata-jvm-2.3.20.jar)
+(org.objectweb.asm.ClassVisitor) with version (9.10.1) was loaded from (/opt/gradle/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.10.1/ada2141c0cc52ee8f5c48cd5fa4ce0e794f22236/asm-9.10.1.jar)
+(org.objectweb.asm.tree.analysis.Analyzer) with version (9.10.1) was loaded from (/opt/gradle/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.10.1/8d49f14d51f632cb1d87c88d1ceaf50db0d8af1b/asm-analysis-9.10.1.jar)
+(org.objectweb.asm.commons.ClassRemapper) with version (9.10.1) was loaded from (/opt/gradle/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.10.1/4229e4c55fd8e01c23f9fe9884075cc628aacc50/asm-commons-9.10.1.jar)
+(org.objectweb.asm.tree.ClassNode) with version (9.10.1) was loaded from (/opt/gradle/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.10.1/e244332a17564c1d1572449399a842de35881be2/asm-tree-9.10.1.jar)
+(org.objectweb.asm.util.ASMifier) with version (9.10.1) was loaded from (/opt/gradle/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.10.1/7bb9d450e8d4cbf9f9e04096c44bbfe7fba80b15/asm-util-9.10.1.jar)
+(com.google.gson.Gson) with version (null) was loaded from (/opt/gradle/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar)
+Using cached Minecraft jars
+:Extracting server jar from bootstrap
+Applying installer data from configuration 'mainCompileDependencyResolve'
+All projects evaluated.
+Task name matched 'build'
+Selected primary task 'build' from project :
+Tasks to be executed: [task ':compileJava', task ':processResources', task ':classes', task ':compileClientJava', task ':processClientResources', task ':processIncludeJars', task ':jar', task ':sourcesJar', task ':assemble', task ':clientClasses', task ':compileTestJava', task ':processTestResources', task ':testClasses', task ':test', task ':validateAccessWidener', task ':check', task ':build']
+Tasks that were excluded: []
+Resolve mutations for :compileJava (Thread[#2517,Execution worker,5,main]) started.
+:compileJava (Thread[#2517,Execution worker,5,main]) started.
+
+> Task :compileJava FAILED
+Caching disabled for task ':compileJava' because:
+  Build cache is disabled
+Task ':compileJava' is not up-to-date because:
+  Task has failed previously.
+The input changes require a full rebuild for incremental task ':compileJava'.
+Compilation mode: in-process compilation
+Full recompilation is required because no incremental change information is available. This is usually caused by clean builds or changing compiler arguments.
+Compiling with toolchain '/usr/lib/jvm/temurin-21-jdk-amd64'.
+Compiling with JDK Java compiler API.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:3: error: cannot access Registry
+import net.minecraft.core.Registry;
+                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/Registry.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:4: error: cannot access BuiltInRegistries
+import net.minecraft.core.registries.BuiltInRegistries;
+                                    ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/registries/BuiltInRegistries.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:5: error: cannot access Identifier
+import net.minecraft.resources.Identifier;
+                              ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/resources/Identifier.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:6: error: cannot access SoundEvent
+import net.minecraft.sounds.SoundEvent;
+                           ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/sounds/SoundEvent.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:11: error: cannot find symbol
+	public static SoundEvent PEDITO_FART;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:12: error: cannot find symbol
+	public static SoundEvent PEDITO_FART_SPAWN;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:13: error: cannot find symbol
+	public static SoundEvent PEDITO_VOICE_PEDI;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:14: error: cannot find symbol
+	public static SoundEvent PEDITO_VOICE_PEDITO;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:15: error: cannot find symbol
+	public static SoundEvent PEDITO_VOICE_PUPU;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:16: error: cannot find symbol
+	public static SoundEvent PEDITO_VOICE_PUPULLITO;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:17: error: cannot find symbol
+	public static SoundEvent PEDITO_VOICE_SWAN;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:18: error: cannot find symbol
+	public static SoundEvent PEDITO_VOICE_ATTACK;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:21: error: cannot find symbol
+	public static SoundEvent PEDITO_DASH;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:22: error: cannot find symbol
+	public static SoundEvent PEDITO_EXPLOSION;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:23: error: cannot find symbol
+	public static SoundEvent PEDITO_LASER;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:24: error: cannot find symbol
+	public static SoundEvent PEDITO_SONIC_BOOM;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:25: error: cannot find symbol
+	public static SoundEvent PEDITO_SUMMON;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:26: error: cannot find symbol
+	public static SoundEvent PEDITO_VORTEX;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:28: error: cannot find symbol
+	public static SoundEvent PEDITO_STAFF;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:29: error: cannot find symbol
+	public static SoundEvent PEDITO_SPRAY;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:30: error: cannot find symbol
+	public static SoundEvent PEDITO_WHISTLE;
+	              ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:54: error: cannot find symbol
+	private static SoundEvent registerSoundEvent(String name) {
+	               ^
+  symbol:   class SoundEvent
+  location: class ModSounds
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:3: error: cannot access CreativeModeTabEvents
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+                                             ^
+  bad class file: /opt/gradle/.gradle/caches/modules-2/files-2.1/net.fabricmc.fabric-api/fabric-creative-tab-api-v1/5.0.14+d871b99e9e/6730a71041da25b25aed75b88eb4cb1eb971f4f0/fabric-creative-tab-api-v1-5.0.14+d871b99e9e.jar(/net/fabricmc/fabric/api/creativetab/v1/CreativeModeTabEvents.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:6: error: cannot access Registries
+import net.minecraft.core.registries.Registries;
+                                    ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/registries/Registries.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:8: error: cannot access ResourceKey
+import net.minecraft.resources.ResourceKey;
+                              ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/resources/ResourceKey.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:9: error: cannot access CreativeModeTabs
+import net.minecraft.world.item.CreativeModeTabs;
+                               ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/item/CreativeModeTabs.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:10: error: cannot access Item
+import net.minecraft.world.item.Item;
+                               ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/item/Item.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:20: error: cannot find symbol
+	public static Item GAS_CAN;
+	              ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:21: error: cannot find symbol
+	public static Item GAS_CAN_COPPER;
+	              ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:22: error: cannot find symbol
+	public static Item GAS_CAN_IRON;
+	              ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:23: error: cannot find symbol
+	public static Item GAS_CAN_GOLD;
+	              ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:24: error: cannot find symbol
+	public static Item GAS_CAN_DIAMOND;
+	              ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:25: error: cannot find symbol
+	public static Item GAS_CAN_NETHERITE;
+	              ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:27: error: cannot find symbol
+	public static Item PEDITO_BOTTLE;
+	              ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:28: error: cannot find symbol
+	public static Item PEDITO_BOTTLE_RAINBOW;
+	              ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:29: error: cannot find symbol
+	public static Item PEDITO_STAFF;
+	              ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:30: error: cannot find symbol
+	public static Item PEDITO_WHISTLE;
+	              ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:65: error: cannot find symbol
+	private static <T extends Item> T registerItem(String name, Function<Item.Properties, T> itemFactory,
+	                          ^
+  symbol:   class Item
+  location: class ModItems
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:65: error: package Item does not exist
+	private static <T extends Item> T registerItem(String name, Function<Item.Properties, T> itemFactory,
+	                                                                         ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:66: error: package Item does not exist
+			Item.Properties properties) {
+			    ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:3: error: cannot access DustParticleOptions
+import net.minecraft.core.particles.DustParticleOptions;
+                                   ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/particles/DustParticleOptions.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:4: error: cannot access ParticleTypes
+import net.minecraft.core.particles.ParticleTypes;
+                                   ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/particles/ParticleTypes.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:5: error: cannot access ServerLevel
+import net.minecraft.server.level.ServerLevel;
+                                 ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/server/level/ServerLevel.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:6: error: cannot access MobEffectInstance
+import net.minecraft.world.effect.MobEffectInstance;
+                                 ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/effect/MobEffectInstance.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:7: error: cannot access MobEffects
+import net.minecraft.world.effect.MobEffects;
+                                 ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/effect/MobEffects.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:8: error: cannot access LivingEntity
+import net.minecraft.world.entity.LivingEntity;
+                                 ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/LivingEntity.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:9: error: cannot access Goal
+import net.minecraft.world.entity.ai.goal.Goal;
+                                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/Goal.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:10: error: cannot access Player
+import net.minecraft.world.entity.player.Player;
+                                        ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/player/Player.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:11: error: cannot access AABB
+import net.minecraft.world.phys.AABB;
+                               ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/phys/AABB.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:22: error: cannot find symbol
+public class BiogasProtectionAuraGoal extends Goal {
+                                              ^
+  symbol: class Goal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:5: error: cannot access EntityDataAccessor
+import net.minecraft.network.syncher.EntityDataAccessor;
+                                    ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/network/syncher/EntityDataAccessor.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:6: error: cannot access EntityDataSerializers
+import net.minecraft.network.syncher.EntityDataSerializers;
+                                    ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/network/syncher/EntityDataSerializers.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:7: error: cannot access SynchedEntityData
+import net.minecraft.network.syncher.SynchedEntityData;
+                                    ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/network/syncher/SynchedEntityData.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:9: error: cannot access SoundSource
+import net.minecraft.sounds.SoundSource;
+                           ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/sounds/SoundSource.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:10: error: cannot access UUIDUtil
+import net.minecraft.core.UUIDUtil;
+                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/UUIDUtil.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:11: error: cannot access RandomSource
+import net.minecraft.util.RandomSource;
+                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/util/RandomSource.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:12: error: cannot access DifficultyInstance
+import net.minecraft.world.DifficultyInstance;
+                          ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/DifficultyInstance.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:13: error: cannot access InteractionHand
+import net.minecraft.world.InteractionHand;
+                          ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/InteractionHand.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:14: error: cannot access InteractionResult
+import net.minecraft.world.InteractionResult;
+                          ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/InteractionResult.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:15: error: cannot access DamageSource
+import net.minecraft.world.damagesource.DamageSource;
+                                       ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/damagesource/DamageSource.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:16: error: cannot access AgeableMob
+import net.minecraft.world.entity.AgeableMob;
+                                 ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/AgeableMob.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:17: error: cannot access Entity
+import net.minecraft.world.entity.Entity;
+                                 ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/Entity.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:18: error: cannot access EntityType
+import net.minecraft.world.entity.EntityType;
+                                 ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/EntityType.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:20: error: cannot access EntitySpawnReason
+import net.minecraft.world.entity.EntitySpawnReason;
+                                 ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/EntitySpawnReason.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:21: error: cannot access SpawnGroupData
+import net.minecraft.world.entity.SpawnGroupData;
+                                 ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/SpawnGroupData.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:22: error: cannot access AttributeSupplier
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+                                               ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/attributes/AttributeSupplier.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:23: error: cannot access Attributes
+import net.minecraft.world.entity.ai.attributes.Attributes;
+                                               ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/attributes/Attributes.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:24: error: cannot access FlyingMoveControl
+import net.minecraft.world.entity.ai.control.FlyingMoveControl;
+                                            ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/control/FlyingMoveControl.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:25: error: cannot access BreedGoal
+import net.minecraft.world.entity.ai.goal.BreedGoal;
+                                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/BreedGoal.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:26: error: cannot access FloatGoal
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+                                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/FloatGoal.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:28: error: cannot access LookAtPlayerGoal
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+                                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/LookAtPlayerGoal.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:29: error: cannot access PanicGoal
+import net.minecraft.world.entity.ai.goal.PanicGoal;
+                                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/PanicGoal.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:30: error: cannot access RandomLookAroundGoal
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+                                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/RandomLookAroundGoal.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:31: error: cannot access TemptGoal
+import net.minecraft.world.entity.ai.goal.TemptGoal;
+                                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/TemptGoal.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:32: error: cannot access HurtByTargetGoal
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+                                                ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/target/HurtByTargetGoal.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:33: error: cannot access FlyingPathNavigation
+import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
+                                               ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/navigation/FlyingPathNavigation.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:34: error: cannot access PathNavigation
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+                                               ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/navigation/PathNavigation.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:35: error: cannot access Animal
+import net.minecraft.world.entity.animal.Animal;
+                                        ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/animal/Animal.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:37: error: cannot access Items
+import net.minecraft.world.item.Items;
+                               ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/item/Items.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:38: error: cannot access ItemStack
+import net.minecraft.world.item.ItemStack;
+                               ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/item/ItemStack.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:39: error: cannot access Ingredient
+import net.minecraft.world.item.crafting.Ingredient;
+                                        ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/item/crafting/Ingredient.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:40: error: cannot access Level
+import net.minecraft.world.level.Level;
+                                ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/level/Level.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:41: error: cannot access ServerLevelAccessor
+import net.minecraft.world.level.ServerLevelAccessor;
+                                ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/level/ServerLevelAccessor.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:42: error: cannot access ValueInput
+import net.minecraft.world.level.storage.ValueInput;
+                                        ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/level/storage/ValueInput.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:43: error: cannot access ValueOutput
+import net.minecraft.world.level.storage.ValueOutput;
+                                        ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/level/storage/ValueOutput.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:49: error: cannot access Enemy
+import net.minecraft.world.entity.monster.Enemy;
+                                         ^
+  bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/monster/Enemy.class)
+    class file has wrong version 69.0, should be 65.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:75: error: cannot find symbol
+public class PeditoEntity extends Animal {
+                                  ^
+  symbol: class Animal
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:87: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> VARIANT =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:89: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> SURPRISE_TICKS =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:91: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> TALKING_TICKS =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:93: error: cannot find symbol
+	private static final EntityDataAccessor<Boolean> TAMED =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:95: error: cannot find symbol
+	private static final EntityDataAccessor<Boolean> SITTING =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:97: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> TIER =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:99: error: cannot find symbol
+	private static final EntityDataAccessor<Boolean> IS_SPINNING =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:101: error: cannot find symbol
+	private static final EntityDataAccessor<Integer> SPINNING_TICKS =
+	                     ^
+  symbol:   class EntityDataAccessor
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:133: error: cannot find symbol
+	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
+	                    ^
+  symbol:   class EntityType
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:133: error: cannot find symbol
+	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
+	                                                                   ^
+  symbol:   class Level
+  location: class PeditoEntity
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:140: error: package AttributeSupplier does not exist
+	public static AttributeSupplier.Builder createPeditoAttributes() {
+	                               ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:152: error: package SynchedEntityData does not exist
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+	                                                  ^
+/app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:165: error: cannot find symbol
+	protected void addAdditionalSaveData(ValueOutput output) {
+	                                     ^
+  symbol:   class ValueOutput
+  location: class PeditoEntity
+100 errors
+
+[Incubating] Problems report is available at: file:///app/applet/pedito-mod-main/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin').
+> Compilation failed; see the compiler output below.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:3: error: cannot access Registry
+  import net.minecraft.core.Registry;
+                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/Registry.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:4: error: cannot access BuiltInRegistries
+  import net.minecraft.core.registries.BuiltInRegistries;
+                                      ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/registries/BuiltInRegistries.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:5: error: cannot access Identifier
+  import net.minecraft.resources.Identifier;
+                                ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/resources/Identifier.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:6: error: cannot access SoundEvent
+  import net.minecraft.sounds.SoundEvent;
+                             ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/sounds/SoundEvent.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:3: error: cannot access CreativeModeTabEvents
+  import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+                                               ^
+    bad class file: /opt/gradle/.gradle/caches/modules-2/files-2.1/net.fabricmc.fabric-api/fabric-creative-tab-api-v1/5.0.14+d871b99e9e/6730a71041da25b25aed75b88eb4cb1eb971f4f0/fabric-creative-tab-api-v1-5.0.14+d871b99e9e.jar(/net/fabricmc/fabric/api/creativetab/v1/CreativeModeTabEvents.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:6: error: cannot access Registries
+  import net.minecraft.core.registries.Registries;
+                                      ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/registries/Registries.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:8: error: cannot access ResourceKey
+  import net.minecraft.resources.ResourceKey;
+                                ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/resources/ResourceKey.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:9: error: cannot access CreativeModeTabs
+  import net.minecraft.world.item.CreativeModeTabs;
+                                 ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/item/CreativeModeTabs.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:10: error: cannot access Item
+  import net.minecraft.world.item.Item;
+                                 ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/item/Item.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:3: error: cannot access DustParticleOptions
+  import net.minecraft.core.particles.DustParticleOptions;
+                                     ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/particles/DustParticleOptions.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:4: error: cannot access ParticleTypes
+  import net.minecraft.core.particles.ParticleTypes;
+                                     ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/particles/ParticleTypes.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:5: error: cannot access ServerLevel
+  import net.minecraft.server.level.ServerLevel;
+                                   ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/server/level/ServerLevel.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:6: error: cannot access MobEffectInstance
+  import net.minecraft.world.effect.MobEffectInstance;
+                                   ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/effect/MobEffectInstance.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:7: error: cannot access MobEffects
+  import net.minecraft.world.effect.MobEffects;
+                                   ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/effect/MobEffects.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:8: error: cannot access LivingEntity
+  import net.minecraft.world.entity.LivingEntity;
+                                   ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/LivingEntity.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:9: error: cannot access Goal
+  import net.minecraft.world.entity.ai.goal.Goal;
+                                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/Goal.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:10: error: cannot access Player
+  import net.minecraft.world.entity.player.Player;
+                                          ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/player/Player.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:11: error: cannot access AABB
+  import net.minecraft.world.phys.AABB;
+                                 ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/phys/AABB.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:5: error: cannot access EntityDataAccessor
+  import net.minecraft.network.syncher.EntityDataAccessor;
+                                      ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/network/syncher/EntityDataAccessor.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:6: error: cannot access EntityDataSerializers
+  import net.minecraft.network.syncher.EntityDataSerializers;
+                                      ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/network/syncher/EntityDataSerializers.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:7: error: cannot access SynchedEntityData
+  import net.minecraft.network.syncher.SynchedEntityData;
+                                      ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/network/syncher/SynchedEntityData.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:9: error: cannot access SoundSource
+  import net.minecraft.sounds.SoundSource;
+                             ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/sounds/SoundSource.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:10: error: cannot access UUIDUtil
+  import net.minecraft.core.UUIDUtil;
+                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/core/UUIDUtil.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:11: error: cannot access RandomSource
+  import net.minecraft.util.RandomSource;
+                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/util/RandomSource.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:12: error: cannot access DifficultyInstance
+  import net.minecraft.world.DifficultyInstance;
+                            ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/DifficultyInstance.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:13: error: cannot access InteractionHand
+  import net.minecraft.world.InteractionHand;
+                            ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/InteractionHand.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:14: error: cannot access InteractionResult
+  import net.minecraft.world.InteractionResult;
+                            ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/InteractionResult.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:15: error: cannot access DamageSource
+  import net.minecraft.world.damagesource.DamageSource;
+                                         ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/damagesource/DamageSource.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:16: error: cannot access AgeableMob
+  import net.minecraft.world.entity.AgeableMob;
+                                   ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/AgeableMob.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:17: error: cannot access Entity
+  import net.minecraft.world.entity.Entity;
+                                   ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/Entity.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:18: error: cannot access EntityType
+  import net.minecraft.world.entity.EntityType;
+                                   ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/EntityType.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:20: error: cannot access EntitySpawnReason
+  import net.minecraft.world.entity.EntitySpawnReason;
+                                   ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/EntitySpawnReason.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:21: error: cannot access SpawnGroupData
+  import net.minecraft.world.entity.SpawnGroupData;
+                                   ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/SpawnGroupData.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:22: error: cannot access AttributeSupplier
+  import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+                                                 ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/attributes/AttributeSupplier.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:23: error: cannot access Attributes
+  import net.minecraft.world.entity.ai.attributes.Attributes;
+                                                 ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/attributes/Attributes.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:24: error: cannot access FlyingMoveControl
+  import net.minecraft.world.entity.ai.control.FlyingMoveControl;
+                                              ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/control/FlyingMoveControl.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:25: error: cannot access BreedGoal
+  import net.minecraft.world.entity.ai.goal.BreedGoal;
+                                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/BreedGoal.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:26: error: cannot access FloatGoal
+  import net.minecraft.world.entity.ai.goal.FloatGoal;
+                                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/FloatGoal.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:28: error: cannot access LookAtPlayerGoal
+  import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+                                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/LookAtPlayerGoal.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:29: error: cannot access PanicGoal
+  import net.minecraft.world.entity.ai.goal.PanicGoal;
+                                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/PanicGoal.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:30: error: cannot access RandomLookAroundGoal
+  import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+                                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/RandomLookAroundGoal.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:31: error: cannot access TemptGoal
+  import net.minecraft.world.entity.ai.goal.TemptGoal;
+                                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/TemptGoal.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:32: error: cannot access HurtByTargetGoal
+  import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+                                                  ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/goal/target/HurtByTargetGoal.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:33: error: cannot access FlyingPathNavigation
+  import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
+                                                 ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/navigation/FlyingPathNavigation.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:34: error: cannot access PathNavigation
+  import net.minecraft.world.entity.ai.navigation.PathNavigation;
+                                                 ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/ai/navigation/PathNavigation.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:35: error: cannot access Animal
+  import net.minecraft.world.entity.animal.Animal;
+                                          ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/animal/Animal.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:37: error: cannot access Items
+  import net.minecraft.world.item.Items;
+                                 ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/item/Items.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:38: error: cannot access ItemStack
+  import net.minecraft.world.item.ItemStack;
+                                 ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/item/ItemStack.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:39: error: cannot access Ingredient
+  import net.minecraft.world.item.crafting.Ingredient;
+                                          ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/item/crafting/Ingredient.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:40: error: cannot access Level
+  import net.minecraft.world.level.Level;
+                                  ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/level/Level.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:41: error: cannot access ServerLevelAccessor
+  import net.minecraft.world.level.ServerLevelAccessor;
+                                  ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/level/ServerLevelAccessor.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:42: error: cannot access ValueInput
+  import net.minecraft.world.level.storage.ValueInput;
+                                          ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/level/storage/ValueInput.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:43: error: cannot access ValueOutput
+  import net.minecraft.world.level.storage.ValueOutput;
+                                          ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/level/storage/ValueOutput.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:49: error: cannot access Enemy
+  import net.minecraft.world.entity.monster.Enemy;
+                                           ^
+    bad class file: /app/applet/pedito-mod-main/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-common-043a8b3edf/26.2/minecraft-common-043a8b3edf-26.2.jar(/net/minecraft/world/entity/monster/Enemy.class)
+      class file has wrong version 69.0, should be 65.0
+      Please remove or make sure it appears in the correct subdirectory of the classpath.
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:11: error: cannot find symbol
+  	public static SoundEvent PEDITO_FART;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:12: error: cannot find symbol
+  	public static SoundEvent PEDITO_FART_SPAWN;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:13: error: cannot find symbol
+  	public static SoundEvent PEDITO_VOICE_PEDI;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:14: error: cannot find symbol
+  	public static SoundEvent PEDITO_VOICE_PEDITO;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:15: error: cannot find symbol
+  	public static SoundEvent PEDITO_VOICE_PUPU;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:16: error: cannot find symbol
+  	public static SoundEvent PEDITO_VOICE_PUPULLITO;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:17: error: cannot find symbol
+  	public static SoundEvent PEDITO_VOICE_SWAN;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:18: error: cannot find symbol
+  	public static SoundEvent PEDITO_VOICE_ATTACK;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:21: error: cannot find symbol
+  	public static SoundEvent PEDITO_DASH;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:22: error: cannot find symbol
+  	public static SoundEvent PEDITO_EXPLOSION;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:23: error: cannot find symbol
+  	public static SoundEvent PEDITO_LASER;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:24: error: cannot find symbol
+  	public static SoundEvent PEDITO_SONIC_BOOM;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:25: error: cannot find symbol
+  	public static SoundEvent PEDITO_SUMMON;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:26: error: cannot find symbol
+  	public static SoundEvent PEDITO_VORTEX;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:28: error: cannot find symbol
+  	public static SoundEvent PEDITO_STAFF;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:29: error: cannot find symbol
+  	public static SoundEvent PEDITO_SPRAY;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:30: error: cannot find symbol
+  	public static SoundEvent PEDITO_WHISTLE;
+  	              ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModSounds.java:54: error: cannot find symbol
+  	private static SoundEvent registerSoundEvent(String name) {
+  	               ^
+    symbol:   class SoundEvent
+    location: class ModSounds
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:20: error: cannot find symbol
+  	public static Item GAS_CAN;
+  	              ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:21: error: cannot find symbol
+  	public static Item GAS_CAN_COPPER;
+  	              ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:22: error: cannot find symbol
+  	public static Item GAS_CAN_IRON;
+  	              ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:23: error: cannot find symbol
+  	public static Item GAS_CAN_GOLD;
+  	              ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:24: error: cannot find symbol
+  	public static Item GAS_CAN_DIAMOND;
+  	              ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:25: error: cannot find symbol
+  	public static Item GAS_CAN_NETHERITE;
+  	              ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:27: error: cannot find symbol
+  	public static Item PEDITO_BOTTLE;
+  	              ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:28: error: cannot find symbol
+  	public static Item PEDITO_BOTTLE_RAINBOW;
+  	              ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:29: error: cannot find symbol
+  	public static Item PEDITO_STAFF;
+  	              ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:30: error: cannot find symbol
+  	public static Item PEDITO_WHISTLE;
+  	              ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:65: error: cannot find symbol
+  	private static <T extends Item> T registerItem(String name, Function<Item.Properties, T> itemFactory,
+  	                          ^
+    symbol:   class Item
+    location: class ModItems
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:87: error: cannot find symbol
+  	private static final EntityDataAccessor<Integer> VARIANT =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:89: error: cannot find symbol
+  	private static final EntityDataAccessor<Integer> SURPRISE_TICKS =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:91: error: cannot find symbol
+  	private static final EntityDataAccessor<Integer> TALKING_TICKS =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:93: error: cannot find symbol
+  	private static final EntityDataAccessor<Boolean> TAMED =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:95: error: cannot find symbol
+  	private static final EntityDataAccessor<Boolean> SITTING =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:97: error: cannot find symbol
+  	private static final EntityDataAccessor<Integer> TIER =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:99: error: cannot find symbol
+  	private static final EntityDataAccessor<Boolean> IS_SPINNING =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:101: error: cannot find symbol
+  	private static final EntityDataAccessor<Integer> SPINNING_TICKS =
+  	                     ^
+    symbol:   class EntityDataAccessor
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:133: error: cannot find symbol
+  	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
+  	                    ^
+    symbol:   class EntityType
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:133: error: cannot find symbol
+  	public PeditoEntity(EntityType<? extends PeditoEntity> entityType, Level world) {
+  	                                                                   ^
+    symbol:   class Level
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:165: error: cannot find symbol
+  	protected void addAdditionalSaveData(ValueOutput output) {
+  	                                     ^
+    symbol:   class ValueOutput
+    location: class PeditoEntity
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/BiogasProtectionAuraGoal.java:22: error: cannot find symbol
+  public class BiogasProtectionAuraGoal extends Goal {
+                                                ^
+    symbol: class Goal
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:75: error: cannot find symbol
+  public class PeditoEntity extends Animal {
+                                    ^
+    symbol: class Animal
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:65: error: package Item does not exist
+  	private static <T extends Item> T registerItem(String name, Function<Item.Properties, T> itemFactory,
+  	                                                                         ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/registry/ModItems.java:66: error: package Item does not exist
+  			Item.Properties properties) {
+  			    ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:140: error: package AttributeSupplier does not exist
+  	public static AttributeSupplier.Builder createPeditoAttributes() {
+  	                               ^
+  /app/applet/pedito-mod-main/src/main/java/net/pedito/mod/entity/PeditoEntity.java:152: error: package SynchedEntityData does not exist
+  	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+  	                                                  ^
+  100 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 2s
+1 actionable task: 1 executed

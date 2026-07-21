@@ -82,6 +82,7 @@ public class PeditoEntity extends Animal {
 	public static final int VARIANT_NIGHT = 1;
 	public static final int VARIANT_RAINBOW = 2;
 	public static final int VARIANT_ALPHA = 3;
+	public static final int VARIANT_GOLDEN = 4;
 
 	private static final EntityDataAccessor<Integer> VARIANT =
 			SynchedEntityData.defineId(PeditoEntity.class, EntityDataSerializers.INT);
@@ -252,7 +253,13 @@ public class PeditoEntity extends Animal {
 		double speed = 0.4D;
 		double flyingSpeed = 0.4D;
 		
-		if (this.getVariant() == VARIANT_ALPHA) {
+		if (this.getVariant() == VARIANT_GOLDEN) {
+			health = 80.0D;
+			armor = 20.0D;
+			attack = 10.0D;
+			speed = 0.6D;
+			flyingSpeed = 0.6D;
+		} else if (this.getVariant() == VARIANT_ALPHA) {
 			health = 50.0D; // High health for leader (25 hearts)
 			armor = 16.0D;  // High leader armor
 			attack = 7.0D;  // High leader attack damage
@@ -496,6 +503,7 @@ public class PeditoEntity extends Animal {
 		this.goalSelector.addGoal(2, new GigaPeditoHologramBeamGoal(this));
 		this.goalSelector.addGoal(2, new CosmicGasCataclysmGoal(this));
 		this.goalSelector.addGoal(2, new PeditoAlphaConcentrationGoal(this));
+		this.goalSelector.addGoal(2, new PeditoGoldenBurstGoal(this));
 		
 		this.goalSelector.addGoal(3, new PeditoAttackGoal(this));
 		
@@ -607,14 +615,14 @@ public class PeditoEntity extends Animal {
 		}
 
 		if (!this.level().isClientSide()) {
-			// Los peditos nocturnos salvajes desaparecen de día
-			if (this.level().isBrightOutside() && !this.isTamedByOwner() && this.getVariant() == VARIANT_NIGHT) {
-				if (this.level() instanceof ServerLevel serverLevel) {
-					serverLevel.sendParticles(ParticleTypes.LARGE_SMOKE, this.getX(), this.getY() + 0.3, this.getZ(),
-							12, 0.2, 0.2, 0.2, 0.02);
+			// Los peditos nocturnos salvajes se queman de día si les da el sol (como los zombies)
+			if (this.isAlive() && !this.isTamedByOwner() && this.getVariant() == VARIANT_NIGHT) {
+				net.minecraft.core.BlockPos pos = net.minecraft.core.BlockPos.containing(this.getX(), this.getEyeY(), this.getZ());
+				if (!this.level().isDarkOutside() && !this.isInWater() && !this.level().isRainingAt(pos)) {
+					if (this.level().canSeeSky(pos)) {
+						this.igniteForSeconds(8);
+					}
 				}
-				this.discard();
-				return;
 			}
 
 			// Actualización de atributos dinámica para el Frenesí Nocturno
@@ -872,9 +880,14 @@ public class PeditoEntity extends Animal {
 	}
 
 	public static boolean canSpawn(EntityType<PeditoEntity> type, ServerLevelAccessor world, EntitySpawnReason spawnReason, net.minecraft.core.BlockPos pos, RandomSource random) {
-		// Se salta el chequeo de iluminación para permitir spawns nocturnos y que sean comunes de noche.
-		// Solo verifica que el bloque inferior sea adecuado para la aparición de animales.
-		return world.getBlockState(pos.below()).is(net.minecraft.tags.BlockTags.ANIMALS_SPAWNABLE_ON);
+		boolean isDark = world.getRawBrightness(pos, 0) <= 8;
+		if (isDark) {
+			// Comportamiento de noche/oscuridad (como zombies): permite spawnear en cualquier bloque solido normal
+			return world.getBlockState(pos.below()).isValidSpawn(world, pos.below(), type);
+		} else {
+			// Comportamiento de día (luz): solo sobre pasto/bloques para animales
+			return world.getBlockState(pos.below()).is(net.minecraft.tags.BlockTags.ANIMALS_SPAWNABLE_ON);
+		}
 	}
 
 	@Nullable
@@ -899,11 +912,18 @@ public class PeditoEntity extends Animal {
 
 			if (groupData.count == 1) {
 				this.setBaby(false);
-				this.setVariant(VARIANT_ALPHA);
+				if (this.random.nextInt(100) == 0) {
+					this.setVariant(VARIANT_GOLDEN);
+				} else {
+					this.setVariant(VARIANT_ALPHA);
+				}
 				this.setTier(0);
 			} else {
 				int roll = this.random.nextInt(100);
-				if (roll < 15) {
+				if (roll < 1) {
+					this.setBaby(false);
+					this.entityData.set(VARIANT, VARIANT_GOLDEN);
+				} else if (roll < 15) {
 					this.setBaby(true);
 					this.entityData.set(VARIANT, VARIANT_NORMAL);
 				} else if (roll < 85) {
@@ -922,7 +942,10 @@ public class PeditoEntity extends Animal {
 		} else {
 			// Spawn egg, command, etc.
 			int roll = this.random.nextInt(100);
-			if (roll < 10) {
+			if (roll < 1) {
+				this.setBaby(false);
+				this.entityData.set(VARIANT, VARIANT_GOLDEN);
+			} else if (roll < 10) {
 				this.setBaby(true);
 				this.entityData.set(VARIANT, VARIANT_NORMAL);
 			} else if (roll < 90) {

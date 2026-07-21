@@ -80,7 +80,7 @@ public class Pedito implements ModInitializer {
 				PeditoEntity::canSpawn
 		);
 
-		// Registrar en los biomas del Overworld con grupos de 3 a 10
+		// Registrar en los biomas del Overworld (Día)
 		BiomeModifications.addSpawn(
 				BiomeSelectors.foundInOverworld(),
 				MobCategory.CREATURE,
@@ -88,6 +88,15 @@ public class Pedito implements ModInitializer {
 				12, // Peso (frecuencia similar a vacas y pollos)
 				3,  // Mínimo de grupo
 				10  // Máximo de grupo
+		);
+		// Registrar en los biomas del Overworld (Noche/Oscuridad)
+		BiomeModifications.addSpawn(
+				BiomeSelectors.foundInOverworld(),
+				MobCategory.MONSTER,
+				PEDITO_ENTITY,
+				40, // Peso alto para competir con zombies (100) y esqueletos (100)
+				1,  // Mínimo de grupo
+				3   // Máximo de grupo
 		);
 
 		ModItems.registerItemGroupContents();

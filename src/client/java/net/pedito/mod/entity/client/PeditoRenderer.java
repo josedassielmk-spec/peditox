@@ -34,6 +34,8 @@ public class PeditoRenderer extends MobRenderer<PeditoEntity, PeditoRenderState,
         float baseScale = 0.5F;
         if (state.variant == PeditoEntity.VARIANT_ALPHA) {
             baseScale = 1.0F; // Alpha is double the size of a normal adult (1.0F vs 0.5F)
+        } else if (state.variant == PeditoEntity.VARIANT_GOLDEN) {
+            baseScale = 0.8F; // Golden is 0.8F
         } else if (state.isBaby) {
             baseScale *= 0.5F; // Baby is half the size of adult (0.25F)
         }
@@ -71,7 +73,7 @@ public class PeditoRenderer extends MobRenderer<PeditoEntity, PeditoRenderState,
     @Override
     public Identifier getTextureLocation(PeditoRenderState state) {
         String baseTex = getBaseTextureName(state);
-        if (state.variant == PeditoEntity.VARIANT_ALPHA) {
+        if (state.variant == PeditoEntity.VARIANT_ALPHA || state.variant == PeditoEntity.VARIANT_GOLDEN) {
             return tex(baseTex);
         }
         if (!state.isBaby && state.tier > 0 && state.tier <= 5) {
@@ -130,6 +132,8 @@ public class PeditoRenderer extends MobRenderer<PeditoEntity, PeditoRenderState,
                 return blinkIndex == 2 ? "face_wild_alpha_night_wink" : blinkIndex == 1 ? "face_wild_alphat_closed" : "face_wild_alpha_night_sad";
             }
             return blinkIndex == 2 ? "face_alpha_wink" : blinkIndex == 1 ? "face_alpha_closed" : "face_alpha_open";
+        } else if (variant == PeditoEntity.VARIANT_GOLDEN) {
+            return blinkIndex == 2 ? "face_adult_gold_wink" : blinkIndex == 1 ? "face_adult_gold_closed" : "face_adult_gold_open";
         } else if (variant == PeditoEntity.VARIANT_NIGHT) {
             if (isBaby) {
                 return blinkIndex == 2 ? "face_baby_night_wink" : blinkIndex == 1 ? "face_baby_night_closed" : "face_baby_night_sad";

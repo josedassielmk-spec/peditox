@@ -11,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.pedito.mod.Pedito;
 import net.pedito.mod.item.PeditoBottleItem;
 import net.pedito.mod.item.PeditoBottleRainbowItem;
+import net.pedito.mod.item.PeditoBottleGoldItem;
 import net.pedito.mod.item.PeditoStaffItem;
 import net.pedito.mod.item.PeditoWhistleItem;
 
@@ -26,6 +27,7 @@ public class ModItems {
 	
 	public static Item PEDITO_BOTTLE;
 	public static Item PEDITO_BOTTLE_RAINBOW;
+	public static Item PEDITO_BOTTLE_GOLD;
 	public static Item PEDITO_STAFF;
 	public static Item PEDITO_WHISTLE;
 
@@ -40,6 +42,8 @@ public class ModItems {
 		PEDITO_BOTTLE = registerItem("pedito_bottle", PeditoBottleItem::new,
 				new Item.Properties().stacksTo(16));
 		PEDITO_BOTTLE_RAINBOW = registerItem("pedito_bottle_rainbow", PeditoBottleRainbowItem::new,
+				new Item.Properties().stacksTo(16));
+		PEDITO_BOTTLE_GOLD = registerItem("pedito_bottle_gold", PeditoBottleGoldItem::new,
 				new Item.Properties().stacksTo(16));
 		PEDITO_STAFF = registerItem("pedito_staff", PeditoStaffItem::new,
 				PeditoStaffItem.createProperties());
@@ -57,6 +61,7 @@ public class ModItems {
 			output.accept(GAS_CAN_NETHERITE);
 			output.accept(PEDITO_BOTTLE);
 			output.accept(PEDITO_BOTTLE_RAINBOW);
+			output.accept(PEDITO_BOTTLE_GOLD);
 			output.accept(PEDITO_STAFF);
 			output.accept(PEDITO_WHISTLE);
 		});

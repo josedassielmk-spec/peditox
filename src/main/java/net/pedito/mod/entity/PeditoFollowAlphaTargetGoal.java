@@ -19,7 +19,7 @@ public class PeditoFollowAlphaTargetGoal extends TargetGoal {
 
     @Override
     public boolean canUse() {
-        if (!this.pedito.isTamedByOwner() || this.pedito.getVariant() == PeditoEntity.VARIANT_ALPHA) {
+        if (!this.pedito.isTamedByOwner() || this.pedito.getVariant() == PeditoEntity.VARIANT_ALPHA || this.pedito.getVariant() == PeditoEntity.VARIANT_GOLDEN) {
             return false;
         }
 
@@ -32,7 +32,7 @@ public class PeditoFollowAlphaTargetGoal extends TargetGoal {
         List<PeditoEntity> allies = this.pedito.level().getEntitiesOfClass(
             PeditoEntity.class,
             this.pedito.getBoundingBox().inflate(32.0D),
-            e -> e.isAlive() && e.isTamedByOwner() && e.getOwnerCustom() == owner && e.getVariant() == PeditoEntity.VARIANT_ALPHA
+            e -> e.isAlive() && e.isTamedByOwner() && e.getOwnerCustom() == owner && (e.getVariant() == PeditoEntity.VARIANT_ALPHA || e.getVariant() == PeditoEntity.VARIANT_GOLDEN)
         );
 
         if (!allies.isEmpty()) {

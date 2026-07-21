@@ -19,7 +19,7 @@ public class PeditoAlphaDefendVulnerableGoal extends TargetGoal {
 
     @Override
     public boolean canUse() {
-        if (!this.pedito.isTamedByOwner() || this.pedito.getVariant() != PeditoEntity.VARIANT_ALPHA) {
+        if (!this.pedito.isTamedByOwner() || (this.pedito.getVariant() != PeditoEntity.VARIANT_ALPHA && this.pedito.getVariant() != PeditoEntity.VARIANT_GOLDEN)) {
             return false;
         }
 

@@ -29,7 +29,7 @@ public class WildAlphaBreedingGoal extends Goal {
     public boolean canUse() {
         if (this.alpha.isTamedByOwner()) return false;
         if (this.alpha.isBaby()) return false;
-        if (this.alpha.getVariant() != PeditoEntity.VARIANT_ALPHA) return false;
+        if (this.alpha.getVariant() != PeditoEntity.VARIANT_ALPHA && this.alpha.getVariant() != PeditoEntity.VARIANT_GOLDEN) return false;
         if (this.alpha.getTarget() != null) return false;
         if (this.alpha.wildAlphaBreedCooldown > 0) return false;
 
