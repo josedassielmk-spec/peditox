@@ -11,6 +11,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.pedito.mod.registry.ModSounds;
@@ -156,17 +157,45 @@ public class NocturnalShadowNovaGoal extends Goal {
     }
 
     for (LivingEntity e : entities) {
-      if (e != this.pedito && e.isAlive() && this.pedito.wantsToAttack(e, this.pedito.getOwnerCustom())) {
-        // Deal shadow damage
-        e.hurt(this.pedito.damageSources().indirectMagic(this.pedito, this.pedito), baseDamage);
+      if (e != this.pedito && e.isAlive()) {
+        // Safe checks for tamed Peditos to protect owner and allies
+        if (this.pedito.isTamedByOwner()) {
+          if (e instanceof Player player) {
+            if (this.pedito.isOwnerCustom(player)) {
+              continue;
+            }
+            Player owner = this.pedito.getOwnerCustom();
+            if (owner != null) {
+              if (e == owner) {
+                continue;
+              }
+              if (!owner.canHarmPlayer(player)) {
+                continue;
+              }
+            } else {
+              // Safety fallback: if tamed but owner is unresolved, do not attack/blind players
+              continue;
+            }
+          }
 
-        // Apply dark curses (Wither & Blindness)
-        e.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1)); // Wither II for 5s
-        e.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 0)); // Blindness for 3s
+          Player owner = this.pedito.getOwnerCustom();
+          if (owner != null && e instanceof net.minecraft.world.entity.TamableAnimal tamable && tamable.isTame() && tamable.getOwner() == owner) {
+            continue;
+          }
+        }
 
-        // Push back
-        Vec3 knockback = e.position().subtract(this.pedito.position()).normalize().scale(1.2);
-        e.push(knockback.x, 0.4, knockback.z);
+        if (this.pedito.wantsToAttack(e, this.pedito.getOwnerCustom())) {
+          // Deal shadow damage
+          e.hurt(this.pedito.damageSources().indirectMagic(this.pedito, this.pedito), baseDamage);
+
+          // Apply dark curses (Wither & Blindness)
+          e.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1)); // Wither II for 5s
+          e.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 0)); // Blindness for 3s
+
+          // Push back
+          Vec3 knockback = e.position().subtract(this.pedito.position()).normalize().scale(1.2);
+          e.push(knockback.x, 0.4, knockback.z);
+        }
       }
     }
   }

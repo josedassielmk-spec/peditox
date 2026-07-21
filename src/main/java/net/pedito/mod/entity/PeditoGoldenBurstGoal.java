@@ -8,6 +8,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -175,18 +176,42 @@ public class PeditoGoldenBurstGoal extends Goal {
       .level()
       .getEntitiesOfClass(LivingEntity.class, area);
     for (LivingEntity e : entities) {
-      if (
-        e != this.pedito &&
-        e.isAlive() &&
-        this.pedito.wantsToAttack(e, this.pedito.getOwnerCustom())
-      ) {
-        e.hurt(this.pedito.damageSources().mobAttack(this.pedito), 15.0F);
-        Vec3 knockback = e
-          .position()
-          .subtract(this.pedito.position())
-          .normalize()
-          .scale(1.5);
-        e.push(knockback.x, 0.5, knockback.z);
+      if (e != this.pedito && e.isAlive()) {
+        // Safe checks for tamed Peditos to protect owner and allies
+        if (this.pedito.isTamedByOwner()) {
+          if (e instanceof Player player) {
+            if (this.pedito.isOwnerCustom(player)) {
+              continue;
+            }
+            Player owner = this.pedito.getOwnerCustom();
+            if (owner != null) {
+              if (e == owner) {
+                continue;
+              }
+              if (!owner.canHarmPlayer(player)) {
+                continue;
+              }
+            } else {
+              // Safety fallback: if tamed but owner is unresolved, do not attack/hurt players
+              continue;
+            }
+          }
+
+          Player owner = this.pedito.getOwnerCustom();
+          if (owner != null && e instanceof net.minecraft.world.entity.TamableAnimal tamable && tamable.isTame() && tamable.getOwner() == owner) {
+            continue;
+          }
+        }
+
+        if (this.pedito.wantsToAttack(e, this.pedito.getOwnerCustom())) {
+          e.hurt(this.pedito.damageSources().mobAttack(this.pedito), 15.0F);
+          Vec3 knockback = e
+            .position()
+            .subtract(this.pedito.position())
+            .normalize()
+            .scale(1.5);
+          e.push(knockback.x, 0.5, knockback.z);
+        }
       }
     }
   }
