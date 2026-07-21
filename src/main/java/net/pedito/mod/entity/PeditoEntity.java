@@ -593,6 +593,7 @@ public class PeditoEntity extends Animal {
     // Ultimates in strict priority order (v2)
     this.goalSelector.addGoal(2, new BiogasProtectionAuraGoal(this));
     this.goalSelector.addGoal(3, new PeditoGoldenBurstGoal(this));
+    this.goalSelector.addGoal(3, new NocturnalShadowNovaGoal(this));
     this.goalSelector.addGoal(4, new GigaPeditoHologramBeamGoal(this));
     this.goalSelector.addGoal(5, new CosmicGasCataclysmGoal(this));
 
@@ -635,6 +636,7 @@ public class PeditoEntity extends Animal {
     this.targetSelector.addGoal(2, new PeditoOwnerHurtByTargetGoal(this));
     this.targetSelector.addGoal(3, new PeditoOwnerHurtTargetGoal(this));
     this.targetSelector.addGoal(4, new HurtByTargetGoal(this).setAlertOthers());
+    this.targetSelector.addGoal(5, new PeditoNearestPlayerTargetGoal(this, 16.0D));
   }
 
   /**
@@ -657,6 +659,10 @@ public class PeditoEntity extends Animal {
     @Override
     public boolean canUse() {
       if (this.pedito.isTamedByOwner()) {
+        return false;
+      }
+      int variant = this.pedito.getVariant();
+      if (variant != VARIANT_NIGHT && variant != VARIANT_ALPHA) {
         return false;
       }
       Player nearest = this.pedito
@@ -2028,6 +2034,13 @@ public class PeditoEntity extends Animal {
     pool.sort((p1, p2) -> {
       int score1 = p1.getTier() * 1000 + (int) (p1.getHealth() * 10);
       int score2 = p2.getTier() * 1000 + (int) (p2.getHealth() * 10);
+      
+      // Nocturnal priority boost during nighttime for offensive roles
+      if (p1.level().isDarkOutside()) {
+        if (p1.getVariant() == VARIANT_NIGHT) score1 += 50000;
+        if (p2.getVariant() == VARIANT_NIGHT) score2 += 50000;
+      }
+      
       if (score1 != score2) return Integer.compare(score2, score1);
       return Integer.compare(p1.getId(), p2.getId());
     });
