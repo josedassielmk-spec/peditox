@@ -222,6 +222,12 @@ public class PeditoEntity extends Animal {
     net.minecraft.world.entity.LivingEntity target,
     net.minecraft.world.entity.LivingEntity owner
   ) {
+    if (owner != null && target == owner) {
+      return false;
+    }
+    if (target instanceof net.minecraft.world.entity.player.Player player && this.isOwnerCustom(player)) {
+      return false;
+    }
     if (
       target instanceof net.minecraft.world.entity.monster.Creeper ||
       target instanceof net.minecraft.world.entity.monster.Ghast
