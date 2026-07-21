@@ -30,6 +30,7 @@ public class ModItems {
 	public static Item PEDITO_BOTTLE_GOLD;
 	public static Item PEDITO_STAFF;
 	public static Item PEDITO_WHISTLE;
+	public static Item GEMA_DE_LUZ;
 
 	public static void register() {
 		GAS_CAN = registerItem("gas_can", Item::new, new Item.Properties().stacksTo(16));
@@ -49,6 +50,8 @@ public class ModItems {
 				PeditoStaffItem.createProperties());
 		PEDITO_WHISTLE = registerItem("silbato_pedito", PeditoWhistleItem::new,
 				new Item.Properties().stacksTo(1));
+		GEMA_DE_LUZ = registerItem("gema_de_luz", Item::new,
+				new Item.Properties().stacksTo(64));
 	}
 
 	public static void registerItemGroupContents() {
@@ -64,6 +67,7 @@ public class ModItems {
 			output.accept(PEDITO_BOTTLE_GOLD);
 			output.accept(PEDITO_STAFF);
 			output.accept(PEDITO_WHISTLE);
+			output.accept(GEMA_DE_LUZ);
 		});
 	}
 

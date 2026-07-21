@@ -1137,7 +1137,8 @@ public class PeditoEntity extends Animal {
     }
     if (
       source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_ARMOR) &&
-      amount <= 1.0F
+      amount <= 1.0F &&
+      !source.is(net.minecraft.tags.DamageTypeTags.IS_FIRE)
     ) {
       return false;
     }
@@ -1406,6 +1407,57 @@ public class PeditoEntity extends Animal {
           this.setHealth(this.getMaxHealth());
         }
         return InteractionResult.SUCCESS;
+      }
+    }
+
+    if (!this.isTamedByOwner() && !this.isBaby() && stack.is(ModItems.GEMA_DE_LUZ)) {
+      if (this.getVariant() == VARIANT_NIGHT) {
+        if (!this.level().isClientSide()) {
+          this.setOwnerCustom(player);
+          if (!player.getAbilities().instabuild) {
+            stack.shrink(1);
+          }
+          this.level().broadcastEntityEvent(this, (byte) 7);
+          if (this.level() instanceof ServerLevel serverLevel) {
+            serverLevel.sendParticles(
+              ParticleTypes.HAPPY_VILLAGER,
+              this.getX(),
+              this.getY() + 0.5,
+              this.getZ(),
+              20,
+              0.3,
+              0.4,
+              0.3,
+              0.05
+            );
+            serverLevel.playSound(
+              null,
+              this.getX(),
+              this.getY(),
+              this.getZ(),
+              net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
+              SoundSource.NEUTRAL,
+              1.0F,
+              1.2F
+            );
+          }
+        }
+        return InteractionResult.SUCCESS;
+      } else {
+        if (this.level() instanceof ServerLevel serverLevel) {
+          serverLevel.sendParticles(
+            ParticleTypes.SMOKE,
+            this.getX(),
+            this.getY() + 0.5,
+            this.getZ(),
+            6,
+            0.2,
+            0.1,
+            0.2,
+            0.01
+          );
+        }
+        return InteractionResult.FAIL;
       }
     }
 
