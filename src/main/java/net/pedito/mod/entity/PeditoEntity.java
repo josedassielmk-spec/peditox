@@ -1184,6 +1184,8 @@ public class PeditoEntity extends Animal {
   {
 
     public int count = 0;
+    public boolean spawnAlpha = false;
+    public boolean alphaSpawned = false;
 
     public PeditoGroupSpawnData(boolean baby) {
       super(baby);
@@ -1197,7 +1199,7 @@ public class PeditoEntity extends Animal {
     net.minecraft.core.BlockPos pos,
     RandomSource random
   ) {
-    boolean isDark = world.getRawBrightness(pos, 0) <= 8;
+    boolean isDark = world.getRawBrightness(pos, world.getLevel().getSkyDarken()) <= 8;
     if (isDark) {
       // Comportamiento de noche/oscuridad (como zombies): permite spawnear en cualquier bloque solido normal
       return world
@@ -1239,16 +1241,18 @@ public class PeditoEntity extends Animal {
         groupData = (PeditoGroupSpawnData) entityData;
       } else {
         groupData = new PeditoGroupSpawnData(true);
+        groupData.spawnAlpha = this.random.nextInt(100) < 15;
         data = groupData;
       }
       groupData.count++;
 
-      boolean isDark = world.getRawBrightness(this.blockPosition(), 0) <= 8;
+      boolean isDark = world.getRawBrightness(this.blockPosition(), world.getLevel().getSkyDarken()) <= 8;
       
-      if (groupData.count == 3) {
+      if (groupData.spawnAlpha && !groupData.alphaSpawned) {
         this.setBaby(false);
         this.setVariant(VARIANT_ALPHA);
         this.setTier(0);
+        groupData.alphaSpawned = true;
       } else {
         int roll = this.random.nextInt(100);
         if (roll < 1) {
@@ -1265,7 +1269,7 @@ public class PeditoEntity extends Animal {
       }
     } else {
       // Spawn egg, command, etc.
-      boolean isDark = world.getRawBrightness(this.blockPosition(), 0) <= 8;
+      boolean isDark = world.getRawBrightness(this.blockPosition(), world.getLevel().getSkyDarken()) <= 8;
       int roll = this.random.nextInt(100);
       if (roll < 1) {
         this.setBaby(false);
