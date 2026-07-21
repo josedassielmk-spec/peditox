@@ -1243,13 +1243,11 @@ public class PeditoEntity extends Animal {
       }
       groupData.count++;
 
-      if (groupData.count == 1) {
+      boolean isDark = world.getRawBrightness(this.blockPosition(), 0) <= 8;
+      
+      if (groupData.count == 3) {
         this.setBaby(false);
-        if (this.random.nextInt(100) == 0) {
-          this.setVariant(VARIANT_GOLDEN);
-        } else {
-          this.setVariant(VARIANT_ALPHA);
-        }
+        this.setVariant(VARIANT_ALPHA);
         this.setTier(0);
       } else {
         int roll = this.random.nextInt(100);
@@ -1258,39 +1256,26 @@ public class PeditoEntity extends Animal {
           this.entityData.set(VARIANT, VARIANT_GOLDEN);
         } else if (roll < 15) {
           this.setBaby(true);
-          this.entityData.set(VARIANT, VARIANT_NORMAL);
-        } else if (roll < 85) {
-          this.setBaby(false);
-          this.entityData.set(VARIANT, VARIANT_NORMAL);
+          this.entityData.set(VARIANT, isDark ? VARIANT_NIGHT : VARIANT_NORMAL);
         } else {
           this.setBaby(false);
-          if (world.getLevel().isDarkOutside()) {
-            this.entityData.set(VARIANT, VARIANT_NIGHT);
-          } else {
-            this.entityData.set(VARIANT, VARIANT_NORMAL);
-          }
+          this.entityData.set(VARIANT, isDark ? VARIANT_NIGHT : VARIANT_NORMAL);
         }
         this.setTier(0);
       }
     } else {
       // Spawn egg, command, etc.
+      boolean isDark = world.getRawBrightness(this.blockPosition(), 0) <= 8;
       int roll = this.random.nextInt(100);
       if (roll < 1) {
         this.setBaby(false);
         this.entityData.set(VARIANT, VARIANT_GOLDEN);
       } else if (roll < 10) {
         this.setBaby(true);
-        this.entityData.set(VARIANT, VARIANT_NORMAL);
-      } else if (roll < 90) {
-        this.setBaby(false);
-        this.entityData.set(VARIANT, VARIANT_NORMAL);
+        this.entityData.set(VARIANT, isDark ? VARIANT_NIGHT : VARIANT_NORMAL);
       } else {
         this.setBaby(false);
-        if (world.getLevel().isDarkOutside()) {
-          this.entityData.set(VARIANT, VARIANT_NIGHT);
-        } else {
-          this.entityData.set(VARIANT, VARIANT_NORMAL);
-        }
+        this.entityData.set(VARIANT, isDark ? VARIANT_NIGHT : VARIANT_NORMAL);
       }
       this.setTier(0);
     }
