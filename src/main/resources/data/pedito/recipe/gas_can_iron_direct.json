@@ -3,23 +3,23 @@
   "category": "misc",
   "pattern": [
     "III",
-    "ICI",
-    " P "
+    "IMI",
+    " G "
   ],
   "key": {
     "I": {
       "item": "minecraft:iron_ingot"
     },
-    "C": {
-      "item": "minecraft:rotten_flesh"
+    "M": {
+      "item": "minecraft:iron_ingot"
     },
-    "P": {
+    "G": {
       "item": "minecraft:gunpowder"
     }
   },
   "result": {
-    "id": "pedito:gas_can",
-    "item": "pedito:gas_can",
+    "id": "pedito:gas_can_iron",
+    "item": "pedito:gas_can_iron",
     "count": 1
   }
 }

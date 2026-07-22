@@ -3,15 +3,15 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "pedito:gas_can"
+      "item": "pedito:pedito_bottle"
     },
     {
       "item": "minecraft:gold_ingot"
     }
   ],
   "result": {
-    "id": "pedito:gas_can_gold",
-    "item": "pedito:gas_can_gold",
+    "id": "pedito:pedito_bottle_gold",
+    "item": "pedito:pedito_bottle_gold",
     "count": 1
   }
 }
