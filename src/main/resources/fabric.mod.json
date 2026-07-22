@@ -18,7 +18,7 @@
     "client": [
       "net.pedito.mod.PeditoClient"
     ],
-    "datagen": [
+    "fabric-datagen": [
       "net.pedito.mod.datagen.ModDataGenerator"
     ]
   },

@@ -233,8 +233,16 @@ public class PeditoEntity extends Animal {
       target instanceof net.minecraft.world.entity.monster.Ghast
     ) {
       return false;
-    } else if (target instanceof PeditoEntity) {
-      return false;
+    } else if (target instanceof PeditoEntity otherPedito) {
+      if (!this.isTamedByOwner()) {
+        return false;
+      }
+      if (otherPedito.isTamedByOwner()) {
+        if (this.ownerUuid != null && this.ownerUuid.equals(otherPedito.ownerUuid)) {
+          return false;
+        }
+      }
+      return true;
     } else if (
       target instanceof net.minecraft.world.entity.player.Player &&
       owner instanceof net.minecraft.world.entity.player.Player &&
