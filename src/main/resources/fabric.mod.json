@@ -4,14 +4,23 @@
   "version": "${version}",
   "name": "Pedito",
   "description": "El mob Pedito: una criatura flotante que se tira pedos, se teletransporta, se puede domesticar y criar.",
-  "authors": ["Tu nombre aqui"],
+  "authors": [
+    "Tu nombre aqui"
+  ],
   "contact": {},
   "license": "MIT",
   "icon": "assets/pedito/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": ["net.pedito.mod.Pedito"],
-    "client": ["net.pedito.mod.PeditoClient"]
+    "main": [
+      "net.pedito.mod.Pedito"
+    ],
+    "client": [
+      "net.pedito.mod.PeditoClient"
+    ],
+    "datagen": [
+      "net.pedito.mod.datagen.ModDataGenerator"
+    ]
   },
   "mixins": [],
   "depends": {
