@@ -1,25 +1,25 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "pattern": [
-    "III",
-    "ICI",
-    " P "
-  ],
-  "key": {
-    "I": {
+  "ingredients": [
+    {
       "item": "minecraft:iron_ingot"
     },
-    "C": {
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
       "item": "minecraft:rotten_flesh"
     },
-    "P": {
+    {
       "item": "minecraft:gunpowder"
     }
-  },
+  ],
   "result": {
     "id": "pedito:gas_can",
-    "item": "pedito:gas_can",
     "count": 1
   }
 }

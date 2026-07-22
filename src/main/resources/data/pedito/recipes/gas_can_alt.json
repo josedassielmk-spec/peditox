@@ -3,23 +3,22 @@
   "category": "misc",
   "pattern": [
     "III",
-    "IMI",
-    " G "
+    "IPI",
+    " C "
   ],
   "key": {
     "I": {
       "item": "minecraft:iron_ingot"
     },
-    "M": {
-      "item": "minecraft:copper_ingot"
+    "C": {
+      "item": "minecraft:rotten_flesh"
     },
-    "G": {
+    "P": {
       "item": "minecraft:gunpowder"
     }
   },
   "result": {
-    "id": "pedito:gas_can_copper",
-    "item": "pedito:gas_can_copper",
+    "id": "pedito:gas_can",
     "count": 1
   }
 }
