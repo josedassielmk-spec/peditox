@@ -119,6 +119,48 @@ public class PeditoEntity extends Animal {
   public int wildAlphaBreedCooldown = 0;
   public long lastSoundTime = 0L;
 
+  private static long lastGlobalFartTime = 0L;
+  private static long lastGlobalVoiceTime = 0L;
+  private static long lastGlobalLaserTime = 0L;
+  private static long lastGlobalExplosionTime = 0L;
+  private static long lastGlobalSonicBoomTime = 0L;
+  private static long lastGlobalVortexTime = 0L;
+
+  public static boolean shouldThrottleSoundGlobal(net.minecraft.sounds.SoundEvent sound, net.minecraft.world.level.Level level) {
+    if (level.isClientSide()) return false;
+    long time = level.getGameTime();
+    if (sound == ModSounds.PEDITO_FART || sound == ModSounds.PEDITO_FART_SPAWN) {
+      if (time - lastGlobalFartTime < 3L) return true;
+      lastGlobalFartTime = time;
+    } else if (sound == ModSounds.PEDITO_VOICE_ATTACK || sound == ModSounds.PEDITO_VOICE_PEDI || 
+               sound == ModSounds.PEDITO_VOICE_PEDITO || sound == ModSounds.PEDITO_VOICE_PUPU || 
+               sound == ModSounds.PEDITO_VOICE_PUPULLITO || sound == ModSounds.PEDITO_VOICE_SWAN) {
+      if (time - lastGlobalVoiceTime < 3L) return true;
+      lastGlobalVoiceTime = time;
+    } else if (sound == ModSounds.PEDITO_LASER) {
+      if (time - lastGlobalLaserTime < 2L) return true;
+      lastGlobalLaserTime = time;
+    } else if (sound == ModSounds.PEDITO_EXPLOSION) {
+      if (time - lastGlobalExplosionTime < 4L) return true;
+      lastGlobalExplosionTime = time;
+    } else if (sound == ModSounds.PEDITO_SONIC_BOOM) {
+      if (time - lastGlobalSonicBoomTime < 5L) return true;
+      lastGlobalSonicBoomTime = time;
+    } else if (sound == ModSounds.PEDITO_VORTEX) {
+      if (time - lastGlobalVortexTime < 4L) return true;
+      lastGlobalVortexTime = time;
+    }
+    return false;
+  }
+
+  @Override
+  public void playSound(net.minecraft.sounds.SoundEvent sound, float volume, float pitch) {
+    if (shouldThrottleSoundGlobal(sound, this.level())) {
+      return;
+    }
+    super.playSound(sound, volume, pitch);
+  }
+
   public boolean canPlaySound(long cooldownTicks) {
     long time = this.level().getGameTime();
     if (time - lastSoundTime < cooldownTicks) return false;
@@ -896,6 +938,9 @@ public class PeditoEntity extends Animal {
   }
 
   private void playRandomVoice(ServerLevel world) {
+    if (shouldThrottleSoundGlobal(ModSounds.PEDITO_VOICE_PEDI, world)) {
+      return;
+    }
     net.minecraft.sounds.SoundEvent[] voices = {
       ModSounds.PEDITO_VOICE_PEDI,
       ModSounds.PEDITO_VOICE_PEDITO,
@@ -1073,6 +1118,9 @@ public class PeditoEntity extends Animal {
   }
 
   public void playAttackVoice(float pitchModifier) {
+    if (shouldThrottleSoundGlobal(ModSounds.PEDITO_VOICE_ATTACK, this.level())) {
+      return;
+    }
     if (this.level() instanceof ServerLevel serverLevel) {
       float basePitch = this.getVoicePitch();
       float voicePitch = basePitch * pitchModifier;

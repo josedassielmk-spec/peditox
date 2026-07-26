@@ -202,6 +202,7 @@ public class BiogasProtectionAuraGoal extends Goal {
               domeBox,
               e -> e.isAlive() && e != owner && !(e instanceof PeditoEntity)
             );
+          boolean hitEnemy = false;
           for (LivingEntity enemy : enemies) {
             double dx = enemy.getX() - owner.getX();
             double dz = enemy.getZ() - owner.getZ();
@@ -220,6 +221,9 @@ public class BiogasProtectionAuraGoal extends Goal {
               0,
               0
             );
+            hitEnemy = true;
+          }
+          if (hitEnemy && this.pedito.canPlaySound(15)) {
             this.pedito.playSound(
               ModSounds.PEDITO_FART,
               1.1F,

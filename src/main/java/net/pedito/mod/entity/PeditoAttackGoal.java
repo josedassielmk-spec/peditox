@@ -319,13 +319,8 @@ public class PeditoAttackGoal extends Goal {
               0
             );
           }
-          serverLevel.playSound(
-            null,
-            this.pedito.getX(),
-            this.pedito.getY(),
-            this.pedito.getZ(),
+          this.pedito.playSound(
             ModSounds.PEDITO_LASER,
-            SoundSource.NEUTRAL,
             0.8F,
             1.2F
           );
@@ -341,13 +336,8 @@ public class PeditoAttackGoal extends Goal {
             0.8,
             0.2
           );
-          serverLevel.playSound(
-            null,
-            this.pedito.getX(),
-            this.pedito.getY(),
-            this.pedito.getZ(),
+          this.pedito.playSound(
             ModSounds.PEDITO_FART,
-            SoundSource.NEUTRAL,
             0.8F,
             1.2F
           );
